@@ -1,0 +1,13 @@
+fullcontact
+----------------------------------------------------------------------
+Allen, Michael (city: Berlin, region: )
+Hassall, Mark (city: México D.F., region: )
+Peoples, John (city: México D.F., region: )
+...
+...
+...
+Smith Jr., Ronaldo (city: Seattle, region: WA)
+Larsson, Katarina (city: Helsinki, region: )
+Conn, Steve (city: Warszawa, region: )
+
+(91 row(s) affected)

@@ -1,0 +1,13 @@
+productid   productname
+----------- -----------------------
+24          Product QOGNU
+27          Product SMIOH
+39          Product LSOFL
+...
+...
+...
+61          Product XYZPE
+64          Product HCQDE
+75          Product BWRLG
+
+(12 row(s) affected)

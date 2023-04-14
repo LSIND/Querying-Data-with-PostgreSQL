@@ -1,0 +1,13 @@
+custid      contactname                    orderid     productid   qty    unitprice
+----------- ------------------------------ ----------- ----------- ------ ---------------
+85          McLin, Nkenge                  10248       11          12     14,00
+85          McLin, Nkenge                  10248       42          10     9,80
+85          McLin, Nkenge                  10248       72          5      34,80
+...
+...
+...
+65          Moore, Michael                 11077       73          2      15,00
+65          Moore, Michael                 11077       75          4      7,75
+65          Moore, Michael                 11077       77          2      13,00
+
+(2155 row(s) affected)

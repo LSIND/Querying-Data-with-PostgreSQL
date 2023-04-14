@@ -1,0 +1,13 @@
+custid      contactname
+----------- ------------------------------
+5           Higginbotham, Tom
+7           Bansal, Dushyant
+9           Raghav, Amritansh
+...
+...
+...
+87          Ludwig, Michael
+89          Smith Jr., Ronaldo
+91          Conn, Steve
+
+(29 row(s) affected)

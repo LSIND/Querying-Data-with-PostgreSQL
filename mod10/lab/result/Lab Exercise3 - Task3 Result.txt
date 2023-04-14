@@ -1,0 +1,9 @@
+custid      contactname
+----------- ---------------------------
+24          San Juan, Patricia
+32          Krishnan, Venky
+60          Uppal, Sunil
+71          Navarro, Tomas
+89          Smith Jr., Ronaldo
+
+(5 row(s) affected)

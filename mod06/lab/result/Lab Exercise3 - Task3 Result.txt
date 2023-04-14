@@ -1,0 +1,13 @@
+contactname                    contacttitle
+------------------------------ -----------------------------
+Allen, Michael                 Sales Representative
+Arndt, Torsten                 Sales Representative
+Bansal, Dushyant               Marketing Manager
+...
+...
+...
+Ginters, Kaspars               Owner
+Gonzalez, Nuria                Owner
+Gulbis, Katrin                 Accounting Manager
+
+(29 row(s) affected)

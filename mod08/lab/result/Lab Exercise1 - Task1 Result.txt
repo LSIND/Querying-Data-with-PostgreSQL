@@ -1,0 +1,13 @@
+productdesc
+----------------------------------------------------------
+The unit price for the Product HHYDP is 18.00 $.
+The unit price for the Product RECZE is 19.00 $.
+The unit price for the Product IMEHJ is 10.00 $.
+...
+...
+...
+The unit price for the Product BWRLG is 7.75 $.
+The unit price for the Product JYGFE is 18.00 $.
+The unit price for the Product LUNZZ is 13.00 $.
+
+(77 row(s) affected)

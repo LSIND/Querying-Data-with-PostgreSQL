@@ -1,0 +1,13 @@
+productid   productname                              supplierid  unitprice             discontinued
+----------- ---------------------------------------- ----------- --------------------- ------------ 
+1           Product HHYDP                            1           18,00                 0
+2           Product RECZE                            1           19,00                 0
+24          Product QOGNU                            10          4,50                  1
+...
+...
+...
+70          Product TOONT                            7           15,00                 0
+75          Product BWRLG                            12          7,75                  0
+76          Product JYGFE                            23          18,00                 0
+
+(12 row(s) affected)

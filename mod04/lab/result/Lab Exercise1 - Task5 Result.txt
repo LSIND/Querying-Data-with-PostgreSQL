@@ -1,0 +1,81 @@
+companyname	productname	unitprice	categoryname
+-----------	-----------	---------	-----------
+Supplier BWGYE	Product VJZZH	$10.00	Confections
+Supplier BWGYE	Product XKXDO	$9.20	Confections
+Supplier BWGYE	Product TBTBL	$12.50	Confections
+Supplier BWGYE	Product QHFFP	$81.00	Confections
+Supplier CIYNM	Product ZZZHR	$46.00	Beverages
+Supplier CIYNM	Product RJVNM	$14.00	Grains/Cereals
+Supplier CIYNM	Product VJIEO	$19.45	Condiments
+Supplier ELCRN	Product BIUDV	$16.25	Confections
+Supplier ELCRN	Product JYGFE	$18.00	Beverages
+Supplier ELCRN	Product FPYPN	$20.00	Confections
+Supplier EQPNC	Product QMVUN	$21.00	Dairy Products
+Supplier EQPNC	Product OSFNS	$38.00	Dairy Products
+Supplier ERVYZ	Product QAQRL	$7.45	Meat/Poultry
+Supplier ERVYZ	Product YYWRT	$24.00	Meat/Poultry
+Supplier FNUXM	Product EZZPR	$9.50	Confections
+Supplier FNUXM	Product MYNXN	$12.75	Confections
+Supplier GQRCV	Product BLCAX	$39.00	Meat/Poultry
+Supplier GQRCV	Product TOONT	$15.00	Beverages
+Supplier GQRCV	Product ICKNK	$43.90	Condiments
+Supplier GQRCV	Product CKEDC	$62.50	Seafood
+Supplier GQRCV	Product PAFRH	$17.45	Confections
+Supplier JDNUG	Product YZIXQ	$18.40	Seafood
+Supplier JDNUG	Product TTEEX	$9.65	Seafood
+Supplier JNNES	Product QSRXF	$7.00	Grains/Cereals
+Supplier JNNES	Product BKGEA	$32.80	Meat/Poultry
+Supplier JNNES	Product APITJ	$53.00	Produce
+Supplier KEREV	Product XWOXC	$12.50	Dairy Products
+Supplier KEREV	Product NUNAW	$32.00	Dairy Products
+Supplier KEREV	Product GEEOO	$34.80	Dairy Products
+Supplier LVJUA	Product LSOFL	$18.00	Beverages
+Supplier LVJUA	Product QDOMO	$263.50	Beverages
+Supplier NZLIF	Product MYMOI	$21.50	Dairy Products
+Supplier NZLIF	Product ASTMN	$2.50	Dairy Products
+Supplier NZLIF	Product COAXA	$36.00	Dairy Products
+Supplier OAVQT	Product UKXRI	$55.00	Dairy Products
+Supplier OAVQT	Product WHBYK	$34.00	Dairy Products
+Supplier OGLRK	Product XYZPE	$28.50	Condiments
+Supplier OGLRK	Product WUXYK	$49.30	Confections
+Supplier QOVFD	Product AOZBW	$97.00	Meat/Poultry
+Supplier QOVFD	Product BKAZJ	$10.00	Produce
+Supplier QOVFD	Product YHXGE	$31.00	Seafood
+Supplier QQYEU	Product CPHFY	$21.00	Grains/Cereals
+Supplier QQYEU	Product JLUDZ	$9.00	Grains/Cereals
+Supplier QWUSF	Product POXFU	$6.00	Seafood
+Supplier QWUSF	Product KSZOI	$15.50	Condiments
+Supplier QWUSF	Product PWCJB	$23.25	Produce
+Supplier QZGUF	Product EVFFA	$26.00	Seafood
+Supplier QZGUF	Product GMKIJ	$19.00	Seafood
+Supplier QZGUF	Product WEUJZ	$15.00	Seafood
+Supplier STUAZ	Product VAIIV	$25.00	Condiments
+Supplier STUAZ	Product WVJFP	$40.00	Condiments
+Supplier STUAZ	Product HMLNI	$30.00	Produce
+Supplier SVIYA	Product OFBNT	$45.60	Produce
+Supplier SVIYA	Product VJXYN	$123.79	Meat/Poultry
+Supplier SVIYA	Product LUNZZ	$13.00	Condiments
+Supplier SVIYA	Product HCQDE	$33.25	Grains/Cereals
+Supplier SVIYA	Product BWRLG	$7.75	Beverages
+Supplier SWRXU	Product IMEHJ	$10.00	Condiments
+Supplier SWRXU	Product RECZE	$19.00	Beverages
+Supplier SWRXU	Product HHYDP	$18.00	Beverages
+Supplier TEGSC	Product LYERX	$25.89	Seafood
+Supplier UHZRG	Product SWNJY	$14.00	Beverages
+Supplier UHZRG	Product NEVTJ	$18.00	Beverages
+Supplier UHZRG	Product XLXQF	$14.00	Beverages
+Supplier UNAHG	Product QOGNU	$4.50	Beverages
+Supplier VHQZD	Product LQMGN	$17.00	Condiments
+Supplier VHQZD	Product XYWBZ	$21.05	Condiments
+Supplier VHQZD	Product EPEIM	$21.35	Condiments
+Supplier VHQZD	Product KSBRM	$22.00	Condiments
+Supplier XOXZA	Product CBRRL	$12.00	Seafood
+Supplier XOXZA	Product AQOKR	$9.50	Seafood
+Supplier ZPYVS	Product LYLNI	$14.00	Confections
+Supplier ZPYVS	Product HLGZA	$31.23	Confections
+Supplier ZPYVS	Product SMIOH	$43.90	Confections
+Supplier ZRYDZ	Product ACRVI	$13.25	Seafood
+Supplier ZWZDM	Product VKCMF	$38.00	Grains/Cereals
+Supplier ZWZDM	Product OVLQI	$19.50	Grains/Cereals
+
+(77 row(s) affected)

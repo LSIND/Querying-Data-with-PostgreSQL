@@ -1,0 +1,14 @@
+custid      companyname                              contactname                    address                                                      city            country         phone
+----------- ---------------------------------------- ------------------------------ ------------------------------------------------------------ --------------- --------------- ------------------------
+15          Customer JUWXK                           Richardson, Shawn              Av. dos Lusнadas, 6789                                       Sao Paulo       Brazil          (11) 012-3456
+21          Customer KIDPX                           Russo, Giuseppe                Rua Orуs, 3456                                               Sao Paulo       Brazil          (11) 456-7890
+31          Customer YJCBX                           Cheng, Yao-Qiang               Av. Brasil, 5678                                             Campinas        Brazil          (11) 567-8901
+34          Customer IBVRG                           Cohen, Shy                     Rua do Paзo, 7890                                            Rio de Janeiro  Brazil          (21) 789-0123
+61          Customer WULWD                           Florczyk, Krzysztof            Rua da Panificadora, 1234                                    Rio de Janeiro  Brazil          (21) 678-9012
+62          Customer WFIZJ                           Misiec, Anna                   Alameda dos Canаrios, 1234                                   Sao Paulo       Brazil          (11) 901-2345
+67          Customer QVEPD                           Garden, Euan                   Av. Copacabana, 6789                                         Rio de Janeiro  Brazil          (21) 345-6789
+81          Customer YQQWW                           Nagel, Jean-Philippe           Av. Inкs de Castro, 1234                                     Sao Paulo       Brazil          (11) 123-4567
+88          Customer SRQVM                           Li, Yan                        Rua do Mercado, 4567                                         Resende         Brazil          (14) 234-5678
+
+(9 row(s) affected)
+

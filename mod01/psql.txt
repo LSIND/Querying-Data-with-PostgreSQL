@@ -1,0 +1,17 @@
+
+смена кодовой страницы
+
+cmd.exe /c chcp 1251
+
+
+psql - U postgres
+Pa55w.rd
+
+\c CSQL
+
+\q
+
+
+справка по типам данных
+
+\dCS

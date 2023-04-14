@@ -1,0 +1,11 @@
+contactname                    numberofa
+------------------------------ -----------
+Bueno, Janaina Burdan, Neville 	4
+Khanna, Karan			4
+...
+...
+...
+Veronesi, Giorgio		0
+Young, Robin			0
+
+(91 row(s) affected)

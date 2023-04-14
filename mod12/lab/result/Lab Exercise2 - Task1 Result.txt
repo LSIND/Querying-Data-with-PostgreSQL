@@ -1,0 +1,13 @@
+productid   productname                              orderid
+----------- ---------------------------------------- ----------
+1           Product HHYDP                            11070
+1           Product HHYDP                            11047
+2           Product RECZE                            11077
+...
+...
+...
+76          Product JYGFE                            11050
+77          Product LUNZZ                            11077
+77          Product LUNZZ                            11068
+
+(154 row(s) affected)

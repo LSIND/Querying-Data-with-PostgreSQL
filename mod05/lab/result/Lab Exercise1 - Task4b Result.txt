@@ -1,0 +1,9 @@
+custid   companyname     orderid
+------ -------------- -----------
+57	Customer WVAXS	NULL
+74	Customer YSHXL	10738
+74	Customer YSHXL	10907
+74	Customer YSHXL	10964
+74	Customer YSHXL	11043
+
+(5 row(s) affected)

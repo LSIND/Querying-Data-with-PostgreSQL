@@ -1,0 +1,14 @@
+contactname                    lastname
+------------------------------ ------------------------------
+Allen, Michael                 Allen
+Hassall, Mark                  Hassall
+Peoples, John                  Peoples
+...
+...
+...
+Li, Yan                        Li
+Smith Jr., Ronaldo             Smith Jr.
+Larsson, Katarina              Larsson
+Conn, Steve                    Conn
+
+(91 row(s) affected)

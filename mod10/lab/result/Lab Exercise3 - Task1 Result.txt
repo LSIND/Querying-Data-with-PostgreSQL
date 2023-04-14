@@ -1,0 +1,13 @@
+custid      contactname                    lastorderdate
+----------- ------------------------------ -----------------------
+1           Allen, Michael                 2008-04-09 00:00:00.000
+2           Hassall, Mark                  2008-03-04 00:00:00.000
+3           Peoples, John                  2008-01-28 00:00:00.000
+...
+...
+...
+89          Smith Jr., Ronaldo             2008-05-01 00:00:00.000
+90          Larsson, Katarina              2008-04-07 00:00:00.000
+91          Conn, Steve                    2008-04-23 00:00:00.000
+
+(91 row(s) affected)

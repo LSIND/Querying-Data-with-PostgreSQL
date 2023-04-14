@@ -1,0 +1,13 @@
+custid      contactname                    city            region
+----------- ------------------------------ --------------- -------------
+1           Allen, Michael                 Berlin          NULL
+2           Hassall, Mark                  México D.F.     NULL
+3           Peoples, John                  México D.F.     NULL
+...
+...
+...
+87          Ludwig, Michael                Oulu            NULL
+90          Larsson, Katarina              Helsinki        NULL
+91          Conn, Steve                    Warszawa        NULL
+
+(66 row(s) affected)

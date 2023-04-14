@@ -1,0 +1,13 @@
+custid      contactname                    city
+----------- ------------------------------ ---------------
+5           Higginbotham, Tom              Lulea
+7           Bansal, Dushyant               Strasbourg
+9           Raghav, Amritansh              Marseille
+...
+...
+...
+87          Ludwig, Michael                Oulu
+89          Smith Jr., Ronaldo             Seattle
+91          Conn, Steve                    Warszawa
+
+(29 row(s) affected)

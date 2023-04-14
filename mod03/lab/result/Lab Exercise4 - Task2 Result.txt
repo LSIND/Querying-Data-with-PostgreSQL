@@ -1,0 +1,13 @@
+categoryid  productname                              categoryname
+----------- ---------------------------------------- -------------
+1           Product HHYDP                            Beverages
+1           Product RECZE                            Beverages
+2           Product IMEHJ                            Condiments
+...
+...
+1           Product BWRLG                            Beverages
+1           Product JYGFE                            Beverages
+2           Product LUNZZ                            Condiments
+
+(77 row(s) affected)
+

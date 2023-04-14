@@ -1,0 +1,6 @@
+custid      contactname
+----------- ------------------------------
+22          Bueno, Janaina Burdan, Neville
+57          Tollevsen, Bjorn
+
+(2 row(s) affected)

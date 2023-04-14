@@ -1,0 +1,13 @@
+country         city            noofcustomers
+--------------- --------------- -------------
+Germany         Aachen          1
+NULL            Aachen          1
+USA             Albuquerque     1
+...
+...
+...
+UK              NULL            7
+USA             NULL            13
+Venezuela       NULL            4
+
+(160 row(s) affected)

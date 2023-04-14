@@ -1,0 +1,13 @@
+empid       firstname  lastname             calendardate
+----------- ---------- -------------------- ------------
+1           Sara       Davis                2014-01-01
+1           Sara       Davis                2014-01-02
+1           Sara       Davis                2014-01-03
+...
+...
+...
+9           Zoya       Dolgopyatova         2014-12-29
+9           Zoya       Dolgopyatova         2014-12-30
+9           Zoya       Dolgopyatova         2014-12-31
+
+(3285 row(s) affected)

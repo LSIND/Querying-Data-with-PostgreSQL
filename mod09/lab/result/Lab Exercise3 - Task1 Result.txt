@@ -1,0 +1,8 @@
+orderyear   nooforders  noofcustomers
+----------- ----------- -------------
+2006        152         67
+2007        408         86
+2008        270         81
+
+
+(3 row(s) affected)

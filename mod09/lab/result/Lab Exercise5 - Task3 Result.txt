@@ -1,0 +1,13 @@
+orderyear   ordermonth  orderday    salesvalue
+----------- ----------- ----------- ------------------
+2006        7           4           440.00
+2006        7           5           1863.40
+2006        7           8           2206.66
+...
+...
+...
+2008        5           NULL        18333.64
+2008        NULL        NULL        440623.93
+NULL        NULL        NULL        1265793.22
+
+(507 row(s) affected)

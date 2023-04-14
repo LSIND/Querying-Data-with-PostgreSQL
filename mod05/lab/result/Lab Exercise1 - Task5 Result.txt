@@ -1,0 +1,6 @@
+custid      companyname
+----------- -------------------------------
+22          Customer DTDMN
+57          Customer WVAXS
+
+(2 row(s) affected)

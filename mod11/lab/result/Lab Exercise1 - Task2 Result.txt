@@ -1,0 +1,7 @@
+productid   productname
+----------- -------------------
+1           Product HHYDP
+2           Product RECZE
+
+(2 row(s) affected)
+

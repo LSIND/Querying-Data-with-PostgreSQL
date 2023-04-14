@@ -1,0 +1,33 @@
+custid      companyname                              contactname                    address                                                      city            country         phone
+----------- ---------------------------------------- ------------------------------ ------------------------------------------------------------ --------------- --------------- ------------------------
+4           Customer HFBZG                           Arndt, Torsten                 7890 Hanover Sq.                                             London          UK              (171) 456-7890
+11          Customer UBHAU                           Jaffe, David                   Fauntleroy Circus 4567                                       London          UK              (171) 789-0123
+15          Customer JUWXK                           Richardson, Shawn              Av. dos Lusнadas, 6789                                       Sao Paulo       Brazil          (11) 012-3456
+16          Customer GYBBY                           Birkby, Dana                   Berkeley Gardens 0123 Brewery                                London          UK              (171) 234-5678
+19          Customer RFNQC                           Boseman, Randall               5678 King George                                             London          UK              (171) 345-6789
+21          Customer KIDPX                           Russo, Giuseppe                Rua Orуs, 3456                                               Sao Paulo       Brazil          (11) 456-7890
+31          Customer YJCBX                           Cheng, Yao-Qiang               Av. Brasil, 5678                                             Campinas        Brazil          (11) 567-8901
+32          Customer YSIQX                           Krishnan, Venky                6789 Baker Blvd.                                             Eugene          USA             (503) 555-0122
+34          Customer IBVRG                           Cohen, Shy                     Rua do Paзo, 7890                                            Rio de Janeiro  Brazil          (21) 789-0123
+36          Customer LVJSO                           Smith, Denise                  City Center Plaza 2345 Main St.                              Elgin           USA             (503) 555-0126
+38          Customer LJUCA                           Lee, Frank                     Garden House Crowther Way 3456                               Cowes           UK              (198) 567-8901
+43          Customer UISOJ                           Deshpande, Anu                 8901 Orchestra Terrace                                       Walla Walla     USA             (509) 555-0119
+45          Customer QXPPT                           Sunkammurali,  Krishna         1234 Polk St. Suite 5                                        San Francisco   USA             (415) 555-0118
+48          Customer DVFMB                           Szymczak, Radoslaw             9012 Chiaroscuro Rd.                                         Portland        USA             (503) 555-0117
+53          Customer GCJSG                           Mallit, Ken                    South House 1234 Queensbridge                                London          UK              (171) 890-1234
+55          Customer KZQZT                           Egelund-Muller, Anja           7890 Bering St.                                              Anchorage       USA             (907) 555-0115
+61          Customer WULWD                           Florczyk, Krzysztof            Rua da Panificadora, 1234                                    Rio de Janeiro  Brazil          (21) 678-9012
+62          Customer WFIZJ                           Misiec, Anna                   Alameda dos Canаrios, 1234                                   Sao Paulo       Brazil          (11) 901-2345
+65          Customer NYUHS                           Moore, Michael                 6789 Milton Dr.                                              Albuquerque     USA             (505) 555-0125
+67          Customer QVEPD                           Garden, Euan                   Av. Copacabana, 6789                                         Rio de Janeiro  Brazil          (21) 345-6789
+71          Customer LCOUJ                           Navarro, Tomбs                 9012 Suffolk Ln.                                             Boise           USA             (208) 555-0116
+72          Customer AHPOP                           Welcker, Brian                 4567 Wadhurst Rd.                                            London          UK              (171) 901-2345
+75          Customer XOJYP                           Wojciechowska, Agnieszka       P.O. Box 1234                                                Lander          USA             (307) 555-0114
+77          Customer LCYBZ                           Osorio, Cristian               2345 Jefferson Way Suite 2                                   Portland        USA             (503) 555-0120
+78          Customer NLTYP                           Young, Robin                   0123 Grizzly Peak Rd.                                        Butte           USA             (406) 555-0121
+81          Customer YQQWW                           Nagel, Jean-Philippe           Av. Inкs de Castro, 1234                                     Sao Paulo       Brazil          (11) 123-4567
+82          Customer EYHKM                           Veninga, Tjeerd                1234 DaVinci Blvd.                                           Kirkland        USA             (206) 555-0124
+88          Customer SRQVM                           Li, Yan                        Rua do Mercado, 4567                                         Resende         Brazil          (14) 234-5678
+89          Customer YBQTI                           Smith Jr., Ronaldo             8901 - 14th Ave. S. Suite 3B                                 Seattle         USA             (206) 555-0123
+
+(29 row(s) affected)

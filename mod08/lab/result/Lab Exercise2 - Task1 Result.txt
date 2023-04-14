@@ -1,0 +1,13 @@
+segmentgroup custid      contactname
+------------ ----------- ----------------------------
+Group Two    1           Allen, Michael
+Group Three  2           Hassall, Mark
+Group Four   3           Peoples, John
+...
+...
+...
+Group Two    89          Smith Jr., Ronaldo
+Group Three  90          Larsson, Katarina
+Group Four   91          Conn, Steve
+
+(91 row(s) affected)

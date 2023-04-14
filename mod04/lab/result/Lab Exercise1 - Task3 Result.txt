@@ -1,0 +1,14 @@
+custid      contactname                    orderid
+----------- ------------------------------ -----------
+1           Allen, Michael                 10643
+1           Allen, Michael                 10692
+1           Allen, Michael                 10702
+...
+...
+...
+91          Conn, Steve                    10906
+91          Conn, Steve                    10998
+91          Conn, Steve                    11044
+
+(830 row(s) affected)
+

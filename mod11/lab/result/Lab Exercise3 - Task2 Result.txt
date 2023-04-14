@@ -1,0 +1,13 @@
+custid      contactname                    salesamt2008
+----------- ------------------------------ ----------------------------
+1           Allen, Michael                 2250.50
+2           Hassall, Mark                  514.40
+3           Peoples, John                  660.00
+...
+...
+...
+89          Smith Jr., Ronaldo             15278.90
+90          Larsson, Katarina              1987.00
+91          Conn, Steve                    1865.10
+
+(91 row(s) affected)

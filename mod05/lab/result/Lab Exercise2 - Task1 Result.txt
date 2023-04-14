@@ -1,0 +1,46 @@
+custid  contactname     orderid     orderdate
+------ -------------- ----------- -----------------------
+9	Raghav, Amritansh	11076	2008-05-06T00:00:00
+65	Moore, Michael	11077	2008-05-06T00:00:00
+68	Myrcha, Jacek	11075	2008-05-06T00:00:00
+73	Gonzalez, Nuria	11074	2008-05-06T00:00:00
+20	Kane, John	11072	2008-05-05T00:00:00
+44	Louverdis, George	11070	2008-05-05T00:00:00
+46	Dressler, Marlies	11071	2008-05-05T00:00:00
+58	Fakhouri, Fadi	11073	2008-05-05T00:00:00
+17	Jones, TiAnna	11067	2008-05-04T00:00:00
+62	Misiec, Anna	11068	2008-05-04T00:00:00
+80	Geschwandtner, Jens	11069	2008-05-04T00:00:00
+
+................
+
+4	Arndt, Torsten	11016	2008-04-10T00:00:00
+47	Lupu, Cornel	11014	2008-04-10T00:00:00
+70	Ginters, Kaspars	11015	2008-04-10T00:00:00
+1	Allen, Michael	11011	2008-04-09T00:00:00
+25	Carlson, Jason	11012	2008-04-09T00:00:00
+66	Voss, Florian	11010	2008-04-09T00:00:00
+69	Watters, Jason M.	11013	2008-04-09T00:00:00
+20	Kane, John	11008	2008-04-08T00:00:00
+30	Shabalin, Rostislav	11009	2008-04-08T00:00:00
+60	Uppal, Sunil	11007	2008-04-08T00:00:00
+32	Krishnan, Venky	11006	2008-04-07T00:00:00
+50	Mace, Donald	11004	2008-04-07T00:00:00
+90	Larsson, Katarina	11005	2008-04-07T00:00:00
+24	San Juan, Patricia	11001	2008-04-06T00:00:00
+65	Moore, Michael	11000	2008-04-06T00:00:00
+71	Navarro, Tomás	11002	2008-04-06T00:00:00
+78	Young, Robin	11003	2008-04-06T00:00:00
+46	Dressler, Marlies	10997	2008-04-03T00:00:00
+56	Marinova, Nadejda	10999	2008-04-03T00:00:00
+91	Conn, Steve	10998	2008-04-03T00:00:00
+58	Fakhouri, Fadi	10995	2008-04-02T00:00:00
+63	Veronesi, Giorgio	10996	2008-04-02T00:00:00
+83	Fonteneau, Karl	10994	2008-04-02T00:00:00
+20	Kane, John	10990	2008-04-01T00:00:00
+24	San Juan, Patricia	10993	2008-04-01T00:00:00
+63	Veronesi, Giorgio	10991	2008-04-01T00:00:00
+77	Osorio, Cristian	10992	2008-04-01T00:00:00
+
+
+(88 row(s) affected)

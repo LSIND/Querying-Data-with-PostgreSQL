@@ -1,0 +1,13 @@
+contactwithcity
+----------------------------------------------
+Allen, Michael (city: Berlin)
+Hassall, Mark (city: México D.F.)
+Peoples, John (city: México D.F.)
+...
+...
+...
+Smith Jr., Ronaldo (city: Seattle)
+Larsson, Katarina (city: Helsinki)
+Conn, Steve (city: Warszawa)
+
+(91 row(s) affected)

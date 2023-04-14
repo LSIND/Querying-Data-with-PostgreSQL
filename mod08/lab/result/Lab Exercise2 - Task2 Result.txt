@@ -1,0 +1,13 @@
+contactname                    faxinformation
+------------------------------ -----------------------
+Allen, Michael                 030-0123456
+Hassall, Mark                  (5) 456-7890
+Peoples, John                  No information
+...
+...
+...
+Smith Jr., Ronaldo             (206) 555-0132
+Larsson, Katarina              90-789 0123
+Conn, Steve                    (26) 901-2345
+
+(91 row(s) affected)

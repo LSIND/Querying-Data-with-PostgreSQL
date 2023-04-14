@@ -1,0 +1,12 @@
+empid       lastname             firstname  title                          mgrid       mgrlastname          mgrfirstname
+----------- -------------------- ---------- ------------------------------ ----------- -------------------- ------------
+2           Funk                 Don        Vice President, Sales          1           Davis                Sara
+3           Lew                  Judy       Sales Manager                  2           Funk                 Don
+4           Peled                Yael       Sales Representative           3           Lew                  Judy
+5           Buck                 Sven       Sales Manager                  2           Funk                 Don
+6           Suurs                Paul       Sales Representative           5           Buck                 Sven
+7           King                 Russell    Sales Representative           5           Buck                 Sven
+8           Cameron              Maria      Sales Representative           3           Lew                  Judy
+9           Dolgopyatova         Zoya       Sales Representative           5           Buck                 Sven
+
+(8 row(s) affected)

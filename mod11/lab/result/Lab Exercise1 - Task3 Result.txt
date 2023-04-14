@@ -1,0 +1,9 @@
+productid	productname	unitprice
+------		----------	--------
+24		Product QOGNU	$4.50
+75		Product BWRLG	$7.75
+34		Product SWNJY	$14.00
+67		Product XLXQF	$14.00
+70		Product TOONT	$15.00
+
+(5 row(s) affected)

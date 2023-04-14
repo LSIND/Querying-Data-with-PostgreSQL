@@ -1,0 +1,14 @@
+newcontactname                           firstname
+---------------------------------------- ---------------------------
+Allen Michael                             Michael
+Hassall Mark                              Mark
+Peoples John                              John
+...
+...
+...
+Li Yan                                    Yan
+Smith Jr. Ronaldo                         Ronaldo
+Larsson Katarina                          Katarina
+Conn Steve                                Steve
+
+(91 row(s) affected)

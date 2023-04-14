@@ -1,0 +1,7 @@
+empid       lastname             firstname  title                          mgrid       mgrlastname          mgrfirstname
+----------- -------------------- ---------- ------------------------------ ----------- -------------------- ------------
+6           Suurs                Paul       Sales Representative           5           Buck                 Sven
+7           King                 Russell    Sales Representative           5           Buck                 Sven
+9           Dolgopyatova         Zoya       Sales Representative           5           Buck                 Sven
+
+(3 row(s) affected)
