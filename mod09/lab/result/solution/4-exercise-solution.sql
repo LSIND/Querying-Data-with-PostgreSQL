@@ -116,3 +116,30 @@ ON d.orderid = o.orderid
 GROUP BY o.custid
 HAVING SUM(d.qty * d.unitprice) < 2000::money
 ORDER BY o.custid;
+
+
+---------------------------------------------------------------------
+-- Task 7 *
+-- 
+-- Напишите SELECT-запрос, выводящий всех заказчиков (custid, companyname), которые покупали продукты категории Meat/Poultry, 
+-- но ни разу не покупали продукты категории Seafood.
+--
+-- Результирующий набор сравните с Lab Exercise4 - Task7 Result.txt
+---------------------------------------------------------------------
+
+SELECT C.custid, C.companyname
+FROM "Sales"."Customers" as C
+JOIN "Sales"."Orders" as O
+ON C.custid = O.custid
+JOIN "Sales"."OrderDetails" AS OD
+ON OD.orderid = O.orderid
+JOIN "Production"."Products" AS P
+on P.productid = OD.productid
+join "Production"."Categories" as CA
+ON CA.categoryid = P.categoryid
+WHERE CA.categoryname IN ('Meat/Poultry', 'Seafood')
+GROUP BY C.custid, C.companyname
+HAVING SUM(CASE 
+WHEN CA.categoryname = 'Meat/Poultry' THEN 1 ELSE 0 END) >= 1 
+AND 
+SUM(CASE WHEN CA.categoryname = 'Seafood' THEN 1 ELSE 0 END) = 0;

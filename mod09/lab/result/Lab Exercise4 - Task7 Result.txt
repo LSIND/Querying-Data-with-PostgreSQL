@@ -1,0 +1,7 @@
+custid	companyname
+------  -----------
+8	Customer QUHWH
+60	Customer QZURI
+26	Customer USDBG
+
+(3 row(s) affected)

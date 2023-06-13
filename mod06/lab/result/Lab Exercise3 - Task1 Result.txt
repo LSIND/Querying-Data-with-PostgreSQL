@@ -1,8 +1,8 @@
 contactwithcity
 ----------------------------------------------
 Allen, Michael (city: Berlin)
-Hassall, Mark (city: México D.F.)
-Peoples, John (city: México D.F.)
+Hassall, Mark (city: MÐ¹xico D.F.)
+Peoples, John (city: MÐ¹xico D.F.)
 ...
 ...
 ...

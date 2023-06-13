@@ -92,4 +92,33 @@ FROM "Production"."Products"
 WHERE unitprice > 50::money;
 
 
+---------------------------------------------------------------------
+-- Task 8 *
+-- 
+-- Удалите некоторых заказчиков так, чтобы в таблице остались заказчики только по уникальным адресам (city, country).
+-- Остаться должны заказчики с наименьшим custid
+
+-- Если Вы все делали верно, то в таблице ExtraCustomers должно остаться 20 строк.
+---------------------------------------------------------------------
+
+DELETE FROM "public"."ExtraCustomers" as e1
+USING 
+ "public"."ExtraCustomers" as e2
+WHERE e1.custid > e2.custid AND e2.city = e1.city and e2.country = e2.country;
+
+
+-- Запросы для проверки
+
+SELECT distinct country, city FROM "public"."ExtraCustomers";
+
+SELECT * FROM "public"."ExtraCustomers";
+
+
+---------------------------------------------------------------------
+-- Task 9
+-- 
+-- Выполните код ниже для удаления таблицы ExtraCustomers
+---------------------------------------------------------------------
+
+DROP TABLE IF EXISTS "public"."ExtraCustomers";
 

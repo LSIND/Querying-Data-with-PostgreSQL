@@ -1,8 +1,8 @@
 fullcontact
 ----------------------------------------------------------------------
 Allen, Michael (city: Berlin, region: )
-Hassall, Mark (city: México D.F., region: )
-Peoples, John (city: México D.F., region: )
+Hassall, Mark (city: MÐ¹xico D.F., region: )
+Peoples, John (city: MÐ¹xico D.F., region: )
 ...
 ...
 ...

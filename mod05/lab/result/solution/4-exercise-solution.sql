@@ -47,22 +47,7 @@ LIMIT 20 OFFSET 20 ROWS;
 -- Создайте параметры pagenum (номер страницы) и pagesize (размер страницы); напишите запрос с OFFSET-FETCH
 ---------------------------------------------------------------------
 
-DO $$ 
-DECLARE pagenum integer:= 2;
-DECLARE pagesize integer:= 10;
-DECLARE result RECORD;
-
-BEGIN 
-SELECT custid, orderid, orderdate
-INTO result
-FROM "Sales"."Orders"
-ORDER BY orderdate, orderid
-OFFSET ((pagenum - 1) * pagesize) ROWS FETCH NEXT pagesize ROWS ONLY;
-
-raise notice '%', result;
-END $$;
-
-
+-- с использованием анонимного блока
 BEGIN;
 DO $$ 
 DECLARE
@@ -79,10 +64,14 @@ FETCH ALL FROM _cursor;
 COMMIT;
 
 
+-- с использованием подготовленного запроса (prepared)
+PREPARE q(integer, integer) AS
+SELECT custid, orderid, orderdate
+FROM "Sales"."Orders"
+ORDER BY orderdate, orderid
+OFFSET (($1 - 1) * $2) ROWS FETCH NEXT $2 ROWS ONLY;
 
+execute q(4,10);
 
-
-
-
-
-
+--select * from pg_prepared_statements;
+deallocate "q";
