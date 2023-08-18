@@ -56,6 +56,11 @@ SELECT DISTINCT country, city
 FROM "Sales"."Customers"
 ORDER BY country, city;
 
+-- ** Distinct ON
+SELECT DISTINCT ON (country) country, city
+FROM "Sales"."Customers"
+ORDER BY country, city; -- 21 строка c учетом УНИКАЛЬНОСТИ по стране (страна + 1 город по алфавиту)
+
 ---------------------------------------------
 -- ALIASES
 ---------------------------------------------

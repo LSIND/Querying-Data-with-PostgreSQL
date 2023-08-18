@@ -53,21 +53,6 @@ SELECT Category, Qty, Orderyear,
 		AND CURRENT ROW) AS RunningQty
 FROM "Sales"."CategoryQtyYear";
 
--- Нарастающий итог по суммам продаж по годам с упорядочиванием по категориям
-SELECT Category, Qty, Orderyear,
-	SUM(Qty) OVER (
-		PARTITION BY orderyear
-		ORDER BY Category
-		ROWS BETWEEN UNBOUNDED PRECEDING
-		AND CURRENT ROW) AS RunningQty
-FROM "Sales"."CategoryQtyYear";
-
--- По категориям и по годам
-SELECT Category, Qty, Orderyear,
-	SUM(Qty) OVER (PARTITION BY orderyear ORDER BY Category	ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS RunningTotalByYear,
-	SUM(Qty) OVER (PARTITION BY Category ORDER BY OrderYear	ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS RunningTotalByCategory
-FROM "Sales"."CategoryQtyYear"
-ORDER BY Orderyear, Category;
 
 -- 5: Удаление объектов
 DROP VIEW IF EXISTS "Production"."CategorizedProducts";

@@ -47,7 +47,7 @@ FROM "Sales"."Customers";
 
 SELECT 
 	custid,
-	N'C' || RIGHT(REPEAT('0', 5) || CAST(custid AS VARCHAR(5)), 5) AS custnewid
+	'C' || RIGHT(REPEAT('0', 5) || CAST(custid AS VARCHAR(5)), 5) AS custnewid
 FROM "Sales"."Customers";
 
 
@@ -59,7 +59,7 @@ FROM "Sales"."Customers";
 ---------------------------------------------------------------------
 -- Task 4
 --
--- Напишите SELECT-запрос к таблице Sales.Customers, получите contactname. Добавьте вычисляемый столбец, выводящий количество букв 'а' в contactname.
+-- Напишите SELECT-запрос к таблице Sales.Customers, получите contactname. Добавьте вычисляемый столбец, выводящий количество букв 'а' (регистр не учитывать) в contactname.
 -- Упорядочить результат от наибольших повторений к наименьшим.
 --
 -- Результирующий набор сравните с Lab Exercise4 - Task4 Result.txt. 

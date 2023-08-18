@@ -19,11 +19,11 @@ FROM
 (
 	SELECT
 	productid, productname, supplierid, unitprice, discontinued,
-	CASE WHEN unitprice > 100::money THEN N'high' ELSE N'normal' END AS pricetype
+	CASE WHEN unitprice > 100::money THEN 'high' ELSE 'normal' END AS pricetype
 FROM "Production"."Products"
 WHERE categoryid = 1
 ) AS p
-WHERE p.pricetype = N'high';
+WHERE p.pricetype = 'high';
 
 ---------------------------------------------------------------------
 -- Task 2
@@ -98,7 +98,3 @@ FROM cy
 LEFT OUTER JOIN cy AS py
 ON cy.orderyear = py.orderyear + 1
 ORDER BY cy.orderyear;
-
-
-
-

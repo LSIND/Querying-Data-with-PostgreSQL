@@ -72,7 +72,7 @@ FROM "Production"."Products" AS p;
 ---------------------------------------------------------------------
 SELECT custid, contactname,
 	CASE
-		WHEN (country = N'Mexico' AND contacttitle = N'Owner') THEN N'Target group'
-		ELSE N'Other'
+		WHEN (country = 'Mexico' AND contacttitle = 'Owner') THEN 'Target group'
+		ELSE 'Other'
 	END AS segmentgroup
 FROM "Sales"."Customers";

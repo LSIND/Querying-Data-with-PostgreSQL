@@ -22,7 +22,7 @@ FROM "Sales"."Customers";
 -- Результирующий набор сравните с Lab Exercise2 - Task2 Result.txt
 ---------------------------------------------------------------------
 
-SELECT contactname, COALESCE(fax, N'No information') AS faxinformation
+SELECT contactname, COALESCE(fax, 'No information') AS faxinformation
 FROM "Sales"."Customers";
 
 
@@ -30,7 +30,7 @@ FROM "Sales"."Customers";
 -- Task 3
 -- 
 -- Напишите SELECT-запрос, получающий contactname, city, region из таблицы Sales.Customers. 
--- Верните только те строки, которые в столбце region не содержат 2 символа.
+-- Верните только те строки, которые в столбце region содержат любое количество символов, кроме 2х.
 --
 -- Результирующий набор сравните с Lab Exercise2 - Task3 Result.txt
 ---------------------------------------------------------------------

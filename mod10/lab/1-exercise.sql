@@ -42,7 +42,7 @@ WHERE
 	(
 		SELECT custid
 		FROM "Sales"."Customers"
-		WHERE contactname LIKE N'I%'
+		WHERE contactname LIKE 'I%'
 	);
 
 -- B - error
@@ -53,7 +53,7 @@ WHERE
 	(
 		SELECT custid
 		FROM "Sales"."Customers"
-		WHERE contactname LIKE N'B%'
+		WHERE contactname LIKE 'B%'
 	);
 
 

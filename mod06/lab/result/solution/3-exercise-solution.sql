@@ -15,11 +15,11 @@
 ---------------------------------------------------------------------
 
 SELECT 
-	CONCAT(contactname, N' (city: ', city, N')') AS contactwithcity
+	CONCAT(contactname, ' (city: ', city, ')') AS contactwithcity
 FROM "Sales"."Customers";
 
 SELECT 
-	contactname || ' (city: ' || city ||  N')' AS contactwithcity 
+	contactname || ' (city: ' || city ||  ')' AS contactwithcity 
 FROM "Sales"."Customers";
 
 ---------------------------------------------------------------------
@@ -35,7 +35,7 @@ FROM "Sales"."Customers";
 ---------------------------------------------------------------------
 
 SELECT 
-	CONCAT(contactname, N' (city: ', city,  N', region: ', region, N')') AS fullcontact
+	CONCAT(contactname, ' (city: ', city,  ', region: ', region, ')') AS fullcontact
 FROM "Sales"."Customers";
 
 ---------------------------------------------------------------------

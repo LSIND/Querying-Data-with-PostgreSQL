@@ -8,11 +8,11 @@
 3  INNER JOIN <source_2> AS C
 2  ON <join_on_clause>
 4  WHERE <predicate_condition>
-5  --GROUP BY <group_by_list>
-6  --WITH { CUBE | ROLLUP }
-7  --HAVING <having_condition>
+5  GROUP BY <group_by_list>
+6  < GROUPING SETS | CUBE | ROLLUP >
+7  HAVING <having_condition>
 9  ORDER BY <column(s)_order>
-10 LIMIT <number_of_rows>
+10 LIMIT (number_of_rows)
 ```
 ## 3: Написание SELECT-запросов
 - Множества и дубликаты: ```DISTINCT```
@@ -55,4 +55,6 @@
 ## 13: Использование оконных функций
 - Расчет нарастающих итогов, изменений данных, скользящих средних
 - Функции ранжирования, агрегирования, сдвига и статистические
-- ``` ... OVER (PARTITION BY ... ORDER BY ... ROWS BETWEEN ...) ```
+- ``` ... OVER (PARTITION BY ... ORDER BY ... ROWS BETWEEN ...) ``` 
+
+## [База данных курса](https://github.com/LSIND/Querying-Data-with-PostgreSQL/tree/master/SetupFiles)

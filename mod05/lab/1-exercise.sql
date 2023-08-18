@@ -28,7 +28,7 @@
 -- Task 3
 -- 
 -- Напишите SELECT-запрос, возвращающий столбцы custid, companyname, contactname, address, city, country и phone из таблицы Sales.Customers. 
--- Отфильтруйте результат, получив только заказчиков contact name которых начинается на букву A.
+-- Отфильтруйте результат, получив только заказчиков, contactname которых начинается на букву A.
 -- Результирующий набор сравните с Lab Exercise1 - Task3 Result.txt
 ---------------------------------------------------------------------
 
@@ -46,13 +46,13 @@
 SELECT c.custid, c.companyname, o.orderid
 FROM "Sales"."Customers" AS c
 LEFT OUTER JOIN "Sales"."Orders" AS o 
-ON c.custid = o.custid AND c.city = N'Paris'
+ON c.custid = o.custid AND c.city = 'Paris'
 ORDER BY c.custid;
 
 ---------------------------------------------------------------------
 -- Task 4b
 -- 
--- Скопируйте запрос Task 4a и поместите условие city = 'Paris'в инструкцию WHERE clause. 
+-- Скопируйте запрос Task 4a и поместите условие city = 'Paris' в инструкцию WHERE. 
 -- Результирующий набор сравните с Lab Exercise1 - Task4b Result.txt
 -- Что произошло?
 ---------------------------------------------------------------------
@@ -62,7 +62,7 @@ ORDER BY c.custid;
 ---------------------------------------------------------------------
 -- Task 5
 -- 
--- Напишите SELECT-запрос, выводящий заказчиков из таблицы Sales.Customers, которые еще не совершили заказы (не имеют заказов в таблице Sales.Orders). 
+-- Напишите SELECT-запрос, выводящий заказчиков из таблицы Sales.Customers, которые еще не совершали заказы (не имеют заказов в таблице Sales.Orders). 
 -- Вывести столбцы custid и companyname из Sales.Customers. 
 -- Результирующий набор сравните с Lab Exercise1 - Task5 Result.txt
 ---------------------------------------------------------------------

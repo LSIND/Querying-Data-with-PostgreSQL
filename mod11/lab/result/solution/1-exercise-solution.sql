@@ -14,15 +14,15 @@
 -- Создайте представление Production.ProductBeverages, включив в него код запроса. Найдите созданное представление в обозревателе объектов
 ---------------------------------------------------------------------
 
-
+SELECT productid, productname, supplierid, unitprice, discontinued
+FROM "Production"."Products"
+WHERE categoryid = 1;
 
 ---
 
 CREATE VIEW "Production"."ProductsBeverages" AS
-
-
-
-
+SELECT
+	productid, productname, supplierid, unitprice, discontinued
 FROM "Production"."Products"
 WHERE categoryid = 1;
 
@@ -34,20 +34,29 @@ WHERE categoryid = 1;
 -- Результирующий набор сравните с Lab Exercise1 - Task2 Result.txt
 ---------------------------------------------------------------------
 
-
+SELECT productid, productname
+FROM "Production"."ProductsBeverages"
+WHERE supplierid = 1;
 
 ---------------------------------------------------------------------
 -- Task 3
 -- 
 -- Напишите код, изменяющий представление "Production"."ProductsBeverages" (CREATE OR REPLACE)
--- Представление должно выводить первые 5 самых дешевых продуктов
+-- Представление теперь должно выводить 5 самых дешевых продуктов из категории Beverages (categoryid = 1).
 -- Напишите запрос к этому представлению, выведите только productid, productname, unitprice
 -- Результирующий набор сравните с Lab Exercise1 - Task3 Result.txt
 ---------------------------------------------------------------------
 
 CREATE OR REPLACE VIEW "Production"."ProductsBeverages" AS
+SELECT productid, productname, supplierid, unitprice, discontinued
+FROM "Production"."Products"
+WHERE categoryid = 1
+ORDER BY unitprice
+LIMIT 5;
 
-
+-- выбор данных из измененного представления
+SELECT productid, productname, unitprice 
+FROM "Production"."ProductsBeverages";
 
 ---------------------------------------------------------------------
 -- Task 4
@@ -61,16 +70,23 @@ CREATE OR REPLACE VIEW "Production"."ProductsBeverages" AS
 CREATE OR REPLACE VIEW "Production"."ProductsBeverages" AS
 SELECT
 	productid, productname, supplierid, unitprice, discontinued,
-	CASE WHEN unitprice > 100::money THEN N'high' ELSE N'normal' END
+	CASE WHEN unitprice > 100::money THEN 'high' ELSE 'normal' END
 FROM "Production"."Products"
 WHERE categoryid = 1;
 
 SELECT * FROM "Production"."ProductsBeverages";
 
-
 --- испр
+DROP VIEW IF EXISTS "Production"."ProductsBeverages";
+CREATE OR REPLACE VIEW "Production"."ProductsBeverages" AS
+SELECT
+	productid, productname, supplierid, unitprice, discontinued,
+	CASE WHEN unitprice > 100::money THEN 'high' ELSE 'normal' END AS pricetype
+FROM "Production"."Products"
+WHERE categoryid = 1;
 
-
+-- * другое решение через переименование столбца представления
+ALTER TABLE "Production"."ProductsBeverages" RENAME COLUMN "case" to pricetype;
 
 ---------------------------------------------------------------------
 -- Task 5

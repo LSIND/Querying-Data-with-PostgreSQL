@@ -16,14 +16,14 @@ WITH "ProductsBeverages" AS
 (
 	SELECT
 		productid, productname, supplierid, unitprice, discontinued,
-		CASE WHEN unitprice > 100::money THEN N'high' ELSE N'normal' END AS pricetype
+		CASE WHEN unitprice > 100::money THEN 'high' ELSE 'normal' END AS pricetype
 	FROM "Production"."Products"
 	WHERE categoryid = 1
 )
 SELECT
 	productid, productname
 FROM "ProductsBeverages"
-WHERE pricetype = N'high';
+WHERE pricetype = 'high';
 
 ---------------------------------------------------------------------
 -- Task 2

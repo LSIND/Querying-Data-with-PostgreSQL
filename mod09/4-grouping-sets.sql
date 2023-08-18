@@ -54,35 +54,37 @@ GROUP BY ROLLUP(Category,Cust)
 ORDER BY Category, Cust;
 
 -- "Чековая лента" за сутки
-select d.orderid,  o.orderdate, p.productname, p.unitprice, d.qty, SUM(p.unitprice*d.qty) as Total
-from "Sales"."OrderDetails" as d
-join "Sales"."Orders" as o 
-on d.orderid = o.orderid
-join "Production"."Products" as p
-on p.productid = d.productid
-where o.orderdate >= '20060708' AND o.orderdate < '20060709'
-group by rollup ((d.orderid, o.orderdate),(p.productname,p.unitprice,d.qty));
+SELECT d.orderid,  o.orderdate, p.productname, p.unitprice, d.qty, SUM(p.unitprice*d.qty) as Total
+FROM "Sales"."OrderDetails" as d
+JOIN "Sales"."Orders" as o 
+ON d.orderid = o.orderid
+JOIN "Production"."Products" as p
+ON p.productid = d.productid
+WHERE o.orderdate >= '20060708' AND o.orderdate < '20060709'
+GROUP BY ROLLUP ((d.orderid, o.orderdate),(p.productname,p.unitprice,d.qty));
 
 
--- 5:  GROUPING function
+-- 5:  Функция GROUPING 
 SELECT	GROUPING(Category) AS grpCat, GROUPING(Cust) AS grpCust, Category, Cust, SUM(Qty) AS TotalQty
 FROM "Sales"."CategorySales"
 GROUP BY CUBE(Category,Cust)
 ORDER BY Category, Cust;
 
--- "Чековая лента" с тегом Итого
+-- "Чековая лента" за период с тегом Total и SubTotal
 SELECT
-CASE WHEN GROUPING(p.productname, p.unitprice, d.qty)!=0 THEN 'Total'
-ELSE '-'
+CASE 
+   WHEN GROUPING(p.productname, p.unitprice, d.qty)!=0 AND GROUPING(d.orderid, o.orderdate)!=0 THEN 'Total'
+   WHEN GROUPING(p.productname, p.unitprice, d.qty)!=0 THEN 'SubTotal'
+   ELSE '-'
 END AS Tag,
   d.orderid,  o.orderdate, p.productname, p.unitprice, d.qty, SUM(p.unitprice*d.qty) as Total
-from "Sales"."OrderDetails" as d
-join "Sales"."Orders" as o 
-on d.orderid = o.orderid
-join "Production"."Products" as p
-on p.productid = d.productid
-where o.orderdate >= '20060708' AND o.orderdate < '20060709'
-group by rollup ((d.orderid, o.orderdate),(p.productname,p.unitprice,d.qty));
+FROM "Sales"."OrderDetails" as d
+JOIN "Sales"."Orders" as o 
+ON d.orderid = o.orderid
+JOIN "Production"."Products" as p
+ON p.productid = d.productid
+WHERE o.orderdate >= '20060708' AND o.orderdate < '20060711' -- период
+GROUP BY ROLLUP ((d.orderid, o.orderdate),(p.productname,p.unitprice,d.qty));
 
 
 -- 6: Удаление "Sales"."CategorySales";

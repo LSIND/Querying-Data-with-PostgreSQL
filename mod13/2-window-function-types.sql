@@ -44,6 +44,7 @@ SELECT * FROM "Sales"."OrdersByEmployeeYear";
 
 -- 2: Window Aggregate Functions
 
+-- Общее количество продуктов по заказчику (одно значение на группу)
 -- Сумма по partition (Custid)
 SELECT  custid,
         ordermonth,
@@ -51,13 +52,25 @@ SELECT  custid,
         SUM(qty) OVER ( PARTITION BY custid ) AS totalpercust
 FROM  "Sales"."CustOrders" ;
 
--- Сумма, среднее и общее количество по partition (custid)
+-- Сумма, среднее и общее количество по заказчику (partition - custid)
 SELECT CatID, CatName, ProdName, UnitPrice,
 	SUM(UnitPrice) OVER(PARTITION BY CatID) AS Total,
 	AVG(UnitPrice::numeric) OVER(PARTITION BY CatID) AS Average,
 	COUNT(UnitPrice) OVER(PARTITION BY CatID) AS ProdsPerCat
 FROM "Production"."CategorizedProducts"
 ORDER BY CatID; 
+
+
+-- ** Скользящее среднее
+-- Рассчитываем среднее как сумму значения текущего месяца, предыдущего и последующего, деленное на 3.
+
+SELECT  y, m, quantity, ROUND(AVG(quantity) OVER (order by y,m rows between 1 preceding and 1 following), 2)   as roll_avg
+FROM
+(SELECT  EXTRACT(year from ordermonth)::int as y, EXTRACT(month from ordermonth)::int as m,
+        SUM(qty) as quantity
+FROM  "Sales"."CustOrders" 
+GROUP BY ordermonth) t
+order by y, m;
 
 
 -- 3: Функции ранжирования
@@ -74,13 +87,15 @@ SELECT CatID, CatName, ProdName, UnitPrice,
 FROM "Production"."CategorizedProducts"
 ORDER BY CatID; 
 
--- NTILE(N) 
+-- NTILE(N) - разделяет значения в категориях на n частей (распределение значений)
+-- продукты каждого типа в ценовой категории 1 (дороже) или 2 (дешевле)
 SELECT CatID, CatName, ProdName, UnitPrice,
-	NTILE(7) OVER(PARTITION BY CatID ORDER BY UnitPrice DESC) AS NT
+	NTILE(2) OVER(PARTITION BY CatID ORDER BY UnitPrice DESC) AS NT
 FROM "Production"."CategorizedProducts"
 ORDER BY CatID, NT; 
 
--- NTH_VALUE(column, N) - возвращает второй по дороговизне продукт в данной категории
+-- NTH_VALUE(column, N) - возвращает N-й элемент в окне или партиции
+-- возвращает второй по дороговизне продукт в данной категории
 SELECT CatID, CatName, ProdName, UnitPrice,
 	NTH_VALUE(ProdName,2) OVER(PARTITION BY CatID ORDER BY UnitPrice DESC RANGE BETWEEN 
             UNBOUNDED PRECEDING AND 
@@ -109,6 +124,7 @@ ORDER BY employee, orderyear;
 
 
 -- *** string_agg
+-- нарастающий итог, складывающий номера заказов как строки относительно каждого покупателя
 SELECT  custid,
         ordermonth,
         qty,
@@ -116,7 +132,7 @@ SELECT  custid,
 FROM  "Sales"."CustOrders" ;
 
 
--- 5. Удаление данных
+-- 5. Удаление представлений
 DROP VIEW IF EXISTS "Production"."CategorizedProducts";
 DROP VIEW IF EXISTS "Sales"."OrdersByEmployeeYear";
 DROP VIEW IF EXISTS "Sales"."OrdersByEmployeeYear";

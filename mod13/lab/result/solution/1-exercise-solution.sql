@@ -62,18 +62,30 @@ FROM "Sales"."OrderValues";
 -- Помните, что оконные функции нельзя применять в конструкции WHERE
 -- Результирующий набор сравните с Lab Exercise1 - Task5 Result.txt
 ---------------------------------------------------------------------
-SELECT
-	s.custid,
-	s.orderyear,
-	s.orderrankno,
-	s.val
+
+-- решение через derived table
+SELECT s.custid, s.orderyear, s.orderrankno, s.val
 FROM
+(
+	SELECT 
+		custid, val,
+		EXTRACT(YEAR FROM orderdate) as orderyear,
+		RANK() OVER (PARTITION BY custid, EXTRACT(YEAR FROM orderdate) ORDER BY val DESC) AS orderrankno
+	FROM "Sales"."OrderValues"
+) AS s
+WHERE s.orderrankno <= 2;
+
+-- решение через CTE
+WITH orders_rank
+AS
 (
 	SELECT 
 		custid,
 		val,
 		EXTRACT(YEAR FROM orderdate) as orderyear,
 		RANK() OVER (PARTITION BY custid, EXTRACT(YEAR FROM orderdate) ORDER BY val DESC) AS orderrankno
-	FROM "Sales"."OrderValues"s
-) AS s
-WHERE s.orderrankno <= 2;
+	FROM "Sales"."OrderValues"
+) 
+SELECT custid, val, orderyear, orderrankno
+FROM orders_rank
+WHERE orderrankno <= 2;

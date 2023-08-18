@@ -1,6 +1,6 @@
 -- Demonstration A
 
--- 1: Scalar subqueres:
+-- 1: Scalar subqueries:
 -- Самый последний заказ
 SELECT MAX(orderid) AS lastorder
 FROM "Sales"."Orders";
@@ -36,11 +36,11 @@ FROM "Sales"."Orders"
 WHERE custid IN (
 	SELECT custid
 	FROM "Sales"."Customers"
-	WHERE country = N'Mexico');
+	WHERE country = 'Mexico');
 
 -- 5: Тот же результат, но через join:
 SELECT c.custid, o.orderid
 FROM "Sales"."Customers" AS c
 JOIN "Sales"."Orders" AS o
 ON c.custid = o.custid
-WHERE c.country = N'Mexico';
+WHERE c.country = 'Mexico';

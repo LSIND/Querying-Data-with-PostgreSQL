@@ -47,21 +47,23 @@ SELECT OrderId, CustId, OrderDate, Quantity, Amount
 FROM "public"."Orders"
 WHERE OrderDate < CURRENT_TIMESTAMP;
 
--- 7. Переменная в Anonymous block
+-- 7. Переменная в Anonymous block с использованием курсора и динамического sql
 
+BEGIN;
 DO $$
-DECLARE customerId int DEFAULT 774;
-rec record;
-
-BEGIN
-SELECT INTO rec OrderId, CustId, OrderDate, Quantity, Amount
+DECLARE 
+customerId int:= 774;
+_query text;  
+_cursor CONSTANT refcursor := '_cursor';
+BEGIN _query := 
+'SELECT  OrderId, CustId, OrderDate, Quantity, Amount
 FROM "public"."Orders"
-WHERE CustId = customerId;
+WHERE CustId = ' || customerId;
 
-raise notice '%', rec;
-
-END;
-$$
+OPEN _cursor FOR EXECUTE _query;
+END $$;
+FETCH ALL FROM _cursor;
+COMMIT;
 
 
 -- 8. Удаление таблицы 

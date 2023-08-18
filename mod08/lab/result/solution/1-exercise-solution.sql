@@ -14,16 +14,16 @@
 -- Результирующий набор сравните с Lab Exercise1 - Task1 Result.txt
 ---------------------------------------------------------------------
 
-SELECT CONCAT(N'The unit price for the ', productname, N' is ',  CAST(unitprice AS VARCHAR(10)), N'.') AS productdesc
+SELECT CONCAT('The unit price for the ', productname, ' is ',  CAST(unitprice AS VARCHAR(10)), '.') AS productdesc
 FROM "Production"."Products";
 
 
 ---------------------------------------------------------------------
 -- Task 2
 -- 
--- Отдел маркетинга предоставил дату начала 4/1/2007 (April 1, 2007) и дату окончания 11/30/2007 (November 30, 2007) периода. 
+-- Отдел маркетинга предоставил дату начала 4/1/2007 (1 апреля 2007 г.) и дату окончания 11/30/2007 (30 ноября 2007 г.) периода. 
 -- Напишите SELECT-запрос к таблице Sales.Orders и получите столбцы orderid, orderdate, shippeddate, shipregion.
--- Включите только те строки, которые подходят под условие отдела маркетинга (в их формате), а также имеют более 30 дней в промежутке между датой отправки и датой заказа
+-- Включите только те строки, которые подходят под условие отдела маркетинга (в их формате месяц/день/год), а также имеют более 30 дней в промежутке между датой отправки и датой заказа.
 -- Если в столбце region есть значение NULL - при выводе заменить его на 'No region'.
 --
 -- Результирующий набор сравните с Lab Exercise1 - Task2 Result.txt
@@ -34,7 +34,7 @@ FROM "Sales"."Orders"
 WHERE 
 	orderdate >= to_timestamp('4/1/2007', 'MM/DD/YYYY') 
 	AND orderdate <= to_timestamp('11/30/2007','MM/DD/YYYY')
-	AND shippeddate > orderdate + INTERVAL '30 day';
+	AND shippeddate > orderdate + INTERVAL '30 days';
 
 ---------------------------------------------------------------------
 -- Task 3
@@ -45,7 +45,7 @@ WHERE
 -- Результирующий набор сравните с Lab Exercise1 - Task3 Result.txt
 ---------------------------------------------------------------------
 
-SELECT CAST(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(phone, N'-', N''), N'(', ''), N')', ''), ' ', ''), '.', '') AS BIGINT) AS phonenoasint
+SELECT CAST(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(phone, '-', ''), '(', ''), ')', ''), ' ', ''), '.', '') AS BIGINT) AS phonenoasint
 FROM "Sales"."Customers";
 
 

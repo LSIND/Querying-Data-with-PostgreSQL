@@ -10,7 +10,7 @@ FROM "Sales"."Orders"
 GROUP BY empid
 ORDER BY Total_Orders asc;
 
--- Количество заказов, оформленных сотрудником N 8 по заказчикам и по годам
+-- Количество заказов, оформленных сотрудником N 8 для каждого покупателя по годам
 SELECT custid, EXTRACT (YEAR FROM OrderDate) AS yearOrder, COUNT(*) AS Total_Orders
 FROM "Sales"."Orders"
 WHERE empid = 8
@@ -50,12 +50,12 @@ FROM "Sales"."Orders";
 -- Условие
 SELECT custid, orderid
 FROM "Sales"."Orders"
-WHERE shipcity = N'Madrid';
+WHERE shipcity = 'Madrid';
 
 -- Группа
 SELECT custid, COUNT(orderid)
 FROM "Sales"."Orders"
-WHERE shipcity = N'Madrid'
+WHERE shipcity = 'Madrid'
 GROUP BY custid;
 
 ---------------------------------------------
