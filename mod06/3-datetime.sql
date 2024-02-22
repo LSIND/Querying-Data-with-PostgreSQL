@@ -1,11 +1,12 @@
 -- DATE and TIME
 
 SELECT
-	NOW()				AS GetDate, 		-- timestamp with time zone
-	CURRENT_TIMESTAMP	AS CurrentTimestamp,--for ANSI SQL compatibility ==  transaction_timestamp()
-	CURRENT_TIME		AS CurrentTime,		--for ANSI SQL compatibility
-	CURRENT_DATE	AS CurrentDate,			--for ANSI SQL compatibility
-	LOCALTIME		AS LocalT;				-- time without time zone
+	NOW()				AS GetDate, 		   -- timestamp with time zone
+	CURRENT_TIMESTAMP	AS CurrentTimestamp,   -- for ANSI SQL compatibility == NOW()
+	CURRENT_TIME		AS CurrentTime,		   -- for ANSI SQL compatibility
+	CURRENT_DATE	    AS CurrentDate,		   -- for ANSI SQL compatibility
+	LOCALTIMESTAMP      AS CurrentTimestamp,   -- timestamp without time zone
+	LOCALTIME		    AS LocalTime;		   -- time without time zone
 	
 
 -- Части даты и времени

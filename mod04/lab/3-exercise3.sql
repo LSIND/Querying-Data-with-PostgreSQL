@@ -38,7 +38,7 @@ FROM "HR"."Calendar";
 ---------------------------------------------------------------------
 -- Task 2
 -- 
--- Напишите SELECT-запрос, выводящий empid, firstname и lastname columns из HR.Employees, а также calendardate из HR.Calendar.
+-- Напишите SELECT-запрос, выводящий empid, firstname и lastname из HR.Employees, а также calendardate из HR.Calendar.
 -- Перемножьте все строки левой таблицы на все строки правой. Что это за множество?
 -- Результирующий набор сравните с Lab Exercise3 - Task2 Result.txt
 ---------------------------------------------------------------------

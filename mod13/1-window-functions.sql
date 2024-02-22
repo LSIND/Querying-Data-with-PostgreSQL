@@ -31,13 +31,14 @@ SELECT * FROM "Production"."CategorizedProducts";
 SELECT * FROM "Sales"."CategoryQtyYear";
 
 -- 2:  OVER с ORDER BY
--- RANK() по цене
+-- RANK() по цене (ранжирование ВСЕХ продуктов по цене)
 SELECT CatID, CatName, ProdName, UnitPrice,
 	RANK() OVER(ORDER BY UnitPrice DESC) AS PriceRank
 FROM "Production"."CategorizedProducts"
 ORDER BY PriceRank; 
 
--- 3. OVER с ORDER BY и PRTITION BY Категории
+-- 3. OVER с ORDER BY и PARTITION BY по имени категории
+-- ранжирование продуктов по цене в каждой категории
 SELECT CatID, CatName, ProdName, UnitPrice,
 	RANK() OVER(PARTITION BY CatID ORDER BY UnitPrice DESC) AS PriceRank
 FROM "Production"."CategorizedProducts"
@@ -49,8 +50,8 @@ SELECT Category, Qty, Orderyear,
 	SUM(Qty) OVER (
 		PARTITION BY category
 		ORDER BY orderyear
-		ROWS BETWEEN UNBOUNDED PRECEDING
-		AND CURRENT ROW) AS RunningQty
+		ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) -- 
+                AS RunningQty
 FROM "Sales"."CategoryQtyYear";
 
 

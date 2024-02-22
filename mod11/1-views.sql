@@ -8,7 +8,7 @@ SELECT * FROM pg_tables;
 
 SELECT * FROM pg_settings
 WHERE category = 'File Locations'; -- Расположения файлов
-ORDER BY Category
+ORDER BY Category;
 
 -- 2. Simple views
 
@@ -39,6 +39,6 @@ FROM "Sales"."OrdersByEmployeeYear"
 ORDER BY employee, orderyear;
 
 
--- Удаление объектов DROP
+-- Удаление объектов
 DROP VIEW IF EXISTS "Sales"."OrdersByEmployeeYear";
 DROP VIEW IF EXISTS "HR"."EmpPhoneList";

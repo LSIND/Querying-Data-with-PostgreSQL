@@ -23,7 +23,9 @@ SELECT LEFT('Изучаем язык SQL', 7) AS left_example, RIGHT('Изуча
 
 SELECT LENGTH('SQL Language     Тест') AS LE, CHAR_LENGTH('SQL Language     '); -- длина строки в символах
 SELECT LENGTH('Год'), octet_length('Год') AS LCyr, octet_length('Red') as LLat, octet_length('象形字') AS LCh; -- длина строки в байтах (зависит от кодировки)
-SELECT pg_column_size('Тест'); -- размер ячейки в зависимости от типа данных
+SELECT pg_column_size('Тест'); -- размер ячейки в зависимости от типа данных (сжат)
+SELECT pg_column_size('test'::char(7)); -- размер ячейки в зависимости от типа данных
+
 
 SELECT position('SQL' in 'Изучаем язык SQL') pos, strpos('Изучаем язык SQL', 'SQL') AS strpos;
 

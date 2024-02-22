@@ -1,17 +1,14 @@
 -- TVF, возвращающая 3 самых дорогих товара поставщика по supplierid
-create or replace FUNCTION "public"."fn_TopProductsByShipper"
-(supplier int)
-RETURNS TABLE (productid int, productname varchar, unitprice money)
-language plpgsql
+CREATE OR REPLACE FUNCTION public."fn_TopProductsByShipper" (supplier int)
+RETURNS TABLE 
+  (productid int, productname varchar, unitprice money)
 as $$
-begin
-	return query 
-	SELECT P.productid, P.productname, P.unitprice
-	FROM "Production"."Products" AS P
-	WHERE P.supplierid = supplier
-	ORDER BY unitprice DESC
-	LIMIT(3);
-end;$$
+  SELECT P.productid, P.productname, P.unitprice
+  FROM "Production"."Products" AS P
+  WHERE P.supplierid = supplier
+  ORDER BY unitprice DESC
+  LIMIT(3);
+$$ LANGUAGE sql;
 
 
 -- Проверка функции
