@@ -1,46 +1,53 @@
--- Demonstration A
+-------------------------------------------------------
+--
+-- Модуль 10
+-- Демонстрация 1
+-- Подзапросы, возвращающие скаляр и вектор (multi-valued)
+--
+-------------------------------------------------------
 
--- 1: Scalar subqueries:
+-- 1: Scalar subqueries
 -- Самый последний заказ
 SELECT MAX(orderid) AS lastorder
-FROM "Sales"."Orders";
+FROM sales.orders; -- 11077
 
--- 2: Информация о последнем заказе из Sales.OrderDetails
+-- Информация о самом последнем заказе (по номеру) из sales.orderdetails
 SELECT orderid, productid, unitprice, qty
-FROM "Sales"."OrderDetails"
+FROM sales.orderdetails
 WHERE orderid = 
-	(SELECT MAX(orderid) AS lastorder
-	FROM "Sales"."Orders");
+	(SELECT MAX(orderid) AS lastorder -- 11077
+	FROM sales.orders);
 
 
--- 3: Ошибка - подзапрос вернул более одного значения
+-- Ошибка - подзапрос вернул более одного значения
+-- more than one row returned by a subquery used as an expression
 SELECT orderid, productid, unitprice, qty
-FROM "Sales"."OrderDetails"
+FROM sales.orderdetails
 WHERE orderid = 
 	(SELECT orderid AS O
-	FROM "Sales"."Orders"
-	WHERE empid =2);
+	FROM sales.orders
+	WHERE empid = 2);
 
--- Исправление запроса 3 на Multi-valued
+-- 2: Multi-valued subqueries 
+-- Исправление запроса на Multi-valued
 SELECT orderid, productid, unitprice, qty
-FROM "Sales"."OrderDetails"
-WHERE orderid IN 
+FROM sales.orderdetails
+WHERE orderid IN  -- IN list
 	(SELECT orderid AS O
-	FROM "Sales"."Orders"
-	WHERE empid =2);
+	FROM sales.orders
+	WHERE empid = 2);
 
--- 4: Multi-valued subqueries 
 -- Все заказы от покупателей из Mexico
 SELECT custid, orderid
-FROM "Sales"."Orders"
+FROM sales.orders
 WHERE custid IN (
 	SELECT custid
-	FROM "Sales"."Customers"
+	FROM sales.customers
 	WHERE country = 'Mexico');
 
--- 5: Тот же результат, но через join:
+-- Тот же результат, но через join:
 SELECT c.custid, o.orderid
-FROM "Sales"."Customers" AS c
-JOIN "Sales"."Orders" AS o
+FROM sales.customers AS c
+JOIN sales.orders AS o
 ON c.custid = o.custid
 WHERE c.country = 'Mexico';

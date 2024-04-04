@@ -7,11 +7,13 @@
 ---------------------------------------------------------------------
 -- Task 1
 -- 
--- Напишите SELECT-запрос, возвращающий productid, productname, supplierid, unitprice, discontinued из Production.Products. 
--- Выведите только продукты из категории Beverages (categoryid = 1).
+-- Напишите SELECT-запрос, возвращающий productid, productname, supplierid, unitprice, discontinued из production.products. 
+-- Выведите только продукты из категории напитки (Beverages): categoryid = 1.
+--
 -- Результирующий набор сравните с Lab Exercise1 - Task1 Result.txt
 --
--- Создайте представление Production.ProductBeverages, включив в него код запроса. Найдите созданное представление в обозревателе объектов
+-- Создайте представление production.productbeverages, включив в него код запроса. 
+-- Найдите созданное представление в графической среде.
 ---------------------------------------------------------------------
 
 
@@ -19,7 +21,7 @@
 
 ---
 
-CREATE VIEW "Production"."ProductsBeverages" AS
+CREATE VIEW production.productbeverages AS
 -- добавьте код запроса
 
 
@@ -28,8 +30,9 @@ CREATE VIEW "Production"."ProductsBeverages" AS
 ---------------------------------------------------------------------
 -- Task 2
 -- 
--- Напишите SELECT-запрос к представлению Production.ProductsBeverages, выведите productid и productname.
+-- Напишите SELECT-запрос к представлению production.productbeverages, выведите productid и productname.
 -- Выведите только продукты от поставщика N 1. 
+--
 -- Результирующий набор сравните с Lab Exercise1 - Task2 Result.txt
 ---------------------------------------------------------------------
 
@@ -38,36 +41,41 @@ CREATE VIEW "Production"."ProductsBeverages" AS
 ---------------------------------------------------------------------
 -- Task 3
 -- 
--- Напишите код, изменяющий представление из Task 1 "Production"."ProductsBeverages" (CREATE OR REPLACE)
+-- Напишите код, изменяющий код представления production.productbeverages (CREATE OR REPLACE)
+-- ** Инструкция CREATE OR REPLACE либо создаст представление (если оно не существует),
+--     либо заменит код запроса, при этом порядок, названия и типы данных столбцов должны совпадать;
+--     тем не менее можно добавлять дополнительные столбцы в конец списка.
 -- Представление теперь должно выводить 5 самых дешевых продуктов из категории Beverages (categoryid = 1).
--- Напишите запрос к этому представлению, выведите только productid, productname, unitprice
+-- Напишите запрос к этому представлению, выведите только productid, productname, unitprice.
+--
 -- Результирующий набор сравните с Lab Exercise1 - Task3 Result.txt
 ---------------------------------------------------------------------
 
-CREATE OR REPLACE VIEW "Production"."ProductsBeverages" AS
+CREATE OR REPLACE VIEW production.productbeverages AS
 -- добавьте код запроса
 
 
 ---------------------------------------------------------------------
 -- Task 4
 -- 
--- Коллеги написали запрос, добавляющий дополнительный вычисляемый столбец в представление "Production"."ProductsBeverages"
+-- Коллеги написали запрос, добавляющий дополнительный вычисляемый столбец в представление production.productbeverages.
 -- Выполните код. В чем недостаток такого изменения?
+--
 -- Предложите исправления и измените представление
 --
 ---------------------------------------------------------------------
 
-CREATE OR REPLACE VIEW "Production"."ProductsBeverages" AS
+CREATE OR REPLACE VIEW production.productbeverages AS
 SELECT
 	productid, productname, supplierid, unitprice, discontinued,
 	CASE WHEN unitprice > 100::money THEN 'high' ELSE 'normal' END
-FROM "Production"."Products"
+FROM production.products
 WHERE categoryid = 1;
 
-SELECT * FROM "Production"."ProductsBeverages";
+SELECT * FROM production.productbeverages;
 
 
---- испр
+--- Решение:
 
 
 
@@ -76,4 +84,4 @@ SELECT * FROM "Production"."ProductsBeverages";
 -- Удалить представление
 ---------------------------------------------------------------------
 
-DROP VIEW IF EXISTS "Production"."ProductsBeverages";
+DROP VIEW IF EXISTS production.productbeverages;

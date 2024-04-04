@@ -1,26 +1,26 @@
-fullname	city	country
-----------	-----	----------------------------------
-Customer NRZBB: Allen, Michael	Berlin	Germany
-Customer XHXJV: Poland, Carole	Mannheim	Germany
-Customer QXVLA: Bansal, Dushyant	Strasbourg	France
-Customer RTXGC: Raghav, Amritansh	Marseille	France
-Customer FEVNN: Jones, TiAnna	Aachen	Germany
-Customer BSVAR: Rizaldy, Arif	Nantes	France
-Customer WVFAF: Khanna, Karan	Lille	France
-Customer AZJED: Carlson, Jason	München	Germany
-Customer USDBG: Koch, Paul	Nantes	France
-Customer GLLAG: Song, Lolan	Brandenburg	Germany
-Customer EFFTC: De Oliveira, Jose	Versailles	France
-Customer XIIWM: Litton, Tim	Toulouse	France
-Customer OXFRU: Louverdis, George	Frankfurt a.M.	Germany
-Customer PZNLA: Dupont-Roc, Patrice	Leipzig	Germany
-Customer QNIVZ: Marinova, Nadejda	Köln	Germany
-Customer WVAXS: Tollevsen, Bjørn	Paris	France
-Customer IRRVL: Veronesi, Giorgio	Cunewalde	Germany
-Customer YSHXL: O’Brien, Dave	Paris	France
-Customer FAPSM: Wickham, Jim	Münster	Germany
-Customer NRCSK: Tuntisangaroon, Sittichai	Lyon	France
-Customer ENQZT: McLin, Nkenge	Reims	France
-Customer SNXOJ: Syamala, Manoj	Stuttgart	Germany
+fullname	                                city	        country
+----------------------------                --------------	------------------
+Customer NRZBB: Allen, Michael	            Berlin	        Germany
+Customer XHXJV: Poland, Carole	            Mannheim	    Germany
+Customer QXVLA: Bansal, Dushyant	        Strasbourg	    France
+Customer RTXGC: Raghav, Amritansh	        Marseille	    France
+Customer FEVNN: Jones, TiAnna	            Aachen	        Germany
+Customer BSVAR: Rizaldy, Arif	            Nantes	        France
+Customer WVFAF: Khanna, Karan	            Lille	        France
+Customer AZJED: Carlson, Jason	            München	        Germany
+Customer USDBG: Koch, Paul	                Nantes	        France
+Customer GLLAG: Song, Lolan	                Brandenburg	    Germany
+Customer EFFTC: De Oliveira, Jose	        Versailles	    France
+Customer XIIWM: Litton, Tim	                Toulouse	    France
+Customer OXFRU: Louverdis, George	        Frankfurt a.M.	Germany
+Customer PZNLA: Dupont-Roc, Patrice	        Leipzig	        Germany
+Customer QNIVZ: Marinova, Nadejda	        Köln	        Germany
+Customer WVAXS: Tollevsen, Bjørn	        Paris	        France
+Customer IRRVL: Veronesi, Giorgio	        Cunewalde	    Germany
+Customer YSHXL: O’Brien, Dave	            Paris	        France
+Customer FAPSM: Wickham, Jim	            Münster	        Germany
+Customer NRCSK: Tuntisangaroon, Sittichai	Lyon	        France
+Customer ENQZT: McLin, Nkenge	            Reims	        France
+Customer SNXOJ: Syamala, Manoj	            Stuttgart	    Germany
 
 (22 row(s) affected)

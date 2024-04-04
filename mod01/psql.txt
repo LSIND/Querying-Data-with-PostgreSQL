@@ -1,17 +1,28 @@
 
-смена кодовой страницы
-
+(для Windows) смена кодовой страницы 
 cmd.exe /c chcp 1251
 
-
-psql - U postgres
+# Подключение (к localhost от пользователя postgres к БД foodstore):
+psql -U postgres -d foodstore
 Pa55w.rd
 
-\c CSQL
+# также переключиться на нужную БД можно позднее)
+\c foodstore
 
+# Информация о подключении:
+\conninfo
+
+# Установка пути поиска:
+SET search_path = public, hr, sales, production;
+
+# Список схем:
+\dn
+
+# Список таблиц и представлений:
+\dtv
+
+# Информация о таблице sales.customers:
+\d sales.customers
+
+# Выход из psql:
 \q
-
-
-справка по типам данных
-
-\dCS

@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------
 -- LAB 03
 --
--- Exercise 1
+-- Exercise 1 (Solution)
 ---------------------------------------------------------------------
 
 ---------------------------------------------------------------------
@@ -13,20 +13,20 @@
 ---------------------------------------------------------------------
 -- Task 2
 -- 
--- Напишите SELECT-запрос, возвращающий все строки и столбцы таблицы Sales.Customers (91 строка)
+-- Напишите SELECT-запрос, возвращающий все строки и столбцы таблицы sales.customers (91 строка)
 ---------------------------------------------------------------------
 
 SELECT *
-FROM "Sales"."Customers";
+FROM sales.customers;
 
 SELECT custid, companyname, contactname, contacttitle, address, city, region, postalcode, country, phone, fax
-FROM "Sales"."Customers";
+FROM sales.customers;
 
 ---------------------------------------------------------------------
 -- Task 3
 -- 
--- В графическом редакторе просмотрите все столбцы таблицы Sales.Customers
+-- В графическом редакторе просмотрите все столбцы таблицы sales.customers
 -- Напишите SELECT-запрос, возвращающий столбцы contactname, address, postalcode, city и country.
 ---------------------------------------------------------------------
 SELECT contactname, address, postalcode, city, country
-FROM "Sales"."Customers";
+FROM sales.customers;

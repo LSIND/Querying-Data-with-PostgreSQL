@@ -1,19 +1,19 @@
 ---------------------------------------------------------------------
 -- LAB 05
 --
--- Exercise 3
+-- Exercise 3 (Solution)
 ---------------------------------------------------------------------
 
 ---------------------------------------------------------------------
 -- Task 1
 -- 
--- 
--- Напишите SELECT-запрос к таблице Sales.Orders table и выведите столбцы orderid и orderdate. 
+-- Напишите SELECT-запрос к таблице sales.orders и выведите столбцы orderid и orderdate. 
 -- Получите 20 последних заказов (упорядочить по дате orderdate).
+--
 -- Результирующий набор сравните с Lab Exercise3 - Task1 Result.txt
 ---------------------------------------------------------------------
 SELECT orderid, orderdate
-FROM "Sales"."Orders"
+FROM sales.orders
 ORDER BY orderdate DESC
 LIMIT 20;
 
@@ -25,7 +25,7 @@ LIMIT 20;
 ---------------------------------------------------------------------
 
 SELECT 	orderid, orderdate
-FROM "Sales"."Orders"
+FROM sales.orders
 ORDER BY orderdate DESC
 OFFSET 0 ROWS FETCH FIRST 20 ROWS ONLY;
 
@@ -34,11 +34,12 @@ OFFSET 0 ROWS FETCH FIRST 20 ROWS ONLY;
 -- 
 -- Напишите SELECT-запрос, возвращающий столбцы productname и unitprice из таблицы Production.Products.
 -- Выполните запрос (77 строк)
--- Измените запрос, получив только 10% строк от всего набора (упорядочить по unitprice)
+-- Измените запрос, получив только 10% строк от всего набора (упорядочить по unitprice).
+--
 -- Результирующий набор сравните с Lab Exercise3 - Task3 Result.txt
 ---------------------------------------------------------------------
 
 SELECT productname, unitprice
-FROM "Production"."Products"
+FROM production.products
 ORDER BY unitprice DESC
-LIMIT (SELECT count(*) FROM "Production"."Products") * 0.1;
+LIMIT (SELECT count(*) FROM production.products) * 0.1;

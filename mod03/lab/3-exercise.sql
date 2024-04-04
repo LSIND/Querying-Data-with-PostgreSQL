@@ -7,44 +7,39 @@
 ---------------------------------------------------------------------
 -- Task 1
 -- 
--- Напишите SELECT-запрос, выводящий столбцы contactname и contacttitle таблицы Sales.Customers
+-- Напишите SELECT-запрос, выводящий столбцы contactname и contacttitle таблицы sales.customers
 -- Задайте псевдоним таблицы - C. Испольуя псевдоним, обратитесь к столбцам
 ---------------------------------------------------------------------
 
-SELECT C.contactname, C.contacttitle 
-FROM "Sales"."Customers" AS C;
+
 
 ---------------------------------------------------------------------
 -- Task 2
 -- 
--- Напишите SELECT-запрос, возвращающий contactname, contacttitle и companyname из таблицы Sales.Customers. 
+-- Напишите SELECT-запрос, возвращающий contactname, contacttitle и companyname из таблицы sales.customers. 
 -- Задайте псевдонимы столбцам: Name, Title, и Company Name соответственно
 ---------------------------------------------------------------------
 
-SELECT C.contactname AS "Name", C.contacttitle AS "Title", C.companyname AS "Company Name"
-FROM "Sales"."Customers" AS C;
+
 
 ---------------------------------------------------------------------
 -- Task 3
 -- 
--- Напишите SELECT-запрос, возвращающий столбец productname таблицы Production.Products
+-- Напишите SELECT-запрос, возвращающий столбец productname таблицы production.products
 -- P - псевдоним таблицы, Product Name - псевдоним столбца.
 ---------------------------------------------------------------------
 
-SELECT P.productname AS "Product Name"
-FROM "Production"."Products" AS P;
+
 
 ---------------------------------------------------------------------
 -- Task 4
 -- 
--- Имеется запрос к таблице Sales.Customers. Ожидалось, что запрос вернет два столбца.
+-- Имеется запрос к таблице sales.customers. Ожидалось, что запрос вернет два столбца.
 -- Почему возвращается один столбец?
--- Исправить запрос, чтобы результирующий набор содержал city и country таблицы Sales.Customers 
+-- Исправить запрос, чтобы результирующий набор содержал city и country таблицы sales.customers
 ---------------------------------------------------------------------
 
 SELECT city country
-FROM "Sales"."Customers";
+FROM sales.customers;
 
 --- исправленный
-SELECT city, country
-FROM "Sales"."Customers";

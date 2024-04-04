@@ -1,7 +1,9 @@
+-- версия СУБД
 SELECT VERSION();
 
+-- текущая дата-время
 SELECT NOW();
-
 SELECT CURRENT_TIMESTAMP;
 
-SELECT * FROM "Sales"."Customers";
+-- Список заказиков
+SELECT * FROM sales.customers;

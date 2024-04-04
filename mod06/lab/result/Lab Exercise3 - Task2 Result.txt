@@ -1,13 +1,19 @@
-fullcontact
-----------------------------------------------------------------------
-Allen, Michael (city: Berlin, region: )
-Hassall, Mark (city: Mйxico D.F., region: )
-Peoples, John (city: Mйxico D.F., region: )
-...
-...
-...
-Smith Jr., Ronaldo (city: Seattle, region: WA)
-Larsson, Katarina (city: Helsinki, region: )
-Conn, Steve (city: Warszawa, region: )
+contactname		city		fullcontact
+-----------------	----------	-------------------------------
+Allen, Michael		Berlin		Allen, Michael (city: Berlin)
+Hassall, Mark		México D.F.	Hassall, Mark (city: México D.F.)
+Peoples, John		México D.F.	Peoples, John (city: México D.F.)
+Arndt, Torsten		London		Arndt, Torsten (city: London)
+Higginbotham, Tom	Luleå		Higginbotham, Tom (city: Luleå)
+Poland, Carole		Mannheim	Poland, Carole (city: Mannheim)
+Bansal, Dushyant	Strasbourg	Bansal, Dushyant (city: Strasbourg)
+Ilyina, Julia		Madrid		Ilyina, Julia (city: Madrid)
+Raghav, Amritansh	Marseille	Raghav, Amritansh (city: Marseille)
+Bassols, Pilar Colome	Tsawassen	Bassols, Pilar Colome (city: Tsawassen, region: BC)
+...................
+Li, Yan			Resende		Li, Yan (city: Resende, region: SP)
+Smith Jr., Ronaldo	Seattle		Smith Jr., Ronaldo (city: Seattle, region: WA)
+Larsson, Katarina	Helsinki	Larsson, Katarina (city: Helsinki)
+Conn, Steve		Warszawa	Conn, Steve (city: Warszawa)
 
 (91 row(s) affected)

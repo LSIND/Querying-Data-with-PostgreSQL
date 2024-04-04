@@ -1,18 +1,21 @@
+-------------------------------------------------------
+--
 -- Модуль 9
-
----------------------------------------------
+-- Демонстрация 2
 -- GROUP BY
----------------------------------------------
+--
+-------------------------------------------------------
+
 
 -- Количество заказов, оформленных каждым сотрудником
 SELECT empid, COUNT(*) AS Total_Orders
-FROM "Sales"."Orders"
+FROM sales.orders
 GROUP BY empid
 ORDER BY Total_Orders asc;
 
--- Количество заказов, оформленных сотрудником N 8 для каждого покупателя по годам
+-- Количество заказов, оформленных сотрудником N 8 для каждого покупателя в каждом конкретном году
 SELECT custid, EXTRACT (YEAR FROM OrderDate) AS yearOrder, COUNT(*) AS Total_Orders
-FROM "Sales"."Orders"
+FROM sales.orders
 WHERE empid = 8
 GROUP BY custid, EXTRACT (YEAR FROM OrderDate)
 ORDER BY custid, yearOrder;
@@ -24,16 +27,16 @@ ORDER BY custid, yearOrder;
 
 -- Источник данных
 SELECT orderid, productid, unitprice
-FROM "Sales"."OrderDetails";
+FROM sales.orderdetails;
 
 -- Условие
 SELECT orderid, productid, unitprice
-FROM "Sales"."OrderDetails"
+FROM sales.orderdetails
 WHERE orderid IN (10248, 10251,10259);
 
 -- Группа
 SELECT orderid, COUNT(productid), SUM(unitprice)
-FROM "Sales"."OrderDetails"
+FROM sales.orderdetails
 WHERE orderid IN (10248, 10250,10259)
 GROUP BY orderid;
 
@@ -45,16 +48,16 @@ GROUP BY orderid;
 
 -- Источник данных
 SELECT custid, orderid
-FROM "Sales"."Orders";
+FROM sales.orders;
 
 -- Условие
 SELECT custid, orderid
-FROM "Sales"."Orders"
+FROM sales.orders
 WHERE shipcity = 'Madrid';
 
 -- Группа
 SELECT custid, COUNT(orderid)
-FROM "Sales"."Orders"
+FROM sales.orders
 WHERE shipcity = 'Madrid'
 GROUP BY custid;
 
@@ -62,12 +65,12 @@ GROUP BY custid;
 
 -- Количество заказов каждого заказчика
 SELECT custid, COUNT(*) AS Total_Orders
-FROM "Sales"."Orders"
+FROM sales.orders
 GROUP BY custid
 ORDER BY Total_Orders DESC;
 
 -- Максимальное количество определенного продукта в заказе
 SELECT ProductID, MAX(qty) AS largest_order
-FROM "Sales"."OrderDetails"
+FROM sales.orderdetails
 GROUP BY productid
 ORDER BY largest_order DESC;

@@ -1,13 +1,13 @@
-contactwithcity
-----------------------------------------------
-Allen, Michael (city: Berlin)
-Hassall, Mark (city: Mйxico D.F.)
-Peoples, John (city: Mйxico D.F.)
-...
-...
-...
-Smith Jr., Ronaldo (city: Seattle)
-Larsson, Katarina (city: Helsinki)
-Conn, Steve (city: Warszawa)
+contactname		city		contactwithcity
+------------------	------------	----------------------------------
+Allen, Michael		Berlin		Allen, Michael (city: Berlin)
+Hassall, Mark		México D.F.	Hassall, Mark (city: México D.F.)
+Peoples, John		México D.F.	Peoples, John (city: México D.F.)
+Arndt, Torsten		London		Arndt, Torsten (city: London)
+Higginbotham, Tom	Luleå		Higginbotham, Tom (city: Luleå)
+....
+Smith Jr., Ronaldo	Seattle		Smith Jr., Ronaldo (city: Seattle)
+Larsson, Katarina	Helsinki	Larsson, Katarina (city: Helsinki)
+Conn, Steve		Warszawa	Conn, Steve (city: Warszawa)
 
 (91 row(s) affected)

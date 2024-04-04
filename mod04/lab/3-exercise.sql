@@ -7,13 +7,13 @@
 ---------------------------------------------------------------------
 -- Task 1
 -- 
--- Выполнить запрос, который создает и заполняет таблицу HR.Calendar для Task 2
+-- Выполните запрос ниже, который создает и заполняет таблицу hr.calendar данными для Task 2.
+-- Таблица заполняется датами за текущий календарный год.
 ---------------------------------------------------------------------
 
-DROP TABLE IF EXISTS "HR"."Calendar";
+DROP TABLE IF EXISTS hr.calendar;
 
-
-CREATE TABLE "HR"."Calendar" (
+CREATE TABLE hr.calendar (
 	calendardate DATE CONSTRAINT PK_Calendar PRIMARY KEY
 );
 
@@ -23,24 +23,25 @@ DECLARE enddate DATE:= make_date(EXTRACT(YEAR FROM NOW())::int, 12, 31);
 
 BEGIN
 WHILE startdate <= enddate LOOP
-
-	INSERT INTO "HR"."Calendar" (calendardate)
+	INSERT INTO hr.calendar (calendardate)
 	VALUES (startdate);
 	startdate = startdate + INTERVAL '1 day';
 END LOOP;
 END $$;
 
 
--- Просмотрите содержимое таблицы HR.Calendar
+-- Просмотрите содержимое таблицы hr.calendar
 SELECT calendardate
-FROM "HR"."Calendar";
+FROM hr.calendar;
 
 ---------------------------------------------------------------------
 -- Task 2
 -- 
 -- Напишите SELECT-запрос, выводящий empid, firstname и lastname из HR.Employees, а также calendardate из HR.Calendar.
 -- Перемножьте все строки левой таблицы на все строки правой. Что это за множество?
+--
 -- Результирующий набор сравните с Lab Exercise3 - Task2 Result.txt
+-- Отличается ли ваш результат от набора из Lab Exercise3 - Task2 Result.txt?
 ---------------------------------------------------------------------
 
 
@@ -48,7 +49,7 @@ FROM "HR"."Calendar";
 ---------------------------------------------------------------------
 -- Task 3
 -- 
--- Удалить таблицу HR.Calendar.
+-- Удалите таблицу hr.calendar.
 ---------------------------------------------------------------------
 
-DROP TABLE IF EXISTS "HR"."Calendar";
+DROP TABLE IF EXISTS hr.calendar

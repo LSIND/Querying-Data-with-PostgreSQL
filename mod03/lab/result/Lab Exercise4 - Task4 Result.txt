@@ -1,13 +1,14 @@
-segmentgroup custid      contactname
------------- ----------- -----------------------
-Other        1           Allen, Michael
-Target group 2           Hassall, Mark
-Target group 3           Peoples, John
+custid	contactname		segmentgroup
+------  ----------- 	-----------------------
+1	Allen, Michael		Other
+2	Hassall, Mark		Target group
+3	Peoples, John		Target group
+4	Arndt, Torsten		Other
 ...
 ...
 ...
-Other        89          Smith Jr., Ronaldo
-Other        90          Larsson, Katarina
-Other        91          Conn, Steve
+89	Smith Jr., Ronaldo	Other
+90	Larsson, Katarina	Other
+91	Conn, Steve		Other
 
 (91 row(s) affected)

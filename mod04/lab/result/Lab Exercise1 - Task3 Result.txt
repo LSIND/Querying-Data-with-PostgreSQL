@@ -1,14 +1,15 @@
-custid      contactname                    orderid
+custid		contactname			orderid
 ----------- ------------------------------ -----------
-1           Allen, Michael                 10643
-1           Allen, Michael                 10692
-1           Allen, Michael                 10702
+85		McLin, Nkenge			10248
+79		Wickham, Jim			10249
+34		Cohen, Shy			10250
+84		Tuntisangaroon, Sittichai	10251
 ...
 ...
 ...
-91          Conn, Steve                    10906
-91          Conn, Steve                    10998
-91          Conn, Steve                    11044
+
+68		Myrcha, Jacek			11075
+9		Raghav, Amritansh		11076
+65		Moore, Michael			11077
 
 (830 row(s) affected)
-

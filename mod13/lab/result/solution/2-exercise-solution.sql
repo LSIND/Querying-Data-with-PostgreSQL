@@ -1,13 +1,13 @@
 ---------------------------------------------------------------------
 -- LAB 13
 --
--- Exercise 2
+-- Exercise 2 (Solution)
 ---------------------------------------------------------------------
 
 ---------------------------------------------------------------------
 -- Task 1
 -- 
--- Определите CTE с именем OrderRows, которое выбирает orderid, orderdate, val из представления Sales.OrderValues. 
+-- Определите CTE с именем OrderRows, которое выбирает orderid, orderdate, val из представления sales.ordervalues. 
 -- Добавьте вычисляемый столбец rowno с помощью фукнции ROW_NUMBER, упорядочив данные по orderdate и orderid. 
 --
 -- Напишите SELECT-запрос к CTE, а также LEFT JOIN к нему же, чтобы получить текущую и предыдущую строки (основываясь на столбце rowno).
@@ -23,7 +23,7 @@ WITH OrderRows AS
 		orderdate,
 		ROW_NUMBER() OVER (ORDER BY orderdate, orderid) AS rowno,
 		val
-	FROM "Sales"."OrderValues"
+	FROM sales.ordervalues
 )
 SELECT 
 	o.orderid,
@@ -39,6 +39,7 @@ LEFT OUTER JOIN OrderRows AS o2 ON o.rowno = o2.rowno + 1;
 -- Task 2
 -- 
 -- Напишите SELECT-запрос с использованием функции LAG для получения тех же результатов, что и в Task 1 (без CTE)
+--
 -- Результирующий набор сравните с Lab Exercise2 - Task2 Result.txt
 ---------------------------------------------------------------------
 
@@ -48,7 +49,7 @@ SELECT
 	val,
 	LAG(val) OVER (ORDER BY orderdate, orderid) AS prevval,
 	val - LAG(val) OVER (ORDER BY orderdate, orderid) AS diffprev
-FROM "Sales"."OrderValues";
+FROM sales.ordervalues;
 
 ---------------------------------------------------------------------
 -- Task 3
@@ -58,13 +59,13 @@ FROM "Sales"."OrderValues";
 --   val (сумма по столбцу val).
 --  Месяца и суммы должны быть только за 2007 год
 --
--- Напишите SELECT-запрос к CTE и получите monthno и val columns, а также три вычисляемых столбца:
---  avglast3months - среднее количество продаж за предыдущие три месяца (относительно текущей строки). (LAG(1) + LAG(2) +LAG(3)) / 3
---  diffjanuary - разница между текущей строкой и значением за Январь. FIRST_VALUE 
---  nextval - следующее значение val для текущей строки. LEAD
+-- Напишите SELECT-запрос к CTE и получите столбцы monthno и val, а также три вычисляемых столбца:
+--  avglast3months - среднее количество продаж за предыдущие три месяца (относительно текущей строки): (LAG(1) + LAG(2) +LAG(3)) / 3
+--  diffjanuary - разница между текущей строкой и значением за Январь: FIRST_VALUE 
+--  nextval - следующее значение val для текущей строки: LEAD
 --
 -- Результирующий набор сравните с Lab Exercise2 - Task3 Result.txt
--- Обратите внимание, что среднее за предыдущие три месяца рассчитано неверно для строки 2
+-- Обратите внимание, что среднее за предыдущие три месяца (avglast3months) рассчитано неверно для строк 2 и 3.
 ---------------------------------------------------------------------
 
 WITH SalesMonth2007 AS
@@ -72,7 +73,7 @@ WITH SalesMonth2007 AS
 	SELECT
 		EXTRACT(MONTH FROM orderdate) AS monthno,
 		SUM(val) AS val
-	FROM "Sales"."OrderValues"
+	FROM sales.ordervalues
 	WHERE orderdate >= '20070101' AND orderdate < '20080101'
 	GROUP BY monthno
 )

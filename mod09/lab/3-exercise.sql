@@ -11,6 +11,7 @@
 -- Что на самом деле вернул запрос? Почему количество заказов и заказчиков одинаковое?
 --
 -- Исправьте запрос.
+--
 -- Результирующий набор сравните с Lab Exercise3 - Task1 Result.txt
 ---------------------------------------------------------------------
 
@@ -18,7 +19,7 @@ SELECT
 	EXTRACT (YEAR FROM orderdate) AS orderyear, 
 	COUNT(orderid) AS nooforders, 
 	COUNT(custid) AS noofcustomers
-FROM "Sales"."Orders"
+FROM sales.orders
 GROUP BY EXTRACT (YEAR FROM orderdate);
 
 --исправленный
@@ -28,8 +29,9 @@ GROUP BY EXTRACT (YEAR FROM orderdate);
 -- Task 2
 -- 
 -- Напишите SELECT-запрос, возвращающий количество заказчиков, сгруппированных по первой букве имени (столбец contactname) таблицы Sales.Customers
--- Добавьте дополнительный столбец, рассчитывающий общее количество заказов для групп.
--- Псевдонимы -  firstletter, noofcustomers и nooforders. Упорядочить по первому столбцу firstletter.
+-- Добавьте дополнительный столбец, рассчитывающий общее количество заказов для каждой группы (A, B, C...).
+-- Псевдонимы на столбцы: firstletter, noofcustomers и nooforders. Упорядочить по первому столбцу firstletter (по алфавиту).
+--
 -- Результирующий набор сравните с Lab Exercise3 - Task2 Result.txt
 ---------------------------------------------------------------------
 
@@ -39,10 +41,10 @@ GROUP BY EXTRACT (YEAR FROM orderdate);
 ---------------------------------------------------------------------
 -- Task 3
 -- 
--- Скопируйте запрос Exercise 1 - Task 4, возвращающий группы по categoryname из таблицы Production.Categories. 
--- Включите только те категории, продукты которых были оформлены в 2008 году.
--- Для каждой категории продуктов добавьте информацию: общее количество продаж, количество заказов и среднее количество заказов за год
--- Псевдонимы totalsalesamount, nooforders и avgsalesamountperorder.
+-- Скопируйте запрос Exercise 1 - Task 4, возвращающий категории (categoryid и categoryname) из таблицы Production.Categories. 
+-- Включите категории, продукты которых были проданы за весь 2008 год.
+-- Для каждой категории продуктов расчитайте: общую сумму продаж, количество заказов и средняя сумма продаж за год
+-- Псевдонимы totalsalesamount (SUM), nooforders (COUNT distinct) и avgsalesamountperorder (SUM/COUNT).
 --
 -- Результирующий набор сравните с Lab Exercise3 - Task3 Result.txt
 ---------------------------------------------------------------------

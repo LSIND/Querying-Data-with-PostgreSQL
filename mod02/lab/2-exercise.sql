@@ -14,7 +14,7 @@ SELECT  firstname
 		,lastname
 		,city
 		,country
-FROM	"HR"."Employees"
+FROM	hr.employees
 WHERE	country = 'USA';
 
 ---------------------------------------------------------------------
@@ -25,17 +25,17 @@ WHERE	country = 'USA';
 
 /*SELECT  firstname
 		,lastname		
-FROM	"HR"."Employees"
+FROM	hr.employees
 WHERE	country = 'USA';*/
 
 ---------------------------------------------------------------------
 -- Task 3
 -- 
--- Выполните запрос. Чем отличается результат от Task 2
+-- Выполните запрос. Чем отличается результат от результата Task 2?
 ---------------------------------------------------------------------
 SELECT	firstname
 		,lastname
-FROM	"HR"."Employees"
+FROM	hr.employees
 WHERE	country = 'USA'
 ORDER BY lastname;
 ---------------------------------------------------------------------

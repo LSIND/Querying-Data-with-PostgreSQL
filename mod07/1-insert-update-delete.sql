@@ -1,35 +1,40 @@
------------------------------------------------------------------------
------------------------------------------------------------------------
+-------------------------------------------------------
+--
+-- Модуль 7
+-- Демонстрация 1
+-- Обзор DML-операций
+--
+-------------------------------------------------------
 
---	Таблица "NewProducts". Создаем и заполняем через SELECT * INTO
-DROP TABLE IF EXISTS "public"."NewProducts";
+--	Таблица newProducts на схеме public. Создаем и заполняем через SELECT * INTO
+DROP TABLE IF EXISTS public.newproducts;
 
-SELECT * INTO "public"."NewProducts"
-FROM "Production"."Products" 
+SELECT * INTO public.newproducts
+FROM production.products
 WHERE productid >= 70; 
 
--- Таблица NewOrderDetails. Также создаем и заполняем через SELECT * INTO
-DROP TABLE IF EXISTS "public"."NewOrderDetails";
+-- Таблица newOrderDetails на схеме public. Также создаем и заполняем через SELECT * INTO
+DROP TABLE IF EXISTS public.neworderdetails;
 
-SELECT * INTO "public"."NewOrderDetails"
-FROM "Sales"."OrderDetails" WHERE productid >= 70;
-
--- Удаляем данные из оригинальных таблиц
-DELETE FROM "Sales"."OrderDetails"
-WHERE productid >= 70;
-
-DELETE FROM "Production"."Products"
-WHERE productid >= 70;
+SELECT * INTO public.neworderdetails
+FROM sales.orderdetails WHERE productid >= 70;
 
 -- Проверяем данные в новых таблицах
-SELECT * FROM "public"."NewProducts";
-SELECT * FROM "public"."NewOrderDetails";
+SELECT * FROM public.newproducts;
+SELECT * FROM public.neworderdetails;
 
--- Проверяем, что данные удалены из оригинальных таблиц
-SELECT * FROM "Sales"."OrderDetails"	
+-- Удаляем данные из оригинальных таблиц
+DELETE FROM sales.orderdetails 
 WHERE productid >= 70;
 
-SELECT * FROM "Production"."Products"
+DELETE FROM production.products
+WHERE productid >= 70;
+
+-- Проверяем, что данные удалены из оригинальных таблиц
+SELECT * FROM sales.orderdetails 	
+WHERE productid >= 70;
+
+SELECT * FROM production.products
 WHERE productid >= 70;
 
 -----------------------------------------------------------------------
@@ -37,20 +42,20 @@ WHERE productid >= 70;
 
 -- Возвращаем данные с помощью INSERT ... SELECT
 
-INSERT INTO "Production"."Products" (productid, productname, supplierid, categoryid, unitprice)
-SELECT productid, productname, supplierid, categoryid, unitprice FROM "public"."NewProducts";
+INSERT INTO production.products (productid, productname, supplierid, categoryid, unitprice)
+SELECT productid, productname, supplierid, categoryid, unitprice FROM public.newproducts;
 
-SELECT * FROM "Production"."Products"
+SELECT * FROM production.products
 WHERE productid >= 70;
 
 -- OrderDetails - INSERT .. SELECT
-INSERT INTO "Sales"."OrderDetails" (orderid, productid, unitprice, qty, discount)
-SELECT * FROM "public"."NewOrderDetails";
+INSERT INTO sales.orderdetails  (orderid, productid, unitprice, qty, discount)
+SELECT * FROM public.neworderdetails;
 
-SELECT * FROM "Sales"."OrderDetails"
+SELECT * FROM sales.orderdetails 
 WHERE productid >= 70;
 
 
 -- Удаляем объекты демонстрации
-DROP TABLE IF EXISTS "public"."NewOrderDetails";
-DROP TABLE IF EXISTS "public"."NewProducts";
+DROP TABLE IF EXISTS public.neworderdetails;
+DROP TABLE IF EXISTS public.newproducts;

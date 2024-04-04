@@ -1,20 +1,14 @@
-empid	firstname lastname	orderid	orderdate	productid	productname	unitprice
+empid	firstname	lastname	orderid	orderdate		productname	unitprice
 -----	--------- ---------	------- ---------	---------	-----------	---------
-1	Sara	Davis	10776	2007-12-15T00:00:00	51	Product APITJ	$53.00
-1	Sara	Davis	10325	2006-10-09T00:00:00	14	Product PWCJB	$23.25
-1	Sara	Davis	10591	2007-07-07T00:00:00	3	Product IMEHJ	$10.00
-1	Sara	Davis	10591	2007-07-07T00:00:00	7	Product HMLNI	$30.00
-1	Sara	Davis	10591	2007-07-07T00:00:00	54	Product QAQRL	$7.45
-
-..........
-
-9	Zoya	Dol pyatova	10893	2008-02-18T00:00:00	36	Product GMKIJ	$19.00
-9	Zoya	Dol pyatova	10893	2008-02-18T00:00:00	30	Product LYERX	$25.89
-9	Zoya	Dol pyatova	10893	2008-02-18T00:00:00	29	Product VJXYN	$123.79
-9	Zoya	Dol pyatova	10893	2008-02-18T00:00:00	24	Product QOGNU	$4.50
-9	Zoya	Dol pyatova	10893	2008-02-18T00:00:00	8	Product WVJFP	$40.00
-9	Zoya	Dol pyatova	10889	2008-02-16T00:00:00	38	Product QDOMO	$263.50
-9	Zoya	Dol pyatova	10889	2008-02-16T00:00:00	11	Product QMVUN	$21.00
-9	Zoya	Dol pyatova	11058	2008-04-29T00:00:00	61	Product XYZPE	$28.50
+1	Sara		Davis		10776	2007-12-15 00:00:00	Product APITJ	$53.00
+1	Sara		Davis		10325	2006-10-09 00:00:00	Product PWCJB	$23.25
+1	Sara		Davis		10591	2007-07-07 00:00:00	Product IMEHJ	$10.00
+1	Sara		Davis		10591	2007-07-07 00:00:00	Product HMLNI	$30.00
+...
+...
+...
+9	Zoya	Dolgopyatova		10889	2008-02-16 00:00:00	Product QDOMO	$263.50
+9	Zoya	Dolgopyatova		10889	2008-02-16 00:00:00	Product QMVUN	$21.00
+9	Zoya	Dolgopyatova		11058	2008-04-29 00:00:00	Product XYZPE	$28.50
 
 (2155 row(s) affected)

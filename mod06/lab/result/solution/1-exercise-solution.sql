@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------
 -- LAB 06
 --
--- Exercise 1
+-- Exercise 1 (Solution)
 ---------------------------------------------------------------------
 
 ---------------------------------------------------------------------
@@ -26,10 +26,10 @@ SELECT
 	CURRENT_TIMESTAMP AS currentdatetime,
 	CAST(CURRENT_TIMESTAMP AS date) AS currentdate,
 	CAST(CURRENT_TIMESTAMP AS time) AS currenttime,
-	EXTRACT(YEAR FROM CURRENT_TIMESTAMP)::int AS currentyear,
-	EXTRACT(MONTH FROM CURRENT_TIMESTAMP)::int AS currentmonth,
-	EXTRACT(DAY FROM CURRENT_TIMESTAMP)::int AS currentday,
-	EXTRACT(week FROM CURRENT_TIMESTAMP)::int AS currentweeknumber,
+	EXTRACT(YEAR FROM CURRENT_TIMESTAMP) AS currentyear,
+	EXTRACT(MONTH FROM CURRENT_TIMESTAMP) AS currentmonth,
+	EXTRACT(DAY FROM CURRENT_TIMESTAMP) AS currentday,
+	EXTRACT(week FROM CURRENT_TIMESTAMP) AS currentweeknumber,
 	TO_CHAR(CURRENT_TIMESTAMP, 'Month') AS currentmonthname;
 
 
@@ -55,6 +55,6 @@ SELECT to_char('2020-12-11'::date, 'Month DD, YYYY. Неделя WW') AS somedat
 
 SELECT 
 	CURRENT_TIMESTAMP + interval '3 months' AS threemonths,
-	date_part('day', (CURRENT_TIMESTAMP + interval '3 months')::timestamp - CURRENT_TIMESTAMP)::int AS diffdays,
+	date_part('day', (CURRENT_TIMESTAMP + interval '3 months')::timestamp - CURRENT_TIMESTAMP) AS diffdays,
 	AGE('19920404'::timestamp, '20110916'::timestamp) AS diffAge,
 	date_trunc('month', current_date) AS firstday; 
