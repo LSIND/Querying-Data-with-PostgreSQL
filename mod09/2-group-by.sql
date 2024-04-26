@@ -69,8 +69,27 @@ FROM sales.orders
 GROUP BY custid
 ORDER BY Total_Orders DESC;
 
--- Максимальное количество определенного продукта в заказе
+
+-- Максимальное количество определенного продукта в заказе (купленного в количестве за раз)
 SELECT ProductID, MAX(qty) AS largest_order
 FROM sales.orderdetails
 GROUP BY productid
 ORDER BY largest_order DESC;
+
+
+-- Статистика заказов по дням недели: общее количество заказов и сумма продаж
+SELECT to_char(orderdate, 'D') as n, to_char(orderdate, 'DAY'), COUNT(*) AS total_orders, SUM(qty*unitprice) as total
+FROM sales.orders as o
+JOIN sales.orderdetails as od
+ON o.orderid = od.orderid
+GROUP BY to_char(orderdate, 'D'), to_char(orderdate, 'DAY')
+ORDER BY n;
+
+
+-- * Статистика по заказам каждого месяца: количество завершенных заказов, количество заказов в работе
+SELECT EXTRACT(YEAR FROM orderdate) as yyyy, EXTRACT(MONTH FROM orderdate) as mm,
+SUM(CASE WHEN shippeddate IS NOT NULL THEN 1 ELSE 0 END) AS closed,
+SUM(CASE WHEN shippeddate IS NULL THEN 1 ELSE 0 END) AS notsend
+FROM sales.orders as o
+GROUP BY EXTRACT(YEAR FROM orderdate), EXTRACT(MONTH FROM orderdate)
+ORDER BY yyyy, mm;

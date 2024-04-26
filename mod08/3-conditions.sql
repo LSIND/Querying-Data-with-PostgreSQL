@@ -14,7 +14,7 @@ SELECT GREATEST(1,null,5), LEAST(1,null,-5); -- пустые значения (N
 
 SELECT LEAST('1970-12-10','2000-11-11','2019-01-01');
 
--- возвращаем либо исходную цену продукта, либо 20$, если цена меньше
+-- возвращаем либо исходную цену продукта, либо 20 у.е, если цена меньше
 SELECT 	productid, unitprice, GREATEST(unitprice, 20::money) AS pricepoint
 FROM production.products;
 

@@ -6,7 +6,7 @@
 --
 -------------------------------------------------------
 
---	Таблица newProducts на схеме public. Создаем и заполняем через SELECT * INTO
+-- Таблица newproducts на схеме public. Создаем и заполняем через SELECT * INTO
 DROP TABLE IF EXISTS public.newproducts;
 
 SELECT * INTO public.newproducts
@@ -40,15 +40,16 @@ WHERE productid >= 70;
 -----------------------------------------------------------------------
 -----------------------------------------------------------------------
 
--- Возвращаем данные с помощью INSERT ... SELECT
+-- Возвращаем данные с помощью INSERT INTO ... SELECT
 
 INSERT INTO production.products (productid, productname, supplierid, categoryid, unitprice)
-SELECT productid, productname, supplierid, categoryid, unitprice FROM public.newproducts;
+SELECT productid, productname, supplierid, categoryid, unitprice 
+FROM public.newproducts;
 
 SELECT * FROM production.products
 WHERE productid >= 70;
 
--- OrderDetails - INSERT .. SELECT
+-- OrderDetails - INSERT INTO .. SELECT
 INSERT INTO sales.orderdetails  (orderid, productid, unitprice, qty, discount)
 SELECT * FROM public.neworderdetails;
 

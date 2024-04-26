@@ -58,7 +58,7 @@ SELECT p.categoryid, p.productname,
 			WHEN 8 THEN 'Seafood'
 			ELSE 'Other'
 		END AS categoryname,
-        CASE	
+        CASE
 			WHEN p.categoryid IN (1, 7, 8) THEN 'Campaign Products'
 			ELSE 'Non-Campaign Products' 
 		END AS iscampaign
@@ -69,7 +69,7 @@ FROM production.products AS p;
 -- Task 4
 -- 
 -- Напишите SELECT-запрос, возвращающий custid и contactname из sales.customers.
--- Добавьте вычисляемый столбец с именем segmentgroup, выводящий target group для заказчиков из Mexico и имеющих значение Owner в contacttitle. 
+-- Добавьте вычисляемый столбец с именем segmentgroup, выводящий значение 'Target group' для заказчиков из Mexico и имеющих значение Owner в contacttitle. 
 -- Для всех остальных выводите 'Other'. 
 --
 -- Результирующий набор сравните с Lab Exercise4 - Task4 Result.txt. 

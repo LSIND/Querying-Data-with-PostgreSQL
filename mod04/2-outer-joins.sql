@@ -51,3 +51,9 @@ FROM production.products AS P
 RIGHT OUTER JOIN production.categories AS C
 ON P.categoryid = C.categoryid
 WHERE P.categoryid IS NULL;
+
+
+
+-- 7. Удалим созданную категорию N 10
+DELETE FROM production.categories
+WHERE categoryid = 10;

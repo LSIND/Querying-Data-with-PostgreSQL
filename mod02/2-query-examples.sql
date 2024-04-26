@@ -7,7 +7,7 @@
 -------------------------------------------------------
 
 
--- 1. Список продуктов дороже 50 руб, купленных более 300 раз
+-- 1. Список продуктов дороже 50 у.е., купленных более 300 раз
 SELECT	ProductID,UnitPrice,SUM(qty) as TotalOrdered
 FROM sales.orderdetails
 WHERE UnitPrice > 50::money
@@ -16,12 +16,12 @@ HAVING SUM(qty) > 300
 ORDER BY TotalOrdered DESC;
 
 
--- 2. Все данные из таблицы sales.orderdetails (*)
+-- 2. Все данные таблицы sales.orderdetails (*)
 SELECT *
 FROM sales.orderdetails;
 
 
--- 3. Список продуктов дороже 50 руб в виде строк в заказах
+-- 3. Список продуктов, проданных дороже 50 у.е. (из таблицы orderdetails - позиции в заказах)
 SELECT * 
 FROM sales.orderdetails
 WHERE UnitPrice > 50::money
@@ -35,7 +35,8 @@ FROM sales.orderdetails
 WHERE UnitPrice > 50::money
 GROUP BY ProductID, UnitPrice;
 
--- Исправление запроса
+-- Исправление запроса 
+-- Общее количество проданных товаров по определенной цене (дороже 50 у.е.) 
 SELECT	ProductID
 		,UnitPrice
 		,SUM(qty) as TotalOrdered

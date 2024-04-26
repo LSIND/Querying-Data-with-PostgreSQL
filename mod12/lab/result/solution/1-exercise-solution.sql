@@ -21,7 +21,7 @@ WHERE categoryid = 4; -- 10 продуктов категории #4
 -- Task 2
 -- 
 -- Напишите SELECT-запрос, выводящий productid и productname из таблицы production.products.
--- Вывдите только тех продукты, суммы продаж которых превышают $50,000. Суммы продаж получить из sales.orderdetails как (qty * unitprice).
+-- Выведите только те продукты, суммы продаж которых превышают 50,000 у.е. Суммы продаж получить из sales.orderdetails как (qty * unitprice).
 --
 -- Результирующий набор сравните с Lab Exercise1 - Task2 Result.txt
 ---------------------------------------------------------------------
@@ -41,6 +41,8 @@ HAVING SUM(d.qty * d.unitprice) > 50000::money; -- 4 продукта
 -- Результирующий набор сравните с Lab Exercise1 - Task3_1 Result.txt. Сколько строк получилось?
 --
 -- Скопируйте запрос и замените оператор UNION на UNION ALL. 
+-- Упорядочить результат по первому столбцу (productid).
+--
 -- Результирующий набор сравните с Lab Exercise1 - Task3_2 Result.txt. Сколько строк получилось? Почему?
 ---------------------------------------------------------------------
 
@@ -54,9 +56,10 @@ FROM sales.orderdetails as d
 INNER JOIN production.products as p 
 ON p.productid = d.productid
 GROUP BY d.productid, p.productname
-HAVING SUM(d.qty * d.unitprice) > 50000::money;
+HAVING SUM(d.qty * d.unitprice) > 50000::money
+ORDER BY productid;
 
--- UNION ALL: `склеивание наоборов`: 10 строк первого + 4 строки второго = 14 итоговых строк
+-- UNION ALL: `склеивание наборов`: 10 строк первого + 4 строки второго = 14 итоговых строк
 SELECT productid, productname
 FROM production.products
 WHERE categoryid = 4
@@ -66,7 +69,8 @@ FROM sales.orderdetails as d
 INNER JOIN production.products as p 
 ON p.productid = d.productid
 GROUP BY d.productid, p.productname
-HAVING SUM(d.qty * d.unitprice) > 50000::money;
+HAVING SUM(d.qty * d.unitprice) > 50000::money
+ORDER BY 1;
 
 ---------------------------------------------------------------------
 -- Task 4

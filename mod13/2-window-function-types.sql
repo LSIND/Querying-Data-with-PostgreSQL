@@ -20,7 +20,7 @@ AS
 
 SELECT * FROM production.categorizedproducts;
 
--- Общая сумма продаж по каждому сотруднику в каждый его год работы
+-- Общая сумма продаж по каждому сотруднику в каждый год его работы
 DROP VIEW IF EXISTS sales.ordersbyemployeeyear;
 CREATE VIEW sales.ordersbyemployeeyear
 AS
@@ -36,7 +36,9 @@ SELECT * FROM sales.ordersbyemployeeyear;
 SELECT custid, ordermonth, qty, to_char(ordermonth, 'Month YYYY') FROM sales.custorders;
 
 
+-------------------------------------------------------
 -- 2: Оконные функции агрегирования
+-------------------------------------------------------
 
 -- Общее количество продуктов по заказчику (одно значение на группу)
 -- Сумма количества по partition (Custid)
@@ -70,17 +72,18 @@ ORDER BY custid, ordermonth;
 -- ** Скользящее среднее
 -- Среднее как сумма значений текущего месяца, предыдущего и последующего, деленное на 3.
 -- (округляем до 2х знаков после запятой)
-SELECT  mo_yyyy, total, 
+SELECT  mo_yyyy, totalpercust, 
 ROUND(AVG(totalpercust) OVER (order by mo_yyyy rows between 1 preceding and 1 following), 2)  as roll_avg
 FROM
 (SELECT to_char(ordermonth, 'Month YYYY') as mo_yyyy,
-        SUM(qty) as total -- общее количество за месяц
-FROM  sales.custorders 
+        SUM(qty) as totalpercust -- общее количество за месяц
+FROM sales.custorders 
 GROUP BY ordermonth) t
 order by mo_yyyy;
 
 -- ** string_agg
--- нарастающий итог, 'добавляющий' кол-во заказов через запятую (строки) относительно каждого покупателя
+-- нарастающий итог, 'добавляющий' кол-во купленных товаров через запятую (строки) каждого месяца
+-- для каждого покупателя
 SELECT  custid,
         to_char(ordermonth, 'Month YYYY') mo_yyyy,
         qty,
@@ -89,7 +92,9 @@ FROM  sales.custorders
 ORDER BY custid, ordermonth;
 
 
--- 3: Функции ранжирования (ORDER BY - обязательно в OVER)
+-------------------------------------------------------
+-- 3: Функции ранжирования (ORDER BY - обязателен в OVER)
+-------------------------------------------------------
 
 -- RANK() по цене (ранжирование ВСЕХ продуктов по цене)
 SELECT CatID, CatName, ProdName, UnitPrice,
@@ -134,7 +139,9 @@ FROM production.categorizedproducts
 ORDER BY CatID, UnitPrice DESC; 
 
 
+-------------------------------------------------------
 -- 4: Функции сдвига
+-------------------------------------------------------
 
 -- LAG для сравнения продаж сотрудника в текущем году с предыдущим годом
 SELECT employee, orderyear, totalsales AS currentsales,

@@ -37,7 +37,7 @@ FROM hr.calendar;
 ---------------------------------------------------------------------
 -- Task 2
 -- 
--- Напишите SELECT-запрос, выводящий empid, firstname и lastname из HR.Employees, а также calendardate из HR.Calendar.
+-- Напишите SELECT-запрос, выводящий empid, firstname и lastname из HR.Employees, а также calendardate из hr.calendar.
 -- Перемножьте все строки левой таблицы на все строки правой. Что это за множество?
 --
 -- Результирующий набор сравните с Lab Exercise3 - Task2 Result.txt
@@ -52,4 +52,4 @@ FROM hr.calendar;
 -- Удалите таблицу hr.calendar.
 ---------------------------------------------------------------------
 
-DROP TABLE IF EXISTS hr.calendar
+DROP TABLE IF EXISTS hr.calendar;

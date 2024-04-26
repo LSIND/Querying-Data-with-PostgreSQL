@@ -40,7 +40,7 @@
 -- Task 4
 -- 
 -- Напишите SELECT-запрос, возвращающий custid и contactname из sales.customers.
--- Добавьте вычисляемый столбец с именем segmentgroup, выводящий target group для заказчиков из Mexico и имеющих значение Owner в contacttitle. 
+-- Добавьте вычисляемый столбец с именем segmentgroup, выводящий значение 'Target group' для заказчиков из Mexico и имеющих значение Owner в contacttitle. 
 -- Для всех остальных выводите 'Other'. 
 --
 -- Результирующий набор сравните с Lab Exercise4 - Task4 Result.txt. 

@@ -28,13 +28,11 @@ SELECT SUBSTRING('Изучаем язык SQL',14,3) AS Result; -- Подстр�
 SELECT LEFT('Изучаем язык SQL', 7) AS left_example, RIGHT('Изучаем язык SQL',3) as right_example;
 
 -------
-SELECT LENGTH('SQL Language') AS LE, LENGTH('SQL Language     '), CHAR_LENGTH('SQL Language     '); -- длина строки в символах
-SELECT LENGTH('Год'), octet_length('Год') AS LCyr, octet_length('Red') as LLat, octet_length('象形字') AS LCh; -- длина строки в байтах (зависит от кодировки)
+SELECT LENGTH('SQL Language  ') AS LE, CHAR_LENGTH('SQL Language  '); -- длина строки в символах
+SELECT LENGTH('Год'), octet_length('Год') AS LCyr, 
+octet_length('Red') as LLat, octet_length('象形字') AS LCh; -- длина строки в байтах (зависит от кодировки)
 
-SELECT pg_column_size('Red'::varchar); -- размер в байтах в зависимости от типа данных (3 символа + 4б)
-SELECT pg_column_size('red'::char(20)); -- размер ячейки в зависимости от типа данных (20б + 4б)
 -------
-
 
 SELECT position('SQL' in 'Изучаем язык SQL') pos, strpos('Изучаем язык SQL', 'SQL') AS strpos;
 

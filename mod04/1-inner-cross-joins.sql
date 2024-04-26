@@ -7,10 +7,10 @@
 -------------------------------------------------------
 
 -------------------------------------------------------
--- 1. SQL'89 vs SQL'92
+-- 1. SQL:89 vs SQL:92
 -------------------------------------------------------
 
--- Продукты и их категории: SQL'89
+-- Продукты и их категории: SQL:89
 -- Без WHERE - Декартово множество (77 строк продуктов * 8 строк категорий)
 -- EXPLAIN
 SELECT P.productid, P.productname, C.categoryname
@@ -18,7 +18,7 @@ FROM production.products AS P, production.categories AS C
 WHERE P.categoryid = C.categoryid; 
 
 
--- Продукты и их категории: SQL'92
+-- Продукты и их категории: SQL:92
 -- Инструкцию ON удалить нельзя - синтаксическая ошибка
 -- EXPLAIN
 SELECT P.productid, P.productname, C.categoryname
@@ -43,7 +43,7 @@ FROM production.products AS P
 INNER JOIN production.categories AS C
 ON P.categoryid = C.categoryid;
 
--- inner composite join.
+-- inner composite join
 SELECT e.city, e.country
 FROM sales.customers AS c
 JOIN hr.employees AS e 
@@ -70,11 +70,11 @@ ON o.orderid = od.orderid;
 -- 3. CROSS JOIN
 -------------------------------------------------------
 
--- SQL'89. Декартово множество (77 строк продуктов * 8 строк категорий)
+-- SQL:89. Декартово множество (77 строк продуктов * 8 строк категорий)
 SELECT P.productid, P.productname, C.categoryname
 FROM production.products AS P, production.categories AS C;
 
--- SQL'92. CROSS JOIN - Декартово множество
+-- SQL:92. CROSS JOIN - Декартово множество
 SELECT P.productid, P.productname, C.categoryname
 FROM production.products AS P
 CROSS JOIN production.categories AS C;

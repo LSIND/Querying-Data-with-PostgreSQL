@@ -18,6 +18,12 @@ WHERE orderid =
 	(SELECT MAX(orderid) AS lastorder -- 11077
 	FROM sales.orders);
 
+-- Какой процент оформленных заказов приходится на каждого сотрудника?
+SELECT e.empid, e.lastname, COUNT(o.orderid) as total_orders,
+ROUND(COUNT(o.orderid)/(SELECT COUNT(*) FROM sales.orders )::numeric * 100, 2) AS perc
+FROM sales.orders as O 
+JOIN hr.employees AS e ON O.empid = e.empid
+GROUP BY e.empid, e.lastname;
 
 -- Ошибка - подзапрос вернул более одного значения
 -- more than one row returned by a subquery used as an expression
@@ -27,6 +33,7 @@ WHERE orderid =
 	(SELECT orderid AS O
 	FROM sales.orders
 	WHERE empid = 2);
+
 
 -- 2: Multi-valued subqueries 
 -- Исправление запроса на Multi-valued

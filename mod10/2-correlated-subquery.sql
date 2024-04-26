@@ -6,7 +6,8 @@
 --
 -------------------------------------------------------
 
--- Заказчики и их самые последние заказы (по дате)
+-- Заказчики и их самые последние заказы (по дате). 
+-- Некоторые заказчики оформили за день несколько заказов.
 SELECT custid, orderid, orderdate
 FROM sales.orders AS outerorders
 WHERE orderdate =
@@ -24,7 +25,9 @@ WHERE orderdate =
 	 WHERE O2.empid = O1.empid)
 ORDER BY empid, orderdate;
 
--- Информация о заказах каждого заказчика с максимальным количеством товаров внутри - 91 строка
+-- Информация о самой большой покупке (максимальное количество товаров) каждого заказчика
+----  Покупатель N 43 приобрел за раз максимально 10 товаров 2007-03-01 и 2007-05-01. Оба эти заказа отображены в результате.
+----  Покупатель N 61 приобрел за раз максимально 59 товаров 2007-01-01 и 2007-03-01. Оба эти заказа отображены в результате.
 SELECT custid, ordermonth, qty
 FROM sales.custorders AS outercustorders
 WHERE qty =
@@ -34,8 +37,13 @@ WHERE qty =
 	)
 ORDER BY custid;
 
--- Информация о заказах каждого заказчика с максимальным количеством товаров внутри - 89 строк
-SELECT custid, MAX(ordermonth), MAX(qty)
-FROM sales.custorders AS outercustorders
-GROUP BY custid
-ORDER BY custid;
+
+-- Продукты, цена которых выше средней цены продуктов соответствующей категории
+SELECT  p1.productid, p1.productname, p1.unitprice, C.categoryname
+FROM production.products as p1
+JOIN production.categories as C  ON P1.categoryid = C.categoryid
+WHERE unitprice::numeric >
+    (SELECT AVG(unitprice::numeric)
+     FROM production.products as p2
+     WHERE p1.categoryid = p2.categoryid)
+	 ORDER BY C.categoryname;

@@ -94,3 +94,22 @@ FROM sales.customers AS c
 LEFT OUTER JOIN sales.orders AS o 
 ON c.custid = o.custid 
 WHERE o.custid IS NULL;
+
+
+---------------------------------------------------------------------
+-- Task 6
+-- 
+-- Напишите SELECT-запрос, выводящий заказы, которые еще не были отправлены (в столбце shippeddate стоит значение NULL). 
+-- Вывести столбцы orderid, orderdate, shipcountry (из sales.orders),
+-- а также фамилию и должность сотрудника, оформившего заказ (из таблицы hr.employees)
+-- Упорядочить по фамилии сотрудника
+--
+-- Результирующий набор сравните с Lab Exercise1 - Task6 Result.txt
+---------------------------------------------------------------------
+
+SELECT O.orderid, O.orderdate, O. shipcity, E.lastname, E.title
+FROM sales.orders as O 
+JOIN hr.employees as E
+ON O.empid = E.empid
+WHERE O.shippeddate IS NULL
+ORDER BY E.lastname; 

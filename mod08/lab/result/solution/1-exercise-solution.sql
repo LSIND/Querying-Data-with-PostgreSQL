@@ -50,3 +50,6 @@ FROM sales.customers;
 
 SELECT CAST(TRANSLATE(phone, '-(), .', '') AS BIGINT) AS phonenoasint
 FROM sales.customers;
+
+SELECT regexp_replace(phone, '\D', '', 'g')::BIGINT AS phonenoasint
+FROM sales.customers;

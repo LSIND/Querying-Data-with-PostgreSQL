@@ -3,22 +3,21 @@
 ## 1: Введение в PostgreSQL
 ## 2: Введение в язык запросов SQL
 ```sql
-8  SELECT <select_list>  
+5  SELECT <select_list>  
 1  FROM <source_1> AS P
-3  INNER JOIN <source_2> AS C
-2  ON <join_on_clause>
-4  WHERE <predicate_condition>
-5  GROUP BY <group_by_list>
-6  < GROUPING SETS | CUBE | ROLLUP >
-7  HAVING <having_condition>
-9  ORDER BY <column(s)_order>
-10 LIMIT (number_of_rows)
+     INNER JOIN <source_2> AS C
+     ON <join_on_clause>
+2  WHERE <predicate_condition>
+3  GROUP BY <group_by_list / GROUPING SETS | CUBE | ROLLUP >
+4  HAVING <having_condition>
+6  ORDER BY <column(s)_order>
+7  LIMIT (number_of_rows);
 ```
 ## 3: Написание SELECT-запросов
 - Множества и дубликаты: ```DISTINCT```
 - ```CASE```-выражения
 ## 4: Запрос данных из нескольких таблиц
-- SQL'89 vs SQL'92
+- SQL:89 vs SQL:92
 - ```JOIN: INNER, OUTER, CROSS```
 - Self-join
 ## 5: Сортировка и фильтрация данных
@@ -31,6 +30,7 @@
 - Типы данных строка, дата-время
 ## 7: Использование DML для изменения данных
 - ```INSERT INTO .. VALUES, INSERT INTO .. SELECT```
+- ```SELECT INTO```
 - ```UPDATE, DELETE```
 - ```MERGE``` *
 ## 8: Использование встроенных функций

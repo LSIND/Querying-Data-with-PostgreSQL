@@ -82,3 +82,25 @@ FROM sales.customers AS c
 LEFT OUTER JOIN c2008 ON c.custid = c2008.custid
 LEFT OUTER JOIN c2007 ON c.custid = c2007.custid
 ORDER BY percentgrowth DESC;
+
+
+
+---------------------------------------------------------------------
+-- Task 4 * 
+-- 
+-- Определите рекурсивное CTE, выводящее значение факториала числа (n!).
+--  определите начальное значение в CTE (1, 1)
+--  определите формулу факториала числа для заданного значения
+--
+---------------------------------------------------------------------
+
+WITH RECURSIVE factorial_cte(n, factorial) AS (
+  SELECT 1, 1   -- initial values
+  UNION ALL
+  SELECT n + 1, (n + 1) * factorial
+  FROM factorial_cte
+  WHERE n < 6   -- условие (n = 6): n - 1
+)
+SELECT n, factorial
+FROM factorial_cte
+WHERE n = 6;    -- условие. 6! = 720

@@ -5,5 +5,8 @@ SELECT VERSION();
 SELECT NOW();
 SELECT CURRENT_TIMESTAMP;
 
--- Список заказиков
+-- Список заказчиков
 SELECT * FROM sales.customers;
+
+-- Список категорий продуктов
+SELECT * FROM production.categories;

@@ -20,11 +20,11 @@ SELECT productid, productname, unitprice, (unitprice * 1.1) AS newprice
 FROM production.products;
 
 -- "New Price"
-SELECT ProductID, productname, unitprice, (unitprice * 1.1) AS "New Price"
+SELECT productid, productname, unitprice, (unitprice * 1.1) AS "New Price"
 FROM production.products;
 
 -- без инструкции AS - не рекомендуется
-SELECT ProductID, productname, unitprice, (unitprice * 1.1) newprice
+SELECT productid, productname, unitprice, (unitprice * 1.1) newprice
 FROM production.products;
 
 
