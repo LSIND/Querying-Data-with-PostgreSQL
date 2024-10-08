@@ -62,33 +62,26 @@ ORDER BY cnt DESC;
 ---------------------------------------------
 -- Сравнение WHERE и HAVING
 
--- Количество товаров каждой категории (cnt) и общее количество проданных товаров в каждой категории (sum_qty)
-SELECT c.categoryid, c.categoryname, COUNT(*) AS cnt, SUM(qty) AS sum_qty
-FROM production.products AS p
-JOIN sales.orderdetails AS od ON p.productid = od.productid 
-JOIN production.categories AS c  ON c.categoryid = p.categoryid
-GROUP BY c.categoryid, c.categoryname
-ORDER BY categoryid;
+-- Заказчики и сколько заказов они совершили
+SELECT c.custid, COUNT(*) AS No_Of_Orders
+FROM sales.customers AS c
+JOIN sales.orders AS o ON c.custid = o.custid
+GROUP BY c.custid
+ORDER BY c.custid;
 
--- WHERE 
--- Количество товаров каждой категории (cnt) и общее количество проданных товаров в каждой категории (sum_qty) 
--- С условием, что эти товары были проданы в количестве от 20 шт.
-SELECT c.categoryid, c.categoryname, COUNT(*) AS cnt, SUM(qty) AS sum_qty
-FROM production.products AS p
-JOIN sales.orderdetails AS od ON p.productid = od.productid 
-JOIN production.categories AS c  ON c.categoryid = p.categoryid
-WHERE od.qty > 20
-GROUP BY c.categoryid, c.categoryname
-ORDER BY categoryid;
+-- Требуется вывести только заказчиков с 10 по 20 (custid) и кол-во их заказов.
+-- Какой запрос будет наиболее оптимальным?
 
--- HAVING 
--- Количество товаров каждой категории (cnt) и общее количество проданных товаров в каждой категории (sum_qty)
--- Где итоговое количество проданных товаров в каждой категории более 20 шт.
-SELECT c.categoryid, c.categoryname, COUNT(*) AS cnt, SUM(qty) AS sum_qty
-FROM production.products AS p
-JOIN sales.orderdetails AS od ON p.productid = od.productid 
-JOIN production.categories AS c  ON c.categoryid = p.categoryid
-GROUP BY c.categoryid, c.categoryname
-HAVING SUM(qty) > 20
-ORDER BY categoryid;
+SELECT c.custid, COUNT(*) AS No_Of_Orders
+FROM sales.customers AS c
+JOIN sales.orders AS o ON c.custid = o.custid
+WHERE c.custid BETWEEN 10 AND 20    -- условие
+GROUP BY c.custid
+ORDER BY c.custid;
 
+SELECT c.custid, COUNT(*) AS No_Of_Orders
+FROM sales.customers AS c
+JOIN sales.orders AS o ON c.custid = o.custid
+GROUP BY c.custid
+HAVING c.custid BETWEEN 10 AND 20   -- условие
+ORDER BY c.custid;

@@ -14,7 +14,7 @@
 SELECT 
 	p.productname, c.categoryname
 FROM production.products AS p
-INNER JOIN production.categoies AS c 
+INNER JOIN production.categories AS c 
 ON p.categoryid = c.categoryid;
 
 ---------------------------------------------------------------------

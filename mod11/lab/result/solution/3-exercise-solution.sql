@@ -104,3 +104,47 @@ WITH RECURSIVE factorial_cte(n, factorial) AS (
 SELECT n, factorial
 FROM factorial_cte
 WHERE n = 6;    -- условие. 6! = 720
+
+---------------------------------------------------------------------
+-- Task 5 ** 
+-- 
+-- Есть следующий запрос: сумма продаж по дням за первые три месяца 2008 года
+---- Обратите внимание, что в какие-то даты продаж вообще не было (между датами есть "дыры")
+--  
+--  Требуется вывести ВСЕ даты работы магазина за период: 
+---- работаем без выходных
+---- дата начала - 01 января 2008
+---- дата окончания - 31 марта 2008
+---- если в какой-то день продаж не было - в столбце sum_price вывести 0
+--
+-- Результирующий набор сравните с Lab Exercise3 - Task5 Result.txt.
+---------------------------------------------------------------------
+
+SELECT orderdate::date AS order_date, SUM(od.unitprice*od.qty) AS sum_price
+       FROM sales.orders AS o
+       JOIN sales.orderdetails AS od
+       ON O.orderid = od.orderid
+       WHERE orderdate >= '20080101' AND orderdate < '20080401'
+       GROUP BY orderdate::date
+       ORDER BY order_date;
+
+
+-- Рекурсивное CTE
+
+WITH RECURSIVE sale_dates AS
+(
+  SELECT orderdate::date AS order_date, SUM(od.unitprice*od.qty) AS sum_price
+       FROM sales.orders AS o
+       JOIN sales.orderdetails AS od
+       ON O.orderid = od.orderid
+	   WHERE orderdate >= '20080101' AND orderdate < '20080401'
+       GROUP BY orderdate::date
+  UNION ALL
+  SELECT (order_date + '1 day'::interval)::date, 0::money
+  FROM sale_dates
+  WHERE (order_date + '1 day'::interval)::date <= (SELECT MAX(orderdate::date) FROM sales.orders
+                                                     WHERE orderdate < '20080401')
+)
+SELECT order_date, SUM(sum_price) AS sum_price FROM sale_dates
+GROUP BY order_date
+ORDER BY order_date;

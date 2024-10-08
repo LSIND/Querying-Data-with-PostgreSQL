@@ -68,3 +68,37 @@ SELECT
 	COALESCE(AVG(val) OVER (ORDER BY monthno ROWS BETWEEN 3 PRECEDING AND 1 PRECEDING), 0)::numeric(10,3) AS avglast3months,
 	SUM(val) OVER (ORDER BY monthno ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS ytdval
 FROM SalesMonth2007;
+
+
+
+---------------------------------------------------------------------
+-- Task 4 **
+-- 
+-- Найти разницу в суммах, потраченных клиентами из Германии за зиму (декабрь, январь, февраль) каждого года
+-- Вывести столбцы: custid, companyname, yyyy_w (год), total (общая сумма покупок за зиму данного года)
+-- и msg (сообщение): 
+---- Вывести сообщение 'Вы потратили на $X больше/меньше, чем прошлой зимой'
+---- Если предыдущего года нет - вывести сообщение 'Прошлой зимой Вы еще не были нашим клиентом'
+--
+-- Результирующий набор сравните с Lab Exercise3 - Task4 Result.txt 
+---------------------------------------------------------------------
+
+
+SELECT custid, companyname, yyyy as yyyy_w, total, -- LAG(total, 1) OVER(Partition by custid ORDER BY yyyy),
+CASE
+   WHEN LAG(total, 1) OVER(Partition by custid ORDER BY yyyy) IS NULL THEN 'Прошлым летом Вы еще не были нашим клиентом'
+   WHEN total - LAG(total, 1 ,0::money) OVER(Partition by custid ORDER BY yyyy) > 0::money 
+         THEN 'Вы потратили на ' || (total - LAG(total, 1 ,0::money) OVER(Partition by custid ORDER BY yyyy))::varchar || ' больше, чем прошлым летом'
+   ELSE 'Вы потратили на ' || TRANSLATE((total - LAG(total, 1 ,0::money) OVER(Partition by custid ORDER BY yyyy))::varchar, '()', '') || ' меньше, чем прошлым летом'
+END AS msg
+FROM 
+(
+SELECT c.custid, c.companyname, EXTRACT(YEAR from orderdate) AS yyyy,
+        SUM(qty*unitprice) as total
+FROM sales.orders AS o 
+JOIN sales.orderdetails as od ON o.orderid = od.orderid  
+JOIN  sales.customers as c ON c.custid = o.custid 
+WHERE EXTRACT(MONTH from orderdate) IN (12, 1, 2) -- зима
+      AND c.country = 'Germany'
+GROUP BY c.custid, c.companyname, EXTRACT(YEAR from orderdate) ) AS totals_seasons
+ORDER BY custid, yyyy_w;
