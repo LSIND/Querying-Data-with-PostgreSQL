@@ -12,7 +12,7 @@ DROP FUNCTION IF EXISTS production.fn_TopProductsByShipper(int);
 
 CREATE FUNCTION production.fn_TopProductsByShipper (supplier int)
 RETURNS TABLE 
-  (productid int, productname varchar, unitprice money)
+  (productid int, productname varchar, unitprice numeric)
 as $$
   SELECT P.productid, P.productname, P.unitprice
   FROM production.products AS P

@@ -44,12 +44,33 @@ LIMIT 20 OFFSET 20 ROWS;
 
 
 ---------------------------------------------------------------------
--- Task 3 **
+-- Task 3 ***
 -- Сделайте запрос Task 2 универсальным, используя переменные
 -- Создайте параметры pagenum (номер страницы) и pagesize (размер страницы); напишите запрос с OFFSET-FETCH
+-- 
+-- hint: использовать табличную функцию
 ---------------------------------------------------------------------
 
--- с использованием анонимного блока DO
+-- с использованием табличной функции
+
+CREATE FUNCTION orders_pagination(pagenum int, pagesize int) 
+RETURNS TABLE(custid int, orderid int, orderdate timestamp)
+AS $$
+BEGIN 
+    RETURN QUERY
+		SELECT o.custid, o.orderid, o.orderdate FROM sales.orders as o
+        ORDER BY o.orderdate, o.orderid
+        OFFSET ((pagenum-1)*pagesize) ROWS FETCH NEXT pagesize ROWS ONLY;
+END
+$$ STABLE LANGUAGE plpgsql;
+
+SELECT * FROM orders_pagination(2, 10);
+
+DROP FUNCTION orders_pagination(int, int) ;
+
+
+
+-- ** с использованием анонимного блока DO и курсора
 BEGIN;
 DO $$ 
 DECLARE
@@ -66,7 +87,9 @@ FETCH ALL FROM _cursor;
 COMMIT;
 
 
--- с использованием подготовленного запроса (prepared)
+
+--------------------------------------
+-- *** с использованием подготовленного запроса (prepared)
 PREPARE q(integer, integer) AS
 SELECT custid, orderid, orderdate
 FROM sales.orders

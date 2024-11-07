@@ -2,7 +2,7 @@
 
 База данных курса определяется следующей диаграммой:  
 
-![БД](https://www.dropbox.com/scl/fi/693ifjcn64gs9kzggi80h/database_diagram_pg101.JPG?rlkey=nq6gmntbvf0f5p9v5rr0ciu6e&raw=1)
+![БД](https://www.dropbox.com/scl/fi/6bqistxk4a4sr5xa4bs4i/database_diagram_pg101.JPG?rlkey=e4ds7mxcd6zpy4h8nsz7xjw4y&st=1q4ojhm3&raw=1)
 
 
 ## Развертывание БД

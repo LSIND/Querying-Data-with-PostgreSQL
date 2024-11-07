@@ -53,7 +53,7 @@ SELECT '200.566'::bit; -- error
 
 -------------------------------------------------------
 -- Размер данных разных типов (в Байтах)
-SELECT pg_column_size(500) as IntSize, pg_column_size('20240101'::date) as DateSize, pg_column_size(50.25::money) as MoneySize;
+SELECT pg_column_size(500) as IntSize, pg_column_size('20240101'::date) as DateSize, pg_column_size(50.255) as NumericSize;
 
 SELECT orderid, pg_column_size(orderid) as IntB, orderdate, pg_column_size(orderdate) as DatetimeB,
 shipcity, pg_column_size(shipcity) as VarcharB

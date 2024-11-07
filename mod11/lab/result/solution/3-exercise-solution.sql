@@ -17,7 +17,7 @@ WITH productsbeverages AS
 (
 	SELECT
 		productid, productname, supplierid, unitprice, discontinued,
-		CASE WHEN unitprice > 100::money THEN 'high' ELSE 'normal' END AS pricetype
+		CASE WHEN unitprice > 100 THEN 'high' ELSE 'normal' END AS pricetype
 	FROM production.products
 	WHERE categoryid = 1
 )
@@ -140,7 +140,7 @@ WITH RECURSIVE sale_dates AS
 	   WHERE orderdate >= '20080101' AND orderdate < '20080401'
        GROUP BY orderdate::date
   UNION ALL
-  SELECT (order_date + '1 day'::interval)::date, 0::money
+  SELECT (order_date + '1 day'::interval)::date, 0
   FROM sale_dates
   WHERE (order_date + '1 day'::interval)::date <= (SELECT MAX(orderdate::date) FROM sales.orders
                                                      WHERE orderdate < '20080401')

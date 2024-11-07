@@ -31,7 +31,7 @@ FROM sales.orderdetails as d
 INNER JOIN production.products as p 
 ON p.productid = d.productid
 GROUP BY d.productid, p.productname
-HAVING SUM(d.qty * d.unitprice) > 50000::money; -- 4 продукта
+HAVING SUM(d.qty * d.unitprice) > 50000.; -- 4 продукта
 
 ---------------------------------------------------------------------
 -- Task 3
@@ -56,7 +56,7 @@ FROM sales.orderdetails as d
 INNER JOIN production.products as p 
 ON p.productid = d.productid
 GROUP BY d.productid, p.productname
-HAVING SUM(d.qty * d.unitprice) > 50000::money
+HAVING SUM(d.qty * d.unitprice) > 50000.
 ORDER BY productid;
 
 -- UNION ALL: `склеивание наборов`: 10 строк первого + 4 строки второго = 14 итоговых строк
@@ -69,7 +69,7 @@ FROM sales.orderdetails as d
 INNER JOIN production.products as p 
 ON p.productid = d.productid
 GROUP BY d.productid, p.productname
-HAVING SUM(d.qty * d.unitprice) > 50000::money
+HAVING SUM(d.qty * d.unitprice) > 50000.
 ORDER BY 1;
 
 ---------------------------------------------------------------------

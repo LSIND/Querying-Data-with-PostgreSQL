@@ -50,7 +50,7 @@ ORDER BY custid, ordermonth;
 -- Сумма, среднее и общее количество по заказчику (partition - custid)
 SELECT CatID, CatName, ProdName, UnitPrice,
 	SUM(UnitPrice) OVER(PARTITION BY CatID) AS Total,
-	AVG(UnitPrice::numeric) OVER(PARTITION BY CatID) AS Average,
+	AVG(UnitPrice) OVER(PARTITION BY CatID) AS Average,
 	COUNT(UnitPrice) OVER(PARTITION BY CatID) AS ProdsPerCat
 FROM production.categorizedproducts
 ORDER BY CatID; 
@@ -145,8 +145,8 @@ ORDER BY CatID, UnitPrice DESC;
 
 -- LAG для сравнения продаж сотрудника в текущем году с предыдущим годом
 SELECT employee, orderyear, totalsales AS currentsales,
-      LAG(totalsales, 1,0::money) OVER (PARTITION BY employee ORDER BY orderyear) AS previousyearsales,
-      totalsales - LAG(totalsales, 1,0::money) OVER (PARTITION BY employee ORDER BY orderyear) AS diff
+      LAG(totalsales, 1,0.) OVER (PARTITION BY employee ORDER BY orderyear) AS previousyearsales,
+      totalsales - LAG(totalsales, 1,0.) OVER (PARTITION BY employee ORDER BY orderyear) AS diff
       FROM sales.ordersbyemployeeyear
 ORDER BY employee, orderyear;
 

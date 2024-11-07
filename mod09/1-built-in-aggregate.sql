@@ -8,7 +8,7 @@
 
 -- 1. Примеры функций агрегирования с разными типами данных
 -- numeric
-SELECT AVG(UnitPrice::numeric), MIN(qty), MAX(discount)
+SELECT AVG(unitprice), MIN(qty), MAX(discount)
 FROM sales.orderDetails;
 
 -- varchar

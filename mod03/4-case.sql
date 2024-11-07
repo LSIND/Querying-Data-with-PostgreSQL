@@ -20,9 +20,9 @@ FROM hr.employees;
 -- 2. searched case
 SELECT productid, productname, unitprice,
 	CASE 
-		WHEN unitprice < 5::money THEN 'X'
-		WHEN unitprice >=5::money and unitprice <30::money THEN 'M'
-		WHEN unitprice >=30::money and unitprice <50::money THEN 'L'
+		WHEN unitprice < 5 THEN 'X'
+		WHEN unitprice >=5 and unitprice <30 THEN 'M'
+		WHEN unitprice >=30 and unitprice <50 THEN 'L'
 		ELSE 'XXL'
 	END AS Category
 FROM production.products;

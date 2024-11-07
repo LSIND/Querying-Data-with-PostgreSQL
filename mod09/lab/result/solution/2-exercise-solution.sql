@@ -30,7 +30,7 @@ ORDER BY salesamount DESC;
 SELECT
 	o.orderid, o.orderdate, SUM(d.qty * d.unitprice) AS salesamount, 
 	COUNT(*) AS noofoderlines, 
-	AVG(d.qty * d.unitprice::numeric)::money AS avgsalesamountperorderline
+	AVG(d.qty * d.unitprice) AS avgsalesamountperorderline
 FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d
 ON d.orderid = o.orderid

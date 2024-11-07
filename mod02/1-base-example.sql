@@ -14,7 +14,7 @@ CREATE TABLE public.Orders
 		custid int, 
 		orderdate date,
 		quantity int,
-		amount money
+		amount numeric
 	); 
 
 

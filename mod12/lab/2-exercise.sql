@@ -32,7 +32,7 @@
 -- функция
 CREATE OR REPLACE FUNCTION public.fnGetTop3ProductsForCustomer
 (customer INT)
-RETURNS TABLE (productid int, productname varchar, totalsalesamount money)
+RETURNS TABLE (productid int, productname varchar, totalsalesamount numeric)
 LANGUAGE plpgsql
 AS $$
 BEGIN

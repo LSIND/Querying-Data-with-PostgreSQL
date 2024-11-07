@@ -42,8 +42,8 @@ ORDER BY custid;
 SELECT  p1.productid, p1.productname, p1.unitprice, C.categoryname
 FROM production.products as p1
 JOIN production.categories as C  ON P1.categoryid = C.categoryid
-WHERE unitprice::numeric >
-    (SELECT AVG(unitprice::numeric)
+WHERE unitprice >
+    (SELECT AVG(unitprice)
      FROM production.products as p2
      WHERE p1.categoryid = p2.categoryid)
 	 ORDER BY C.categoryname;

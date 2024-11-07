@@ -55,7 +55,7 @@ WHERE
 		FROM sales.orders AS o 
 		INNER JOIN sales.orderdetails AS d ON d.orderid = o.orderid
 		WHERE o.custid = c.custid
-			AND d.unitprice > 100::money
+			AND d.unitprice > 100.
 			AND o.orderdate >= '20080401' 
 		);
 

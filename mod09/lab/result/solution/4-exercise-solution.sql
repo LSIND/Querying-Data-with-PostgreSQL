@@ -18,7 +18,7 @@ SELECT o.custid,
 FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d ON d.orderid = o.orderid
 GROUP BY o.custid
-HAVING SUM(d.qty * d.unitprice) > 100000::money
+HAVING SUM(d.qty * d.unitprice) > 100000.
 ORDER BY totalsalesamount DESC
 LIMIT 10;
 
@@ -57,7 +57,7 @@ FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d ON d.orderid = o.orderid
 WHERE o.orderdate >= '20080101' AND o.orderdate < '20090101'
 GROUP BY o.orderid, o.empid
-HAVING SUM(d.qty * d.unitprice) >= 10000::money
+HAVING SUM(d.qty * d.unitprice) >= 10000.
 ORDER BY o.empid;
 
 
@@ -79,7 +79,7 @@ WHERE
 	o.orderdate >= '20080101' AND o.orderdate <= '20090101'
 	AND o.empid = 3
 GROUP BY o.orderid, o.empid
-HAVING SUM(d.qty * d.unitprice) >= 10000::money;
+HAVING SUM(d.qty * d.unitprice) >= 10000.;
 
 
 ---------------------------------------------------------------------
@@ -119,7 +119,7 @@ FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d 
 ON d.orderid = o.orderid
 GROUP BY o.custid
-HAVING SUM(d.qty * d.unitprice) < 2000::money
+HAVING SUM(d.qty * d.unitprice) < 2000.
 ORDER BY o.custid;
 
 

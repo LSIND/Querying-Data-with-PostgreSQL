@@ -19,7 +19,7 @@
 -- requireddate   | timestamp without time zone |                    | not null          |
 -- shippeddate    | timestamp without time zone |                    |                   |
 -- shipperid      | integer                     |                    | not null          |
--- freight        | money                       |                    | not null          | 0
+-- freight        | numeric                     |                    | not null          | 0
 -- shipname       | character varying(40)       |                    | not null          |
 -- shipaddress    | character varying(60)       |                    | not null          |
 -- shipcity       | character varying(15)       |                    | not null          |

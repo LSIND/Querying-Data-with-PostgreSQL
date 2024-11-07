@@ -91,7 +91,7 @@ WHERE custid = 1;
 
 SELECT * INTO public.newproducts
 FROM production.products
-WHERE unitprice > 50::money;
+WHERE unitprice > 50.;
 
 
 -- Проверьте данные в таблице public.newproducts

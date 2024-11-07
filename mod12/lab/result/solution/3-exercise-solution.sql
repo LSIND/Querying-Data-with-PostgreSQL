@@ -55,7 +55,7 @@ FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d 
 ON d.orderid = o.orderid
 GROUP BY o.custid
-HAVING SUM(d.qty * d.unitprice) > 10000::money;
+HAVING SUM(d.qty * d.unitprice) > 10000.0;
 
 ---------------------------------------------------------------------
 -- Task 4
@@ -82,7 +82,7 @@ FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d 
 ON d.orderid = o.orderid
 GROUP BY o.custid
-HAVING SUM(d.qty * d.unitprice) > 10000::money
+HAVING SUM(d.qty * d.unitprice) > 10000.
 ORDER BY custid;
 
 ---------------------------------------------------------------------
@@ -109,5 +109,5 @@ FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d 
 ON d.orderid = o.orderid
 GROUP BY o.custid
-HAVING SUM(d.qty * d.unitprice) > 10000::money
+HAVING SUM(d.qty * d.unitprice) > 10000.
 ORDER BY custid;

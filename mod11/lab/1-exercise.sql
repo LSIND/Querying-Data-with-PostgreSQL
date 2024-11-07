@@ -68,7 +68,7 @@ CREATE OR REPLACE VIEW production.productbeverages AS
 CREATE OR REPLACE VIEW production.productbeverages AS
 SELECT
 	productid, productname, supplierid, unitprice, discontinued,
-	CASE WHEN unitprice > 100::money THEN 'high' ELSE 'normal' END
+	CASE WHEN unitprice > 100. THEN 'high' ELSE 'normal' END
 FROM production.products
 WHERE categoryid = 1;
 

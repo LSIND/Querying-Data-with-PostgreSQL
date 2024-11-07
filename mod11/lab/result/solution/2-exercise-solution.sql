@@ -20,7 +20,7 @@ FROM
 (
 	SELECT
 	productid, productname, supplierid, unitprice, discontinued,
-	CASE WHEN unitprice > 100::money THEN 'high' ELSE 'normal' END AS pricetype
+	CASE WHEN unitprice > 100 THEN 'high' ELSE 'normal' END AS pricetype
 FROM production.products
 WHERE categoryid = 1
 ) AS p
@@ -39,7 +39,7 @@ WHERE p.pricetype = 'high';
 SELECT
 	c.custid,
 	SUM(c.totalsalesamountperorder) AS totalsalesamount,
-	AVG(c.totalsalesamountperorder::numeric) AS avgsalesamount
+	AVG(c.totalsalesamountperorder) AS avgsalesamount
 FROM
 (
 	SELECT o.custid, o.orderid, SUM(d.unitprice * d.qty) AS totalsalesamountperorder
