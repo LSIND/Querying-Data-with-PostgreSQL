@@ -22,17 +22,13 @@ SELECT
 SELECT EXTRACT(year from '20221005'::date) as Y, EXTRACT(month from '20221005'::date), EXTRACT(day from '20221005'::date);
 SELECT DATE_PART('year', '20221005'::date);
 
--- Пересечение временных интервалов
-SELECT (DATE '2001-02-16', DATE '2001-12-21') OVERLAPS
-       (DATE '2001-10-30', DATE '2002-10-30');
-
 
 -------------------------------------------------------
 -- Создание даты и времени из частей
 
 SELECT make_time(8, 15, 23.5); -- make_time(hour int, min int, sec double precision)
 SELECT make_timestamp(2022, 7, 15, 8, 15, 23.5); -- make_timestamp(year int, month int, day int, hour int, min int, sec double precision)
-SELECT make_timestamptz(2013, 7, 15, 8, 15, 23.5) -- с ЧП
+SELECT make_timestamptz(2013, 7, 15, 8, 15, 23.5); -- с ЧП
 SELECT make_date(2022, 7, 15);
 SELECT make_interval(days => 25);
 
@@ -47,37 +43,41 @@ SELECT 3.5 * interval '1 hour';
 
 -------------------------------------------------------
 -- Разница между датами (Interval)
-SELECT age(timestamp '2010-04-10', timestamp '1957-06-13'); -- разница между датами
-SELECT age(timestamp '2001-04-10'); -- разница с текущей датой
+SELECT age('2010-04-10'::timestamp, '1957-06-13'::timestamp); -- разница между датами
+SELECT age('2010-04-10'::timestamp); -- разница с текущей датой
 
 
 -------------------------------------------------------
 -- Date output
 
+SHOW LC_TIME;
+
 SELECT to_char(current_timestamp, 'FMMONTH FMDay, FMDD; HH12:MI:SS');
 -- Приставка FM	режим заполнения (подавляет ведущие нули и дополнение пробелами)
 
-SET lc_time to 'ru_RU.utf8'; -- язык должен быть установлен в системе
+SET LC_TIME to 'ru_RU.utf8'; -- язык должен быть установлен в системе
+SHOW LC_TIME;
+
 SELECT to_char(current_timestamp, 'TMDay, DD TMMonth YYYY'); -- Пятница, 26 Апрель 2024
 -- Приставка TM	режим перевода (используются локализованные названия дней и месяцев, исходя из lc_time)	
 
-SET lc_time to 'en_US.utf8'; 
+SET LC_TIME to 'en_US.utf8'; 
 
 
 -------------------------------------------------------
 -- TIME ZONE 
-SHOW TIME ZONE; -- текущий часовой пояс (клиент, сессия)
+SHOW TIMEZONE; -- текущий часовой пояс (клиент, сессия)
 
 SELECT * FROM pg_timezone_names; -- аббревиатуры для часовых поясов
 
-SET timezone TO 'Asia/Magadan';
-SHOW TIME ZONE;
+SET TIMEZONE TO 'Asia/Magadan';
+SHOW TIMEZONE;
 SELECT NOW();
 
 SET timezone TO 'Europe/Moscow';
-SHOW TIME ZONE;
+SHOW TIMEZONE;
 SELECT NOW();
 
-SET timezone TO 'Asia/Magadan';
+SET TIMEZONE TO 'Asia/Magadan';
 SELECT orderid, orderdate, CAST(orderdate as timestamptz) -- преобразование в timestamptz с учетом настройки сессии
 FROM sales.orders;

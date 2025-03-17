@@ -86,10 +86,10 @@ FROM SalesMonth2007;
 
 SELECT custid, companyname, yyyy as yyyy_w, total, -- LAG(total, 1) OVER(Partition by custid ORDER BY yyyy),
 CASE
-   WHEN LAG(total, 1) OVER(Partition by custid ORDER BY yyyy) IS NULL THEN 'Прошлым летом Вы еще не были нашим клиентом'
+   WHEN LAG(total, 1) OVER(Partition by custid ORDER BY yyyy) IS NULL THEN 'Прошлой зимой Вы еще не были нашим клиентом'
    WHEN total - LAG(total, 1 ,0.) OVER(Partition by custid ORDER BY yyyy) > 0 
-         THEN 'Вы потратили на ' || (total - LAG(total, 1 ,0.) OVER(Partition by custid ORDER BY yyyy))::varchar || ' больше, чем прошлым летом'
-   ELSE 'Вы потратили на ' || TRANSLATE((total - LAG(total, 1 ,0.) OVER(Partition by custid ORDER BY yyyy))::varchar, '()', '') || ' меньше, чем прошлым летом'
+         THEN 'Вы потратили на ' || (total - LAG(total, 1 ,0.) OVER(Partition by custid ORDER BY yyyy))::varchar || ' больше, чем прошлой зимой'
+   ELSE 'Вы потратили на ' || TRANSLATE((total - LAG(total, 1 ,0.) OVER(Partition by custid ORDER BY yyyy))::varchar, '()', '') || ' меньше, чем прошлой зимой'
 END AS msg
 FROM 
 (

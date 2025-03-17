@@ -130,7 +130,6 @@ SELECT orderdate::date AS order_date, SUM(od.unitprice*od.qty) AS sum_price
 
 
 -- Рекурсивное CTE
-
 WITH RECURSIVE sale_dates AS
 (
   SELECT orderdate::date AS order_date, SUM(od.unitprice*od.qty) AS sum_price
@@ -142,8 +141,7 @@ WITH RECURSIVE sale_dates AS
   UNION ALL
   SELECT (order_date + '1 day'::interval)::date, 0
   FROM sale_dates
-  WHERE (order_date + '1 day'::interval)::date <= (SELECT MAX(orderdate::date) FROM sales.orders
-                                                     WHERE orderdate < '20080401')
+  WHERE (order_date + '1 day'::interval)::date < '20080401'
 )
 SELECT order_date, SUM(sum_price) AS sum_price FROM sale_dates
 GROUP BY order_date

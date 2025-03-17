@@ -70,7 +70,7 @@ ORDER BY custid, ordermonth;
 
 
 -- ** Скользящее среднее
--- Среднее как сумма значений текущего месяца, предыдущего и последующего, деленное на 3.
+-- Среднее как сумма значений текущего месяца, предыдущего и последующего.
 -- (округляем до 2х знаков после запятой)
 SELECT  mo_yyyy, totalpercust, 
 ROUND(AVG(totalpercust) OVER (order by mo_yyyy rows between 1 preceding and 1 following), 2)  as roll_avg

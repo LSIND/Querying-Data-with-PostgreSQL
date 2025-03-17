@@ -50,31 +50,19 @@ SELECT 50.25::int;
 
 SELECT '200.566'::bit; -- error 
 
+-- преобразование TYPE expr
+
+SELECT INT '50';
+
+SELECT DATE '20251011';
 
 -------------------------------------------------------
 -- Размер данных разных типов (в Байтах)
-SELECT pg_column_size(500) as IntSize, pg_column_size('20240101'::date) as DateSize, pg_column_size(50.255) as NumericSize;
+SELECT pg_column_size(500) as IntSize, 
+       pg_column_size('20240101'::date) as DateSize, 
+       pg_column_size(50.255) as NumericSize;
 
-SELECT orderid, pg_column_size(orderid) as IntB, orderdate, pg_column_size(orderdate) as DatetimeB,
-shipcity, pg_column_size(shipcity) as VarcharB
+SELECT orderid, pg_column_size(orderid) as IntB, orderdate, 
+       pg_column_size(orderdate) as DatetimeB,
+       shipcity, pg_column_size(shipcity) as VarcharB
 FROM sales.orders;
-
-
--------------------------------------------------------
-
-UPDATE hr.employees  -- Обновляем фамилию сотрудника #1
-SET lastname = 'funk'
-where empid = 1;
-
-
-SELECT * FROM  hr.employees
-WHERE lastname = 'funk';
-
-SELECT * FROM  hr.employees
-WHERE lastname ILIKE 'funk'; -- регистронезависимый поиск
-
-
--- Возращаем исходную фамилию сотрудника #1
-UPDATE hr.employees  
-SET lastname = 'Davis'
-where empid = 1;

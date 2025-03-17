@@ -20,7 +20,7 @@ SET row_security = off;
 -- Name: foodstore; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE foodstore WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'Russian_Russia.1251';
+CREATE DATABASE foodstore WITH TEMPLATE = template0 ENCODING = 'UTF8';
 
 
 ALTER DATABASE foodstore OWNER TO postgres;

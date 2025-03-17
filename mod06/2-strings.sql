@@ -28,13 +28,17 @@ SELECT SUBSTRING('Изучаем язык SQL',14,3) AS Result; -- Подстр�
 SELECT LEFT('Изучаем язык SQL', 7) AS left_example, RIGHT('Изучаем язык SQL',3) as right_example;
 
 -------
-SELECT LENGTH('SQL Language  ') AS LE, CHAR_LENGTH('SQL Language  '); -- длина строки в символах
-SELECT LENGTH('Год'), octet_length('Год') AS LCyr, 
-octet_length('Red') as LLat, octet_length('象形字') AS LCh; -- длина строки в байтах (зависит от кодировки)
+SELECT LENGTH('SQL Language') AS LE, CHAR_LENGTH('SQL Language'); -- длина строки в символах
+
+SELECT LENGTH('Год'), 
+       octet_length('Год') AS LCyr, 
+       octet_length('Red') as LLat, 
+       octet_length('象形字') AS LCh; -- длина строки в байтах (зависит от кодировки)
 
 -------
 
-SELECT position('SQL' in 'Изучаем язык SQL') pos, strpos('Изучаем язык SQL', 'SQL') AS strpos;
+SELECT position('SQL' in 'Изучаем язык SQL') pos, 
+       strpos('Изучаем язык SQL', 'SQL') AS strpos;
 
 SELECT UPPER('Изучаем язык SQL') AS UP, LOWER('Изучаем язык SQL') AS LOW;
 
@@ -51,3 +55,23 @@ SELECT REPEAT('Тест', 5);
 SELECT REVERSE('проверка');
 
 SELECT SPLIT_PART('test;some;words;psql', ';', 2);
+
+
+-------------------------------------------------------
+
+UPDATE hr.employees  -- Обновляем фамилию сотрудника #1
+SET lastname = 'funk'
+where empid = 1;
+
+
+SELECT * FROM  hr.employees
+WHERE lastname = 'funk';
+
+SELECT * FROM  hr.employees
+WHERE lastname ILIKE 'funk'; -- регистронезависимый поиск ~~
+
+
+-- Возращаем исходную фамилию сотрудника #1
+UPDATE hr.employees  
+SET lastname = 'Davis'
+where empid = 1;

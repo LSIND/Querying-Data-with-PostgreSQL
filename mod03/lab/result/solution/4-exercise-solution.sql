@@ -33,7 +33,7 @@ FROM production.products AS p;
 
 
 ---------------------------------------------------------------------
--- Task 4
+-- Task 3
 -- 
 -- Напишите SELECT-запрос, возвращающий custid и contactname из sales.customers.
 -- Добавьте вычисляемый столбец с именем segmentgroup, выводящий значение 'Target group' для заказчиков из Mexico и имеющих значение Owner в contacttitle. 
