@@ -1,14 +1,15 @@
-custid      contactname                    productid   productname                              totalsalesamount
------------ ------------------------------ ----------- ---------------------------------------- --------------------
-1           Allen, Michael                 63          Product ICKNK                            878,00
-1           Allen, Michael                 59          Product UKXRI                            825,00
-1           Allen, Michael                 28          Product OFBNT                            775,20
+custid     	contactname   		productid   	productname          	totalsalesamount
+-----------	------------------- 	----------- 	--------------- 	--------------------
+1		Allen, Michael		63		Product ICKNK		878.00
+1		Allen, Michael		59		Product UKXRI		825.00
+1		Allen, Michael		28		Product OFBNT		775.20
 ...
 ...
 ...
-91          Conn, Steve                    61          Product XYZPE                            627,00
-91          Conn, Steve                    62          Product WUXYK                            591,60
-91          Conn, Steve                    60          Product WHBYK                            510,00
+90		Larsson, Katarina	43		Product ZZZHR		276.00
+91		Conn, Steve		61		Product XYZPE		627.00
+91		Conn, Steve		62		Product WUXYK		591.60
+91		Conn, Steve		60		Product WHBYK		510.00
 
 (265 row(s) affected)
 

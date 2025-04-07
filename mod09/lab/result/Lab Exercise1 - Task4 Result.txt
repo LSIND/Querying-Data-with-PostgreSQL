@@ -1,5 +1,5 @@
-categoryid  categoryname
------------ --------------
+categoryid  	categoryname
+----------- 	--------------
 2	        Condiments
 4	        Dairy Products
 6	        Meat/Poultry

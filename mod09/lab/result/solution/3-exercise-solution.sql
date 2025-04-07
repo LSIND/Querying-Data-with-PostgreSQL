@@ -54,7 +54,7 @@ ORDER BY firstletter;
 -- Task 3
 -- 
 -- Скопируйте запрос Exercise 1 - Task 4, возвращающий категории (categoryid и categoryname) из таблицы Production.Categories. 
--- Включите категории, продукты которых были проданы за весь 2008 год.
+-- Включите категории, продукты которых были проданы за весь 2023 год.
 -- Для каждой категории продуктов расчитайте: общую сумму продаж, количество заказов и средняя сумма продаж за год
 -- Псевдонимы totalsalesamount (SUM), nooforders (COUNT distinct) и avgsalesamountperorder (SUM/COUNT).
 --
@@ -65,10 +65,10 @@ SELECT
 	c.categoryid, c.categoryname, 
 	SUM(d.qty * d.unitprice) AS totalsalesamount, 
 	COUNT(DISTINCT o.orderid) AS nooforders,
-	SUM(d.qty * d.unitprice) / COUNT(DISTINCT o.orderid) AS avgsalesamountperorder
+	ROUND(SUM(d.qty * d.unitprice) / COUNT(DISTINCT o.orderid), 2) AS avgsalesamountperorder
 FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d ON d.orderid = o.orderid
 INNER JOIN production.products AS p ON p.productid = d.productid
 INNER JOIN production.categories AS c ON c.categoryid = p.categoryid
-WHERE orderdate >= '20080101' AND orderdate < '20090101'
+WHERE orderdate >= '20230101' AND orderdate < '20240101'
 GROUP BY c.categoryid, c.categoryname;

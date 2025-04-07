@@ -9,7 +9,7 @@
 -- 
 -- 
 -- Напишите SELECT-запрос, который выводит следующие столбцы:
---  Текущие дата и время. Псевдоним currentdatetime.
+--  Текущие дата и время. Псевдоним currentdt.
 --  Только текущая дата. Псевдоним currentdate.
 --  Только текущее время. Псевдоним currenttime.
 --  Только текущий год. Псевдоним currentyear.
@@ -23,7 +23,7 @@
 ---------------------------------------------------------------------
 
 SELECT 
-	CURRENT_TIMESTAMP AS currentdatetime,
+	CURRENT_TIMESTAMP AS currentdt,
 	CAST(CURRENT_TIMESTAMP AS date) AS currentdate,
 	CAST(CURRENT_TIMESTAMP AS time) AS currenttime,
 	EXTRACT(YEAR FROM CURRENT_TIMESTAMP) AS currentyear,
@@ -36,7 +36,7 @@ SELECT
 ---------------------------------------------------------------------
 -- Task 2
 --  
--- Запишите дату '2020-12-11' (date) в виде 'December 11, 2020. Неделя 50'. Псевдоним somedate.
+-- Запишите дату '2020-12-11' (date) в виде строки 'December 11, 2020. Неделя 50'. Псевдоним somedate.
 ---------------------------------------------------------------------
 
 SELECT to_char('2020-12-11'::date, 'Month DD, YYYY. Неделя WW') AS somedate;

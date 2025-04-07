@@ -42,7 +42,7 @@ GROUP BY EXTRACT (YEAR FROM orderdate);
 -- Task 3
 -- 
 -- Скопируйте запрос Exercise 1 - Task 4, возвращающий категории (categoryid и categoryname) из таблицы Production.Categories. 
--- Включите категории, продукты которых были проданы за весь 2008 год.
+-- Включите категории, продукты которых были проданы за весь 2023 год.
 -- Для каждой категории продуктов расчитайте: общую сумму продаж, количество заказов и средняя сумма продаж за год
 -- Псевдонимы totalsalesamount (SUM), nooforders (COUNT distinct) и avgsalesamountperorder (SUM/COUNT).
 --

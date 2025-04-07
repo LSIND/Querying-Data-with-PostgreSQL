@@ -1,13 +1,16 @@
-custid      contactname                    salesamt2008                            salesamt2007                            percentgrowth
------------ ------------------------------ --------------------------------------- --------------------------------------- --------------------------------------
-74          O’Brien, Dave                  2371.00                                 52.35                                   4429.130800
-54          Tiano, Mike                    3031.00                                 429.20                                  606.197500
-17          Jones, TiAnna                  2809.61                                 420.00                                  568.954700
+custid	contactname		salesamt2023	salesamt2022	percentgrowth
+------	------			------		------		------
+74	O’Brien, Dave		2371.00		52.35		4429.131
+54	Tiano, Mike		3031.00		429.20		606.198
+17	Jones, TiAnna		2809.61		420.00		568.955
+12	Ray, Mike		1576.80		238.00		562.521
+70	Ginters, Kaspars	3976.75	7	00.00		468.107
 ...
 ...
 ...
-87          Ludwig, Michael                270.00                                  12262.94                                -97.798200
-73          Gonzalez, Nuria                232.09                                  16232.41                                -98.570200
-28          Cavaglieri, Giorgio            57.80                                   5065.33                                 -98.858900
+77	Osorio, Cristian	69.60		2955.40		-97.645
+87	Ludwig, Michael		270.00		12262.94	-97.798
+73	Gonzalez, Nuria		232.09		16232.41	-98.570
+28	Cavaglieri, Giorgio	57.80		5065.33		-98.859
 
 (91 row(s) affected)

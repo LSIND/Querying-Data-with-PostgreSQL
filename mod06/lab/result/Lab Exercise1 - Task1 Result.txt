@@ -1,5 +1,5 @@
-currentdatetime         currentdate currenttime                 currentyear currentmonth currentday  currentweeknumber currentmonthname
------------------------ ----------- ----------------            ----------- ------------ ----------- ----------------- ------------------------------
-2022-08-29T12:05:32.318281+03:00	2022-08-29	12:05:32.318281	2022	    8	        29           35                   August
+currentdt         		currentdate 	currenttime     currentyear currentmonth currentday  currentweeknumber currentmonthname
+----------------------- 	----------- 	--------------- ----------- ------------ ----------- ----------------- ------------------------------
+2025-04-04 12:55:26.610297+03	2025-04-04	12:55:26.610297	2025		4		4	14		April    
 
 (1 row(s) affected)

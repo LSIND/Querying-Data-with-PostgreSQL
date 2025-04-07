@@ -1,13 +1,14 @@
-empid       firstname  lastname             calendardate
------------ ---------- -------------------- ------------
-1           Sara       Davis                2014-01-01
-1           Sara       Davis                2014-01-02
-1           Sara       Davis                2014-01-03
+empid       	firstname  	lastname        calendardate
+------		------  	------ 		------  
+1		Sara		Davis		2020-01-01
+2		Don		Funk		2020-01-01
+3		Judy		Lew		2020-01-01
+4		Yael		Peled		2020-01-01
 ...
 ...
 ...
-9           Zoya       Dolgopyatova         2014-12-29
-9           Zoya       Dolgopyatova         2014-12-30
-9           Zoya       Dolgopyatova         2014-12-31
+8		Maria		Cameron		2020-12-31
+9		Zoya		Dolgopyatova	2020-12-31
+6		Paul		Suürs		2020-12-31
 
-(3285 row(s) affected)
+(3294 row(s) affected)

@@ -9,7 +9,7 @@
 -- 
 -- Напишите SELECT-запрос, возвращающий столбцы custid и contactname из таблицы sales.customers и столбцы orderid и orderdate из таблицы sales.orders. 
 -- (список заказчиков (номер, имя) и их заказы (номер заказа, дата заказа))
--- Отфильтруйте результат, получив только заказы, совершенные после April, 1 2008 включительно (столбец orderdate). 
+-- -- Отфильтруйте результат, получив только заказы, совершенные после 1-го апреля 2023 включительно (столбец orderdate). 
 -- Отсортируйте результат по дате заказа orderdate по убыванию и по номеру заказчика custid по возрастанию.
 --
 -- Результирующий набор сравните с Lab Exercise2 - Task1 Result.txt
@@ -19,7 +19,7 @@ SELECT c.custid, c.contactname, o.orderid, o.orderdate
 FROM sales.customers AS c
 INNER JOIN sales.orders AS o 
 ON c.custid = o.custid 
-WHERE o.orderdate >= '20080401'
+WHERE o.orderdate >= '20230401'
 ORDER BY o.orderdate DESC, c.custid ASC;
 
 ---------------------------------------------------------------------

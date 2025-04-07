@@ -1,0 +1,17 @@
+country		custgroup	customers
+------		------		------
+Argentina	A		2
+Argentina	B		1
+Austria		C		2
+Belgium		B		1
+Belgium		C		1
+...
+...
+...
+USA		B		3
+USA		C		5
+Venezuela	A		1
+Venezuela	B		1
+Venezuela	C		2
+
+(44 row(s) affected)

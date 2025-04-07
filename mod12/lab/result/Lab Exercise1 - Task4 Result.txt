@@ -1,13 +1,19 @@
-custid      contactname
------------ --------------------------
-9           Raghav, Amritansh
-20          Kane, John
-30          Shabalin, Rostislav
-...
-...
-...
-76          Gulbis, Katrin
-81          Nagel, Jean-Philippe
-89          Smith Jr., Ronaldo
+custid  contactname
+------- --------------------------
+9	Raghav, Amritansh
+20	Kane, John
+30	Shabalin, Rostislav
+32	Krishnan, Venky
+34	Cohen, Shy
+37	Crăciun, Ovidiu V.
+39	Song, Lolan
+55	Egelund-Muller, Anja
+62	Misiec, Anna
+63	Veronesi, Giorgio
+65	Moore, Michael
+71	Navarro, Tomás
+76	Gulbis, Katrin
+81	Nagel, Jean-Philippe
+89	Smith Jr., Ronaldo
 
 (15 row(s) affected)

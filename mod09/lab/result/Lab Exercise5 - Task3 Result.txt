@@ -1,13 +1,37 @@
-orderyear   ordermonth  orderday    salesvalue
------------ ----------- ----------- ------------------
-2006        7           4           440.00
-2006        7           5           1863.40
-2006        7           8           2206.66
+shipcountry	shipperid  avgfreight
+------		------	------
+Argentina	1	26.39
+Argentina	2	58.72
+Argentina	3	13.89
+Argentina	NULL	37.41
+Austria		1	184.88
+Austria		2	204.39
+Austria		3	162.08
+Austria		NULL	184.79
+Belgium		1	89.67
+Belgium		2	91.43
+Belgium		3	34.97
+Belgium		NULL	67.38
+Brazil		1	49.77
 ...
 ...
 ...
-2008        5           NULL        18333.64
-2008        NULL        NULL        440623.93
-NULL        NULL        NULL        1265793.22
+Switzerland	NULL	76.03
+UK		1	66.90
+UK		2	53.64
+UK		3	44.76
+UK		NULL	52.75
+USA		1	74.02
+USA		2	113.31
+USA		3	142.45
+USA		NULL	112.88
+Venezuela	1	48.31
+Venezuela	2	72.06
+Venezuela	3	58.53
+Venezuela	NULL	59.46
+NULL		1	65.00
+NULL		2	86.64
+NULL		3	80.44
+NULL		NULL	78.24
 
-(507 row(s) affected)
+(88 row(s) affected)

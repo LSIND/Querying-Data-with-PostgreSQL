@@ -1,13 +1,67 @@
-groupid     orderyear   ordermonth  salesvalue
------------ ----------- ----------- -------------
-0           2006        7           27861.90
-0           2006        8           25485.28
-0           2006        9           26381.40
-...
-...
-...
-1           2007        NULL        617085.30
-1           2008        NULL        440623.93
-3           NULL        NULL        1265793.22
+iscategorytotal	issuppliertotal	categoryname	companyname	productcount	totalprice
+------		------		------		------		------	------
+CATEGORY	SUPPLIER	Beverages	Supplier ELCRN	1	18.00
+CATEGORY	SUPPLIER	Beverages	Supplier GQRCV	1	15.00
+CATEGORY	SUPPLIER	Beverages	Supplier LVJUA	1	18.00
+CATEGORY	SUPPLIER	Beverages	Supplier SVIYA	1	7.75
+CATEGORY	SUPPLIER	Beverages	Supplier SWRXU	2	37.00
+CATEGORY	SUPPLIER	Beverages	Supplier UHZRG	3	46.00
+CATEGORY	SUPPLIER	Beverages	Supplier UNAHG	1	4.50
+CATEGORY	-		Beverages	NULL		10	146.25
+CATEGORY	SUPPLIER	Condiments	Supplier CIYNM	1	19.45
+CATEGORY	SUPPLIER	Condiments	Supplier QWUSF	1	15.50
+CATEGORY	SUPPLIER	Condiments	Supplier SVIYA	1	13.00
+CATEGORY	SUPPLIER	Condiments	Supplier SWRXU	1	10.00
+CATEGORY	SUPPLIER	Condiments	Supplier VHQZD	1	17.00
+CATEGORY	-		Condiments	NULL		5	74.95
+CATEGORY	SUPPLIER	Confections	Supplier BWGYE	3	31.70
+CATEGORY	SUPPLIER	Confections	Supplier ELCRN	1	16.25
+CATEGORY	SUPPLIER	Confections	Supplier FNUXM	2	22.25
+CATEGORY	SUPPLIER	Confections	Supplier GQRCV	1	17.45
+CATEGORY	SUPPLIER	Confections	Supplier ZPYVS	1	14.00
+CATEGORY	-		Confections	NULL		8	101.65
+CATEGORY	SUPPLIER	Dairy Products	Supplier KEREV	1	12.50
+CATEGORY	SUPPLIER	Dairy Products	Supplier NZLIF	1	2.50
+CATEGORY	-		Dairy Products	NULL		2	15.00
+CATEGORY	SUPPLIER	Grains/Cereals	Supplier CIYNM	1	14.00
+CATEGORY	SUPPLIER	Grains/Cereals	Supplier JNNES	1	7.00
+CATEGORY	SUPPLIER	Grains/Cereals	Supplier QQYEU	1	9.00
+CATEGORY	SUPPLIER	Grains/Cereals	Supplier ZWZDM	1	19.50
+CATEGORY	-		Grains/Cereals	NULL		4	49.50
+CATEGORY	SUPPLIER	Meat/Poultry	Supplier ERVYZ	1	7.45
+CATEGORY	-		Meat/Poultry	NULL		1	7.45
+CATEGORY	SUPPLIER	Produce		Supplier QOVFD	1	10.00
+CATEGORY	-		Produce		NULL		1	10.00
+CATEGORY	SUPPLIER	Seafood		Supplier JDNUG	2	28.05
+CATEGORY	SUPPLIER	Seafood		Supplier QWUSF	1	6.00
+CATEGORY	SUPPLIER	Seafood		Supplier QZGUF	2	34.00
+CATEGORY	SUPPLIER	Seafood		Supplier XOXZA	2	21.50
+CATEGORY	SUPPLIER	Seafood		Supplier ZRYDZ	1	13.25
+CATEGORY	-		Seafood		NULL		8	102.80
+-		SUPPLIER	NULL		Supplier BWGYE	3	31.70
+-		SUPPLIER	NULL		Supplier CIYNM	2	33.45
+-		SUPPLIER	NULL		Supplier ELCRN	2	34.25
+-		SUPPLIER	NULL		Supplier ERVYZ	1	7.45
+-		SUPPLIER	NULL		Supplier FNUXM	2	22.25
+-		SUPPLIER	NULL		Supplier GQRCV	2	32.45
+-		SUPPLIER	NULL		Supplier JDNUG	2	28.05
+-		SUPPLIER	NULL		Supplier JNNES	1	7.00
+-		SUPPLIER	NULL		Supplier KEREV	1	12.50
+-		SUPPLIER	NULL		Supplier LVJUA	1	18.00
+-		SUPPLIER	NULL		Supplier NZLIF	1	2.50
+-		SUPPLIER	NULL		Supplier QOVFD	1	10.00
+-		SUPPLIER	NULL		Supplier QQYEU	1	9.00
+-		SUPPLIER	NULL		Supplier QWUSF	2	21.50
+-		SUPPLIER	NULL		Supplier QZGUF	2	34.00
+-		SUPPLIER	NULL		Supplier SVIYA	2	20.75
+-		SUPPLIER	NULL		Supplier SWRXU	3	47.00
+-		SUPPLIER	NULL		Supplier UHZRG	3	46.00
+-		SUPPLIER	NULL		Supplier UNAHG	1	4.50
+-		SUPPLIER	NULL		Supplier VHQZD	1	17.00
+-		SUPPLIER	NULL		Supplier XOXZA	2	21.50
+-		SUPPLIER	NULL		Supplier ZPYVS	1	14.00
+-		SUPPLIER	NULL		Supplier ZRYDZ	1	13.25
+-		SUPPLIER	NULL		Supplier ZWZDM	1	19.50
+-		-		NULL		NULL		39	507.60
 
-(27 row(s) affected)
+(63 row(s) affected)

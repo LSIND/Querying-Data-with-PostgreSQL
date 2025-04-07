@@ -1,6 +1,6 @@
-custid      companyname                              contactname                    address                                                      city            country         phone
------------ ---------------------------------------- ------------------------------ ------------------------------------------------------------ --------------- --------------- ------------------------
-1           Customer NRZBB                           Allen, Michael                 Obere Str. 0123                                              Berlin          Germany         030-3456789
-4           Customer HFBZG                           Arndt, Torsten                 7890 Hanover Sq.                                             London          UK              (171) 456-7890
+custid      companyname                              contactname                    address		city            country         phone
+----------- ---------------------------------------- ------------------------------ -------------	--------------- --------------- -------------------
+1           Customer NRZBB                           Allen, Michael                 Obere Str. 0123	Berlin          Germany         030-3456789
+4           Customer HFBZG                           Arndt, Torsten                 7890 Hanover Sq.	London          UK              (171) 456-7890
 
-(2 row(s) affected) 
+(2 row(s) affected)

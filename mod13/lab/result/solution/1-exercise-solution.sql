@@ -13,7 +13,7 @@
 -- Результирующий набор сравните с Lab Exercise1 - Task1 Result.txt
 ---------------------------------------------------------------------
 
-SELECT orderid, orderdate,val,
+SELECT orderid, orderdate, val,
 	ROW_NUMBER() OVER (ORDER BY orderdate) AS rowno
 FROM sales.ordervalues;
 
@@ -21,16 +21,17 @@ FROM sales.ordervalues;
 -- Task 2
 -- 
 -- Скопируйте запрос Task 1 и добавьте еще один вычисляемый столбец rankno. 
--- Для вывода rankno использовать функцию RANK: проранжировать все строки набора по по дате заказа.
+-- Вывести только дату заказа (без времени).
+-- Для вывода rankno использовать функцию RANK: проранжировать все строки набора по дате заказа.
 --
 -- Результирующий набор сравните с Lab Exercise1 - Task2 Result.txt
 --
 -- В чем отличие функций RANK и ROW_NUMBER?
 ---------------------------------------------------------------------
 
-SELECT orderid, orderdate, val,
-	ROW_NUMBER() OVER (ORDER BY orderdate) AS rowno,
-	RANK() OVER (ORDER BY orderdate) AS rankno
+SELECT orderid, orderdate::date, val,
+	ROW_NUMBER() OVER (ORDER BY orderdate::date) AS rowno,
+	RANK() OVER (ORDER BY orderdate::date) AS rankno
 FROM sales.ordervalues;
 
 ---------------------------------------------------------------------

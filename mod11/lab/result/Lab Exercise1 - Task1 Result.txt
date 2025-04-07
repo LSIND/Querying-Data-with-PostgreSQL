@@ -1,13 +1,16 @@
-productid   productname                              supplierid  unitprice             discontinued
------------ ---------------------------------------- ----------- --------------------- ------------ 
-1           Product HHYDP                            1           18,00                 0
-2           Product RECZE                            1           19,00                 0
-24          Product QOGNU                            10          4,50                  1
-...
-...
-...
-70          Product TOONT                            7           15,00                 0
-75          Product BWRLG                            12          7,75                  0
-76          Product JYGFE                            23          18,00                 0
+productid	productname	supplierid	unitprice	discontinued
+------		------		------		------		------
+1		Product HHYDP	1		18.00		False
+2		Product RECZE	1		19.00		False
+24		Product QOGNU	10		4.50		True
+34		Product SWNJY	16		14.00		False
+35		Product NEVTJ	16		18.00		False
+38		Product QDOMO	18		263.50		False
+39		Product LSOFL	18		18.00		False
+43		Product ZZZHR	20		46.00		False
+67		Product XLXQF	16		14.00		False
+70		Product TOONT	7		15.00		False
+75		Product BWRLG	12		7.75		False
+76		Product JYGFE	23		18.00		False
 
 (12 row(s) affected)

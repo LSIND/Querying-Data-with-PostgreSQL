@@ -26,7 +26,7 @@ LIMIT 10;
 -- Task 2
 -- 
 -- Напишите SELECT-запрос к таблицам sales.orders и sales.orderdetails, возвращающий номер заказа, общую сумму этого заказа и номер сотрудника (empid), оформившего заказ
--- Рассчитайте итоговые суммы продаж только за 2008 год. 
+-- Рассчитайте итоговые суммы продаж только за 2023 год. 
 --
 -- Результирующий набор сравните с Lab Exercise4 - Task2 Result.txt
 ---------------------------------------------------------------------
@@ -37,7 +37,7 @@ SELECT
 	SUM(d.qty * d.unitprice) as totalsalesamount
 FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d ON d.orderid = o.orderid
-WHERE o.orderdate >= '20080101' AND o.orderdate < '20090101'
+WHERE o.orderdate >= '20230101' AND o.orderdate < '20240101'
 GROUP BY o.orderid, o.empid;
 
 ---------------------------------------------------------------------
@@ -55,7 +55,7 @@ SELECT
 	SUM(d.qty * d.unitprice) as totalsalesamount
 FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d ON d.orderid = o.orderid
-WHERE o.orderdate >= '20080101' AND o.orderdate < '20090101'
+WHERE o.orderdate >= '20230101' AND o.orderdate < '20240101'
 GROUP BY o.orderid, o.empid
 HAVING SUM(d.qty * d.unitprice) >= 10000.
 ORDER BY o.empid;
@@ -76,7 +76,7 @@ SELECT
 FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d ON d.orderid = o.orderid
 WHERE 
-	o.orderdate >= '20080101' AND o.orderdate <= '20090101'
+	o.orderdate >= '20230101' AND o.orderdate <= '20240101'
 	AND o.empid = 3
 GROUP BY o.orderid, o.empid
 HAVING SUM(d.qty * d.unitprice) >= 10000.;
@@ -121,28 +121,3 @@ ON d.orderid = o.orderid
 GROUP BY o.custid
 HAVING SUM(d.qty * d.unitprice) < 2000.
 ORDER BY o.custid;
-
-
----------------------------------------------------------------------
--- Task 7 *
--- 
--- Напишите SELECT-запрос, выводящий всех заказчиков (custid, companyname), которые покупали продукты категории Meat/Poultry, 
--- но ни разу не покупали продукты категории Seafood.
---
--- Результирующий набор сравните с Lab Exercise4 - Task7 Result.txt
----------------------------------------------------------------------
-
-SELECT C.custid, C.companyname
-FROM sales.customers as C
-JOIN sales.orders as O ON C.custid = O.custid
-JOIN sales.orderdetails AS OD ON OD.orderid = O.orderid
-JOIN production.products AS P on P.productid = OD.productid
-join production.categories as CA ON CA.categoryid = P.categoryid
-WHERE CA.categoryname IN ('Meat/Poultry', 'Seafood')
-GROUP BY C.custid, C.companyname
-HAVING SUM(
-	     CASE WHEN CA.categoryname = 'Meat/Poultry' THEN 1
-		 ELSE 0 END) >= 1 
-   AND SUM(
-	     CASE WHEN CA.categoryname = 'Seafood' THEN 1 
-		 ELSE 0 END) = 0;

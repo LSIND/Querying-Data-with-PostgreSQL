@@ -22,15 +22,16 @@ ORDER BY salesamount DESC;
 ---------------------------------------------------------------------
 -- Task 2
 -- 
--- Скопируйте запрос из Task 1. Добавьте столбцы: общее количество позиций в заказе и средняя цена товаров в заказе
--- Использовать псевдонимы nooforderlines и avgsalesamountperorderline соответственно.
+-- Скопируйте запрос из Task 1. Добавьте вычисляемые столбцы: общее количество позиций в заказе и средняя цена товаров в заказе
+-- Использовать псевдонимы nooforderlines и avgsales соответственно.
+-- Среднюю цену округлить до двух знаков после запятой.
 --
 -- Результирующий набор сравните с Lab Exercise2 - Task2 Result.txt. 
 ---------------------------------------------------------------------
 SELECT
 	o.orderid, o.orderdate, SUM(d.qty * d.unitprice) AS salesamount, 
 	COUNT(*) AS noofoderlines, 
-	AVG(d.qty * d.unitprice) AS avgsalesamountperorderline
+	ROUND(AVG(d.qty * d.unitprice),2) AS avgsales
 FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d
 ON d.orderid = o.orderid
@@ -41,7 +42,7 @@ ORDER BY salesamount DESC;
 -- Task 3
 -- 
 -- Напишите SELECT-запрос, возвращающий общую сумму продаж (qty * unitprice) по месяцам.
--- Определите вычисляемый столбец yearmonthno (YYYY-MM) по столбцу orderdate из sales.orders. 
+-- Определите вычисляемый столбец yearmonthno (YYYY-MM), содержащий год и месяц продаж, по столбцу orderdate из sales.orders. 
 -- Упорядочить по yearmonthno по возрастанию.
 --
 -- Результирующий набор сравните с Lab Exercise2 - Task3 Result.txt. 
@@ -53,7 +54,6 @@ FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d ON d.orderid = o.orderid
 GROUP BY to_char(orderdate, 'YYYY-MM')
 ORDER BY yearmonthno;
-
 
 ---------------------------------------------------------------------
 -- Task 4

@@ -16,7 +16,7 @@ CREATE TABLE public.extracustomers(
 	city varchar(15) NOT NULL,
 	country varchar(15) NOT NULL,
     discount numeric(4,2) NOT NULL,
-CONSTRAINT PK_ECustomers PRIMARY KEY(custid)
+CONSTRAINT pk_ecustomers PRIMARY KEY(custid)
 ); 
 
 
@@ -152,7 +152,7 @@ CREATE TABLE public.extracustomers(
 	city varchar(15) NOT NULL,
 	country varchar(15) NOT NULL,
     discount numeric(4,2) NOT NULL,
-CONSTRAINT PK_ECustomers PRIMARY KEY(custid)
+CONSTRAINT pk_ecustomers PRIMARY KEY(custid)
 ); 
 
 ----------------------

@@ -18,10 +18,10 @@ FROM sales.orders
 WHERE orderid < 10300
 ORDER BY orderid;
 
--- Список заказов, оформленных ранее 01 августа 2006
+-- Список заказов, оформленных ранее 01 августа 2021
 SELECT orderid,shipcity, orderdate, shipname, shipcountry || ', ' || shipcity AS address
 FROM sales.orders
-WHERE orderdate < '20060801'
+WHERE orderdate < '20210801'
 ORDER BY orderid;
 
 -- Все заказы с номерами в промежутке от 10400 до 10410 включительно

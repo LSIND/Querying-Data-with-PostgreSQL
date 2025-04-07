@@ -1,12 +1,12 @@
-categoryid  categoryname    totalsalesamount      nooforders  avgsalesamountperorder
------------ --------------- --------------------- ----------- ----------------------
-1	        Beverages	    $122,223.75	            128	        $954.87
-2	        Condiments	    $34,557.45	            62	        $557.37
-3	        Confections	    $58,359.73	            89	        $655.72
-4	        Dairy Products	$82,803.90	            90	        $920.04
-5	        Grains/Cereals	$30,422.25	            55	        $553.13
-6	        Meat/Poultry	$60,275.57	            43	        $1,401.75
-7	        Produce	        $32,415.85	            42	        $771.80
-8	        Seafood	        $48,712.84	            101	        $482.30
+categoryid  	categoryname    	totalsalesamount      	nooforders  	avgsalesamountperorder
+----------- 	--------------- 	--------------------- 	----------- 	----------------------
+1		Beverages		122223.75		128		954.87
+2		Condiments		34557.45		62		557.38
+3		Confections		58359.73		89		655.73
+4		Dairy Products		82803.90		90		920.04
+5		Grains/Cereals		30422.25		55		553.13
+6		Meat/Poultry		60275.57		43		1401.76
+7		Produce			32415.85		42		771.81
+8		Seafood			48712.84		101		482.31
 
 (8 row(s) affected)

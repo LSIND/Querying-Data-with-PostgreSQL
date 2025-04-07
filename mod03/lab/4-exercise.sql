@@ -16,8 +16,8 @@
 -- Task 2
 --
 -- Измените запрос Task 1, добавив вычисляемый столбец столбец iscampaign с использованием CASE
---     iscampaign имеет значение 'Campaign Products' для категорий Beverages, Produce и Seafood
---     значение 'Non-Campaign Products' для остальных категорий.
+--     iscampaign имеет значение 'Campaign Products' для категорий с номерами 1, 7, 8
+--     значение 'Non-Campaign Products' для всех остальных категорий.
 --
 -- Результирующий набор сравните с Lab Exercise4 - Task2 Result.txt. 
 ---------------------------------------------------------------------

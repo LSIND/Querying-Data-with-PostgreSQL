@@ -12,7 +12,7 @@
 -- Результирующий набор сравните с Lab Exercise1 - Task1 Result.txt
 ---------------------------------------------------------------------
 
-SELECT MAX(orderdate) AS lastorderdate 
+SELECT MAX(orderdate::date) AS lastorderdate 
 FROM sales.orders;
 
 
@@ -27,7 +27,7 @@ FROM sales.orders;
 
 SELECT orderid, orderdate, empid, custid
 FROM sales.orders
-WHERE orderdate = (SELECT MAX(orderdate) FROM sales.orders);
+WHERE orderdate::date = (SELECT MAX(orderdate::date) FROM sales.orders);
 
 ---------------------------------------------------------------------
 -- Task 3
@@ -82,7 +82,7 @@ WHERE
 --  totalsalesamount (qty * unitprice таблицы sales.orderdetails) - общая сумма заказа
 --  salespctoftotal (общая сумма заказа, деленная на общую сумму продаж за определенный период) - в процентах
 --
--- Заказы должны быть оформлены только в мае 2008.
+-- Заказы должны быть оформлены только в мае 2023.
 --
 -- Результирующий набор сравните с Lab Exercise1 - Task4 Result.txt
 ---------------------------------------------------------------------
@@ -96,10 +96,10 @@ SELECT
 		FROM sales.orders AS o
 		INNER JOIN sales.orderdetails AS d 
 		ON d.orderid = o.orderid
-		WHERE o.orderdate >= '20080501' AND o.orderdate < '20080601'
+		WHERE o.orderdate >= '20230501' AND o.orderdate < '20230601'
 	) * 100. AS salespctoftotal
 FROM sales.orders AS o
 INNER JOIN sales.orderdetails AS d 
 ON d.orderid = o.orderid
-WHERE o.orderdate >= '20080501' AND o.orderdate < '20080601'
+WHERE o.orderdate >= '20230501' AND o.orderdate < '20230601'
 GROUP BY o.orderid;

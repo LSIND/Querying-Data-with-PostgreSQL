@@ -1,17 +1,14 @@
-custid      contactname             salesamt2008
------------ ----------------------- ----------------
-1	        Allen, Michael	        2250.50
-2	        Hassall, Mark	        514.40
-3	        Peoples, John	        660.00
+custid	contactname		salesamt2023
+------	------			------
+1	Allen, Michael		2250.50
+2	Hassall, Mark		514.40
+3	Peoples, John		660.00
 ...
 ...
-
-50	        Mace, Donald	        4439.08
-51	        Taylor, Maurice	        0
-52	        Dupont-Roc, Patrice	    245.00
 ...
-...
-90	        Larsson, Katarina	    1987.00
-91	        Conn, Steve	            1865.10
+88	Li, Yan			1135.25
+89	Smith Jr., Ronaldo	15278.90
+90	Larsson, Katarina	1987.00
+91	Conn, Steve		1865.10
 
 (91 row(s) affected)

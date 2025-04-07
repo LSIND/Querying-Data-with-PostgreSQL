@@ -66,14 +66,14 @@ GROUP BY ROLLUP(Category,Cust) -- важен порядок столбцов в 
 ORDER BY Category, Cust; -- 16 строк
 
 ------------------------------------------------------------
--- "Чековая лента" за сутки (за 8 июля 2006)
+-- "Чековая лента" за сутки (за 8 июля 2021)
 SELECT d.orderid,  o.orderdate, p.productname, p.unitprice, d.qty, SUM(p.unitprice*d.qty) as Total
 FROM sales.orderdetails as d
 JOIN sales.orders as o 
 ON d.orderid = o.orderid
 JOIN production.products as p
 ON p.productid = d.productid
-WHERE o.orderdate >= '20060708' AND o.orderdate < '20060709'
+WHERE o.orderdate >= '20210708' AND o.orderdate < '20210709'
 GROUP BY ROLLUP ((d.orderid, o.orderdate),(p.productname,p.unitprice,d.qty));
 
 
@@ -95,7 +95,7 @@ END AS Tag,
 FROM sales.orderdetails as d
 JOIN sales.orders as o ON d.orderid = o.orderid
 JOIN production.products as p ON p.productid = d.productid
-WHERE o.orderdate >= '20060708' AND o.orderdate < '20060711' -- период
+WHERE o.orderdate >= '20210708' AND o.orderdate < '20210709' -- период
 GROUP BY ROLLUP ((d.orderid, o.orderdate),(p.productname,p.unitprice,d.qty));
 
 

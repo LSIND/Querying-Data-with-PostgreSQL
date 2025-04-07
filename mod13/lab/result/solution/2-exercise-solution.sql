@@ -54,10 +54,10 @@ FROM sales.ordervalues;
 ---------------------------------------------------------------------
 -- Task 3
 -- 
--- Определите CTE с именем SalesMonth2007 с двумя столбцами:
+-- Определите CTE с именем SalesMonth2022 с двумя столбцами:
 --   monthno (месяц от столбца orderdate). Столбец группировки
 --   val (сумма по столбцу val).
---  Месяца и суммы должны быть только за 2007 год
+--  Месяца и суммы должны быть только за 2022 год
 --
 -- Напишите SELECT-запрос к CTE и получите столбцы monthno и val, а также три вычисляемых столбца:
 --  avglast3months - среднее количество продаж за предыдущие три месяца (относительно текущей строки): (LAG(1) + LAG(2) +LAG(3)) / 3
@@ -68,13 +68,13 @@ FROM sales.ordervalues;
 -- Обратите внимание, что среднее за предыдущие три месяца (avglast3months) рассчитано неверно для строк 2 и 3.
 ---------------------------------------------------------------------
 
-WITH SalesMonth2007 AS
+WITH SalesMonth2022 AS
 (
 	SELECT
 		EXTRACT(MONTH FROM orderdate) AS monthno,
 		SUM(val) AS val
 	FROM sales.ordervalues
-	WHERE orderdate >= '20070101' AND orderdate < '20080101'
+	WHERE orderdate >= '20220101' AND orderdate < '20230101'
 	GROUP BY monthno
 )
 SELECT
@@ -83,4 +83,4 @@ SELECT
 	((LAG(val, 1, 0.0) OVER (ORDER BY monthno) + LAG(val, 2, 0.0) OVER (ORDER BY monthno) + LAG(val, 3, 0.0) OVER (ORDER BY monthno)) / 3)::numeric(10,3) AS avglast3months,
 	val - FIRST_VALUE(val) OVER (ORDER BY monthno ROWS UNBOUNDED PRECEDING) AS diffjanuary,
 	LEAD(val) OVER (ORDER BY monthno) AS nextval
-FROM SalesMonth2007;
+FROM SalesMonth2022;

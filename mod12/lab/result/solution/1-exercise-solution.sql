@@ -76,8 +76,8 @@ ORDER BY 1;
 -- Task 4
 -- 
 -- Напишите SELECT-запрос, выводящий custid и contactname из таблицы sales.customers. 
--- Выведите 10 заказчиков на январь 2008 года, купивших на наибольшую сумму 
--- С помощью UNION объедините этот с запрос с 10 заказчиками на февраль 2008 года, купивших на наибольшую сумму
+-- Выведите 10 заказчиков на январь 2023 года, купивших на наибольшую сумму 
+-- С помощью UNION объедините этот с запрос с 10 заказчиками на февраль 2023 года, купивших на наибольшую сумму
 -- Можно использовать представление ​sales.orderValues. Упорядочить по custid.
 --
 -- Результирующий набор сравните с Lab Exercise1 - Task4 Result.txt.
@@ -90,7 +90,7 @@ FROM
 	FROM sales.orderValues AS o
 	INNER JOIN sales.customers AS c
     ON c.custid = o.custid
-	WHERE o.orderdate >= '20080101' AND o.orderdate < '20080201'
+	WHERE o.orderdate >= '20230101' AND o.orderdate < '20230201'
 	GROUP BY o.custid, c.contactname
 	ORDER BY SUM(o.val) DESC
     LIMIT 10
@@ -103,7 +103,7 @@ FROM
 	FROM sales.orderValues AS o
 	INNER JOIN sales.customers AS c
     ON c.custid = o.custid
-	WHERE o.orderdate >= '20080201' AND o.orderdate < '20080301'
+	WHERE o.orderdate >= '20230201' AND o.orderdate < '20230301'
 	GROUP BY o.custid, c.contactname
 	ORDER BY SUM(o.val) DESC
     LIMIT 10

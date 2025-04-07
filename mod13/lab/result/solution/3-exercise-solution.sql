@@ -45,7 +45,7 @@ ORDER BY custid, orderid;
 ---------------------------------------------------------------------
 -- Task 3
 -- 
--- Скопируйте CTE SalesMonth2007 CTE из exercise 2 - Task 3. Напишите SELECT-запрос к CTE и получите столбцы monthno и val, а также два вычисляемых столбца:
+-- Скопируйте CTE SalesMonth2022 CTE из exercise 2 - Task 3. Напишите SELECT-запрос к CTE и получите столбцы monthno и val, а также два вычисляемых столбца:
 --  avglast3months - среднее количество продаж за предыдущие три месяца (относительно текущей строки) с использованием оконной функции агрегирования AVG.
 --  ytdval - совокупный объем продаж до и включая текущий месяц
 --
@@ -53,13 +53,13 @@ ORDER BY custid, orderid;
 -- Сравните данные в столбце avglast3months с результатом exercise 2 - Task 3.
 ---------------------------------------------------------------------
 
-WITH SalesMonth2007 AS
+WITH SalesMonth2022 AS
 (
 	SELECT
 		EXTRACT(MONTH FROM orderdate) AS monthno,
 		SUM(val) AS val
 	FROM sales.ordervalues
-	WHERE orderdate >= '20070101' AND orderdate < '20080101'
+	WHERE orderdate >= '20220101' AND orderdate < '20230101'
 	GROUP BY monthno
 )
 SELECT
@@ -67,22 +67,21 @@ SELECT
 	val,
 	COALESCE(AVG(val) OVER (ORDER BY monthno ROWS BETWEEN 3 PRECEDING AND 1 PRECEDING), 0)::numeric(10,3) AS avglast3months,
 	SUM(val) OVER (ORDER BY monthno ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS ytdval
-FROM SalesMonth2007;
+FROM SalesMonth2022;
 
 
 
 ---------------------------------------------------------------------
--- Task 4 **
+-- Task 4 *
 -- 
 -- Найти разницу в суммах, потраченных клиентами из Германии за зиму (декабрь, январь, февраль) каждого года
 -- Вывести столбцы: custid, companyname, yyyy_w (год), total (общая сумма покупок за зиму данного года)
 -- и msg (сообщение): 
----- Вывести сообщение 'Вы потратили на $X больше/меньше, чем прошлой зимой'
+---- Вывести сообщение 'Вы потратили на X больше/меньше, чем прошлой зимой'
 ---- Если предыдущего года нет - вывести сообщение 'Прошлой зимой Вы еще не были нашим клиентом'
 --
 -- Результирующий набор сравните с Lab Exercise3 - Task4 Result.txt 
 ---------------------------------------------------------------------
-
 
 SELECT custid, companyname, yyyy as yyyy_w, total, -- LAG(total, 1) OVER(Partition by custid ORDER BY yyyy),
 CASE

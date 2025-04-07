@@ -1,14 +1,14 @@
-empid	firstname	lastname	orderid	orderdate		productname	unitprice
------	--------- ---------	------- ---------	---------	-----------	---------
-1	Sara		Davis		10776	2007-12-15 00:00:00	Product APITJ	$53.00
-1	Sara		Davis		10325	2006-10-09 00:00:00	Product PWCJB	$23.25
-1	Sara		Davis		10591	2007-07-07 00:00:00	Product IMEHJ	$10.00
-1	Sara		Davis		10591	2007-07-07 00:00:00	Product HMLNI	$30.00
+empid	firstname	lastname	orderid	orderdate			productname	unitprice
+-----	--------- 	---------	------- ---------			---------	-----------
+1	Sara		Davis		10776	2022-12-15 08:00:45.26883	Product APITJ	53.00
+1	Sara		Davis		10325	2021-10-09 08:55:40.034135	Product PWCJB	23.25
+1	Sara		Davis		10591	2022-07-07 12:37:35.85624	Product IMEHJ	10.00
+1	Sara		Davis		10591	2022-07-07 12:37:35.85624	Product HMLNI	30.00
 ...
 ...
 ...
-9	Zoya	Dolgopyatova		10889	2008-02-16 00:00:00	Product QDOMO	$263.50
-9	Zoya	Dolgopyatova		10889	2008-02-16 00:00:00	Product QMVUN	$21.00
-9	Zoya	Dolgopyatova		11058	2008-04-29 00:00:00	Product XYZPE	$28.50
+9	Zoya		Dolgopyatova	10889	2023-02-16 10:16:30.090303	Product QDOMO	263.50
+9	Zoya		Dolgopyatova	10889	2023-02-16 10:16:30.090303	Product QMVUN	21.00
+9	Zoya		Dolgopyatova	11058	2023-04-29 08:22:49.313443	Product XYZPE	28.50
 
 (2155 row(s) affected)

@@ -39,7 +39,7 @@ WHERE p.pricetype = 'high';
 SELECT
 	c.custid,
 	SUM(c.totalsalesamountperorder) AS totalsalesamount,
-	AVG(c.totalsalesamountperorder) AS avgsalesamount
+	ROUND(AVG(c.totalsalesamountperorder), 2) AS avgsalesamount
 FROM
 (
 	SELECT o.custid, o.orderid, SUM(d.unitprice * d.qty) AS totalsalesamountperorder
@@ -60,17 +60,18 @@ ORDER BY c.custid;
 --  prevtotalsales - общее количество продаж за предыдущий год
 --  percentgrowth - отношение роста продаж текущего года к предыдущему (в процентах) 
 -- Используйте две наследуемые таблицы. Получить год и общую сумму продаж можно из существующего представления sales.ordervalues (столбец val - объемы продаж).
--- 2006 год - первый год работы магазина, но он также должен быть включен в результат.
+-- 2021 год - первый год работы магазина, но он также должен быть включен в результат.
 --
 -- * Попробуйте также решить задачу с помощью CTE.
 --
 -- Результирующий набор сравните с Lab Exercise2 - Task3 Result.txt
 ---------------------------------------------------------------------
+
 SELECT
 	cy.orderyear, 
 	cy.totalsalesamount AS curtotalsales, 
 	py.totalsalesamount AS prevtotalsales,
-	(cy.totalsalesamount - py.totalsalesamount) / py.totalsalesamount * 100. AS percentgrowth
+	ROUND((cy.totalsalesamount - py.totalsalesamount) / py.totalsalesamount * 100., 3) AS percentgrowth
 FROM
 (
 	SELECT EXTRACT(YEAR FROM orderdate) AS orderyear, SUM(val) AS totalsalesamount
@@ -95,7 +96,7 @@ SELECT
 	cy.orderyear, 
 	cy.totalsalesamount AS curtotalsales,
 	py.totalsalesamount AS prevtotalsales,
-	(cy.totalsalesamount - py.totalsalesamount) / py.totalsalesamount * 100. AS percentgrowth
+	ROUND((cy.totalsalesamount - py.totalsalesamount) / py.totalsalesamount * 100., 3) AS percentgrowth
 FROM cy
 LEFT OUTER JOIN cy AS py
 ON cy.orderyear = py.orderyear + 1

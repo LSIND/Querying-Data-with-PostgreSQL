@@ -1,25 +1,25 @@
-orderid	orderdate		    shipcity	    lastname	title
-------	--------------		------------	----------	----------
-11065	2008-05-01 00:00:00	Barquisimeto	Cameron		Sales Representative
-11054	2008-04-28 00:00:00	Buenos Aires	Cameron		Sales Representative
-11068	2008-05-04 00:00:00	Sao Paulo	    Cameron		Sales Representative
-11075	2008-05-06 00:00:00	Genève		    Cameron		Sales Representative
-11077	2008-05-06 00:00:00	Albuquerque	    Davis		CEO
-11039	2008-04-21 00:00:00	I. de Margarita	Davis		CEO
-11071	2008-05-05 00:00:00	Barquisimeto	Davis		CEO
-11058	2008-04-29 00:00:00	Mannheim	    Dolgopyatova	Sales Representative
-11059	2008-04-29 00:00:00	Rio de Janeiro	Funk		Vice President, Sales
-11070	2008-05-05 00:00:00	Frankfurt a.M.	Funk		Vice President, Sales
-11073	2008-05-05 00:00:00	México D.F.	    Funk		Vice President, Sales
-11008	2008-04-08 00:00:00	Graz		    King		Sales Representative
-11051	2008-04-27 00:00:00	Toulouse	    King		Sales Representative
-11074	2008-05-06 00:00:00	Kobenhavn	    King		Sales Representative
-11076	2008-05-06 00:00:00	Marseille	    Peled		Sales Representative
-11062	2008-04-30 00:00:00	Reggio Emilia	Peled		Sales Representative
-11072	2008-05-05 00:00:00	Graz		    Peled		Sales Representative
-11061	2008-04-30 00:00:00	Eugene		    Peled		Sales Representative
-11040	2008-04-22 00:00:00	Eugene		    Peled		Sales Representative
-11019	2008-04-13 00:00:00	Buenos Aires	Suurs		Sales Representative
-11045	2008-04-23 00:00:00	Tsawassen	    Suurs		Sales Representative
+orderid	orderdate			shipcity	lastname	title
+------	--------------			------------	----------	----------
+11054	2023-04-28 18:05:59.206903	Buenos Aires	Cameron	Sales 	Representative
+11065	2023-05-01 09:51:15.532331	Barquisimeto	Cameron	Sales 	Representative
+11068	2023-05-04 17:11:59.781095	Sao Paulo	Cameron	Sales 	Representative
+11075	2023-05-06 17:42:34.761415	Genève	Cameron	Sales 		Representative
+11077	2023-05-06 16:12:52.206603	Albuquerque	Davis		CEO
+11039	2023-04-21 10:44:38.226048	I. de Margarita	Davis		CEO
+11071	2023-05-05 17:01:13.397906	Barquisimeto	Davis		CEO
+11058	2023-04-29 08:22:49.313443	Mannheim	Dolgopyatova	Sales Representative
+11059	2023-04-29 16:45:03.379272	Rio de Janeiro	Funk		Vice President, Sales
+11070	2023-05-05 13:11:50.859989	Frankfurt a.M.	Funk		Vice President, Sales
+11073	2023-05-05 08:21:04.122597	México D.F.	Funk		Vice President, Sales
+11008	2023-04-08 16:50:40.011921	Graz		King		Sales Representative
+11051	2023-04-27 08:52:53.332204	Toulouse	King		Sales Representative
+11074	2023-05-06 18:16:23.701754	Kobenhavn	King		Sales Representative
+11076	2023-05-06 15:45:27.755221	Marseille	Peled		Sales Representative
+11062	2023-04-30 08:11:10.698864	Reggio Emilia	Peled		Sales Representative
+11072	2023-05-05 16:05:32.845453	Graz		Peled		Sales Representative
+11061	2023-04-30 16:27:13.800781	Eugene		Peled		Sales Representative
+11040	2023-04-22 09:06:49.78191	Eugene		Peled		Sales Representative
+11019	2023-04-13 16:49:05.552803	Buenos Aires	Suürs		Sales Representative
+11045	2023-04-23 16:55:31.954279	Tsawassen	Suürs		Sales Representative
 
 (21 row(s) affected)
