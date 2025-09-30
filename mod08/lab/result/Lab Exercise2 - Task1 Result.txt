@@ -1,13 +1,17 @@
-segmentgroup custid      contactname
------------- ----------- ----------------------------
-Group Two    1           Allen, Michael
-Group Three  2           Hassall, Mark
-Group Four   3           Peoples, John
+custid		contactname		segmentgroup
+------------ 	-----------	----------------------------
+1		Allen, Michael		Group Two
+2		Hassall, Mark		Group Three
+3		Peoples, John		Group Four
+4		Arndt, Torsten		Group One
+5		Higginbotham, Tom	Group Two
+6		Poland, Carole		Group Three
+7		Bansal, Dushyant	Group Four
 ...
 ...
 ...
-Group Two    89          Smith Jr., Ronaldo
-Group Three  90          Larsson, Katarina
-Group Four   91          Conn, Steve
+89		Smith Jr., Ronaldo	Group Two
+90		Larsson, Katarina	Group Three
+91		Conn, Steve		Group Four
 
 (91 row(s) affected)
