@@ -47,12 +47,23 @@ SELECT
 
 SELECT 
 	orderid, custid, orderdate::date
-    --, (date_trunc('month', orderdate) + interval '1 month - 1 day') - orderdate
+    , date_part(
+		'day', (date_trunc('month', orderdate) + interval '1 month - 1 day') - orderdate
+	)
 FROM sales.orders
 WHERE 
 	date_part(
 		'day', (date_trunc('month', orderdate) + interval '1 month - 1 day') - orderdate
-	) < 5;
+	) < 5
+
+
+SELECT 
+	orderid, custid, orderdate::date
+FROM sales.orders
+WHERE EXTRACT(DAY FROM orderdate) >= EXTRACT(DAY FROM 
+    (DATE_TRUNC('MONTH', orderdate) + INTERVAL '1 MONTH - 5 DAYS')::date
+);
+
 
 ---------------------------------------------------------------------
 -- Task 4

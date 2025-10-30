@@ -1,12 +1,12 @@
-categoryid  productname                              categoryname   iscampaign
------------ ---------------------------------------- -------------- ---------------------
-1           Product HHYDP                            Beverages      Campaign Products
-1           Product RECZE                            Beverages      Campaign Products
-2           Product IMEHJ                            Condiments     Non-Campaign Products
+categoryid  productname                             iscampaign
+----------- -------------------------------------  ---------------------
+1           Product HHYDP                           Campaign Products
+1           Product RECZE                           Campaign Products
+2           Product IMEHJ                           Non-Campaign Products
 ...
 ...
-1           Product BWRLG                            Beverages      Campaign Products
-1           Product JYGFE                            Beverages      Campaign Products
-2           Product LUNZZ                            Condiments     Non-Campaign Products
+1           Product BWRLG                           Campaign Products
+1           Product JYGFE                           Campaign Products
+2           Product LUNZZ                           Non-Campaign Products
 
 (77 row(s) affected)

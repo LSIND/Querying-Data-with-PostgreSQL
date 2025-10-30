@@ -26,17 +26,25 @@ WHERE c.categoryid IN (1,2,3) AND o.custid BETWEEN 1 AND 5; --limits results for
 -- Позиции в заказах с учетом категории, оформившего сотрудника, покупателя и года
 SELECT * FROM sales.categorysales;
 
+-- Расчет итогов
 
--- 2: Запрос с grouping sets
--- Итоги по категориям, по заказчикам и общие итоги
-EXPLAIN
-SELECT Category, Cust, SUM(Qty) AS TotalQty
+-- по категориям
+SELECT Category, SUM(Qty) AS TotalQty
 FROM sales.categorysales
-GROUP BY 
-GROUPING SETS((Category),(Cust),()) 
-ORDER BY Category, Cust; -- 9 строк
+GROUP BY category;
+
+-- по покупателям
+SELECT  Cust, SUM(Qty) AS TotalQty
+FROM sales.categorysales
+GROUP BY cust;
+
+-- Итого
+SELECT SUM(Qty) AS TotalQty
+FROM sales.categorysales;
+
 
 -- UNION ALL как альтернатива grouping sets
+-- выполняется 3 запроса 
 EXPLAIN
 SELECT Category, NULL AS Cust, SUM(Qty) AS TotalQty
 FROM sales.categorysales
@@ -48,6 +56,17 @@ GROUP BY cust
 UNION ALL
 SELECT NULL, NULL, SUM(Qty) AS TotalQty
 FROM sales.categorysales;
+
+
+-- 2: Запрос с grouping sets
+-- Итоги по категориям, по заказчикам и общие итоги
+EXPLAIN
+SELECT Category, Cust, SUM(Qty) AS TotalQty
+FROM sales.categorysales
+GROUP BY 
+GROUPING SETS((Category),(Cust),()) 
+ORDER BY Category, Cust; -- 9 строк
+
 
 
 -- 3: Запрос с CUBE

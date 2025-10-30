@@ -79,5 +79,6 @@ SHOW TIMEZONE;
 SELECT NOW();
 
 SET TIMEZONE TO 'Asia/Magadan';
-SELECT orderid, orderdate, CAST(orderdate as timestamptz) -- преобразование в timestamptz с учетом настройки сессии
+
+SELECT orderid, orderdate, CAST(orderdate AT TIME ZONE 'UTC' as timestamptz) -- преобразование в timestamptz с учетом настройки сессии
 FROM sales.orders;

@@ -25,7 +25,7 @@ FROM sales.orders
 GROUP BY custid
 HAVING Total_Orders <= 2;
 
--- Продукты, которые купили менее 10 раз
+-- Продукты, которые редко покупали (встречаются во всех заказах менее 10 раз)
 SELECT p.ProductID, COUNT(*) AS cnt
 FROM production.products AS p
 JOIN sales.orderdetails AS od
@@ -33,6 +33,7 @@ ON p.ProductID = od.Productid
 GROUP BY p.ProductID
 HAVING COUNT(*) < 10
 ORDER BY cnt DESC;
+
 
 ---------------------------------------------
 -- Заказчики и сколько заказов они совершили
@@ -51,13 +52,7 @@ GROUP BY c.custid
 HAVING COUNT(*) > 25
 ORDER BY No_Of_Orders DESC;
 
--- HAVING: продукты, которые редко покупали (встречаются во всех заказах менее 10 раз)
-SELECT p.productid, COUNT(*) AS cnt
-FROM production.products AS p
-JOIN sales.orderdetails AS od ON p.productid = od.productid
-GROUP BY p.productid
-HAVING COUNT(*) < 10
-ORDER BY cnt DESC;
+
 
 ---------------------------------------------
 -- Сравнение WHERE и HAVING
@@ -85,3 +80,12 @@ JOIN sales.orders AS o ON c.custid = o.custid
 GROUP BY c.custid
 HAVING c.custid BETWEEN 10 AND 20   -- условие
 ORDER BY c.custid;
+
+
+
+
+-- Ответ: запрос с условием WHERE
+-- + Фильтрация на раннем этапе - WHERE отсекает ненужные строки до группировки
+-- + Меньше данных для обработки - GROUP BY работает с уменьшенным набором
+-- Лучшая производительность - особенно при больших объемах данных. 
+-- HAVING фильтрует после группировки, когда все строки уже обработаны и агрегированы, что менее эффективно.
