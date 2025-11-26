@@ -50,7 +50,7 @@
 ## 11: Другие виды SELECT-запросов
 - Создание и использование представлений: ```CREATE VIEW view_name... SELECT FROM view_name...```
 - Использование наследуемых таблиц (derived table): ```SELECT FROM (SELECT ...)```
-- Использование общих табличных выражений (common table expression, CTE): ```WITH cte_name AS ( SELECT ...)```. Включая рекурсивные (```WITH RECURSIVE```) и материализованные (```MATERIALIZED```)  
+- Использование общих табличных выражений (common table expression, CTE): ```WITH cte_name AS ( SELECT ...)```.
 ## 12: Использование операторов множеств
 - Объединение (```UNION```), пересечение (```INTERSECT```), вычитание (```EXCEPT```)
 - Табличная инструкция: ```CROSS (LEFT) LATERAL JOIN ... ON TRUE```

@@ -146,27 +146,3 @@ SELECT * FROM public.production
 -- 4.5 Удаление таблиц
 DROP TABLE IF EXISTS public.production;
 DROP TABLE IF EXISTS public.production_log;
-
-
-
----------------------------------------------------------------------
---
--- 5. (*** Optional) MATERIALIZED
---
----------------------------------------------------------------------
-
-EXPLAIN -- Обычный запрос: информация о проданных товарах с номером 14 в кол-ве от 6 шт.
-SELECT * FROM sales.orderdetails
-WHERE productid = 14 AND qty > 5;
-
-EXPLAIN
-WITH yy AS -- инструкция NOT MATERIALIZED - значение по умолчанию
-NOT MATERIALIZED -- запрос в CTE выполняется как часть одного большого запроса
-( SELECT * FROM sales.orderdetails WHERE  qty > 5 )
-SELECT * FROM yy WHERE productid = 14;
-
-EXPLAIN
-WITH yy 
-AS MATERIALIZED -- сначала явно выполнится запрос в CTE
-( SELECT * FROM sales.orderdetails WHERE  qty > 5 )
-SELECT * FROM yy WHERE productid = 14;
