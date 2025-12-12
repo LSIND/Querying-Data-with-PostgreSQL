@@ -26,11 +26,11 @@ GROUP BY custid
 HAVING Total_Orders <= 2;
 
 -- Продукты, которые редко покупали (встречаются во всех заказах менее 10 раз)
-SELECT p.ProductID, COUNT(*) AS cnt
+SELECT p.ProductID, p.productname, COUNT(*) AS cnt
 FROM production.products AS p
 JOIN sales.orderdetails AS od
 ON p.ProductID = od.Productid
-GROUP BY p.ProductID
+GROUP BY p.ProductID, p.productname
 HAVING COUNT(*) < 10
 ORDER BY cnt DESC;
 

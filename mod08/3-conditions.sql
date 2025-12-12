@@ -12,12 +12,11 @@ SELECT GREATEST(8,20, 5, 45), LEAST(8,20, 5, 45);
 
 SELECT GREATEST(1,null,5), LEAST(1,null,-5); -- пустые значения (NULL) игнорируются при сравнении
 
-SELECT LEAST('1970-12-10','2000-11-11','2019-01-01');
+SELECT LEAST('Berlin', 'Moscow', 'Helsinki');
 
 -- возвращаем либо исходную цену продукта, либо 20 у.е, если цена меньше
-SELECT 	productid, unitprice, GREATEST(unitprice, 20) AS pricepoint
+SELECT 	productid, unitprice, GREATEST(unitprice, 20.00) AS pricepoint
 FROM production.products;
-
 
 -- 2. Тип данных ARRAY
 -- Элементы одного типа
@@ -61,7 +60,7 @@ ORDER BY orderdate;
 -- возвращает первое не-NULL значение
 SELECT COALESCE(NULL, NULL, 'test', 'abc', NULL);
 
-SELECT	custid, country, region, city, country || ',' || COALESCE(region, ' ') || ', ' || city as Loc
+SELECT	custid, country, region, city, country || ', ' || COALESCE(region, ' ') || ', ' || city as Loc
 FROM sales.customers;
 
 

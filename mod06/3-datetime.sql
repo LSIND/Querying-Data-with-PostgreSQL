@@ -35,10 +35,10 @@ SELECT make_interval(days => 25);
 -------------------------------------------------------
 -- Операторы даты/времени
 
-SELECT date '2023-09-28' + 7; -- + 7 дней
-SELECT time '05:00' - interval '2 hours';
-SELECT date '2023-10-01' - date '2023-09-28';
-SELECT 3.5 * interval '1 hour';
+SELECT  '2023-09-28'::date + 7; -- + 7 дней
+SELECT '05:00'::time - '2 hours'::interval;
+SELECT '2023-10-01'::date - '2023-09-28'::date;
+SELECT 3.5 * '1 hour'::interval;
 
 
 -------------------------------------------------------
@@ -62,7 +62,7 @@ SELECT to_char(current_timestamp, 'TMDay, DD TMMonth YYYY'); -- Пятница, 
 -- Приставка TM	режим перевода (используются локализованные названия дней и месяцев, исходя из lc_time)	
 
 SET LC_TIME to 'en_US.utf8'; 
-
+-- RESET LC_TIME;
 
 -------------------------------------------------------
 -- TIME ZONE 
@@ -80,5 +80,6 @@ SELECT NOW();
 
 SET TIMEZONE TO 'Asia/Magadan';
 
-SELECT orderid, orderdate, CAST(orderdate AT TIME ZONE 'UTC' as timestamptz) -- преобразование в timestamptz с учетом настройки сессии
+-- преобразование в timestamptz с учетом настройки сессии (часовой пояс)
+SELECT orderid, orderdate, CAST(orderdate AT TIME ZONE 'UTC' as timestamptz) 
 FROM sales.orders;

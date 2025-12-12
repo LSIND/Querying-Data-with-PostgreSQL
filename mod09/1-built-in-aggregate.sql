@@ -11,41 +11,63 @@
 SELECT AVG(unitprice), MIN(qty), MAX(discount)
 FROM sales.orderDetails;
 
+-- общая сумма продаж за все время работы магазина
+SELECT SUM(unitprice*qty) as total
+FROM sales.orderDetails;
+
 -- varchar
 SELECT MIN(shipcity) as first_territory, MAX(shipcity) as last_territory
 FROM sales.orders;
-
-SELECT STRING_AGG(categoryname, ', ') as all_categories
-FROM production.categories;
 
 -- datetime
 SELECT MIN(OrderDate) AS earliest_order, MAX(OrderDate) AS latest_order
 FROM sales.orders;
 
+-- STRING_AGG: сложение строк
+SELECT STRING_AGG(categoryname, ', ') as all_categories
+FROM production.categories;
+
+-- *** Категории со списком продуктов в виде JSON
+SELECT 
+    c.categoryid,
+    c.categoryname,
+    json_agg(
+        json_build_object(
+            'id', p.productid,
+            'name', p.productname,
+            'price', p.unitprice
+        )
+    ) AS products
+FROM production.categories c
+LEFT JOIN production.products p ON c.categoryid = p.categoryid
+GROUP BY c.categoryid, c.categoryname
+ORDER BY c.categoryid;
+
+
+-- DISTINCT с функциями агрегирования
+SELECT COUNT(country) as allcust, COUNT(DISTINCT country) as unique_countries
+FROM sales.customers;
+
+SELECT DISTINCT country 
+FROM sales.customers; -- 21 страна
+
+
 -- Ошибка - нет явного GROUP BY
 SELECT orderid, productid, MIN(qty), MAX(discount)
 FROM sales.orderDetails;
 
--- DISTINCT с функциями агрегирования
-SELECT EXTRACT (YEAR FROM OrderDate) AS order_year,
-COUNT(custid) as all_customers,
-COUNT(DISTINCT custid) as unique_customers
-FROM sales.orders
-GROUP BY EXTRACT (YEAR FROM OrderDate);
 
-
-
+-------------------------------------------------------
 -- 2. NULL и функции агрегирования
 
 -- shipregion содержит NULLs в Sales.Orders
-SELECT DISTINCT shipregion
-FROM sales.orders
-ORDER BY shipregion;
-
 -- MIN, MAX и COUNT пропускают NULL, но не COUNT(*)
 SELECT MIN(shipregion) AS A_region, MAX(shipregion) AS Z_region, 
-COUNT(shipregion) AS countRegions, COUNT(*) AS COUNT_all
+COUNT(shipregion) AS count_Regions, 
+COUNT(DISTINCT shipregion) AS unique_Regions, 
+COUNT(*) AS COUNT_all
 FROM sales.orders;
+
 
 -- 3. Тестирование на NULL
 
@@ -67,7 +89,6 @@ COUNT(c2)AS count_nonnulls, AVG(c2) AS avgC2, (SUM(c2)/COUNT(*)) AS arith_avg
 FROM public.t1;
 
 -- AVG и замена NULL на 0 с помощью COALESCE
-
 SELECT SUM(c2) AS sum_nonnulls, COUNT(*) AS count_all_rows, 
 COUNT(c2)AS count_nonnulls, AVG(c2) AS avgC2, AVG(COALESCE(c2,0)) AS AvgWithNULLReplace
 FROM public.t1;

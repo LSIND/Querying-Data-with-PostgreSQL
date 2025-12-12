@@ -20,10 +20,10 @@ ORDER BY c.categoryname, EXTRACT(year FROM o.orderdate);
 
 
 -- Требуется "перевернуть" результат, где столбцами стали бы: категория, 2021, 2022 и 2023 годы:
--- category	        2021	2022	2023
+-- category	            2021	2022	2023
 --------------------------------------------
 -- Beverages            1842	3996	3694
--- Condiments           962	2895    1441
+-- Condiments           962	    2895    1441
 -- Confections          1357	4137	2412
 -- Dairy Products       2086	4374	2689
 -- Grains/Cereals       549     2636    1377
@@ -35,28 +35,6 @@ ORDER BY c.categoryname, EXTRACT(year FROM o.orderdate);
 
 -- 1. Установка расширения в БД, содержащего функцию crosstab
 CREATE EXTENSION IF NOT EXISTS tablefunc;
-
-
-SELECT *
-FROM crosstab(
-    $$ 
-    SELECT  
-        c.categoryname AS category,
-        EXTRACT(year FROM o.orderdate)::text AS orderyear,
-        SUM(od.qty) AS Qty
-    FROM production.categories AS c
-        INNER JOIN Production.Products AS p ON c.categoryid = p.categoryid
-        INNER JOIN Sales.OrderDetails AS od ON p.productid = od.productid
-        INNER JOIN Sales.Orders AS o ON od.orderid = o.orderid
-    GROUP BY c.categoryname, EXTRACT(year FROM o.orderdate)
-    $$,
-    $$ 
-    SELECT DISTINCT EXTRACT(year FROM orderdate)::text
-    FROM Sales.Orders
-    ORDER BY 1
-    $$
-) AS ct (category TEXT, year_columns TEXT[]);
-
 
 
 -- 2. Использование функции crosstab (source_sql text, category_sql text) → setof record
@@ -91,8 +69,7 @@ ORDER BY c.categoryname, EXTRACT(year FROM o.orderdate)
 );
 
 
-
--- * Альтернатива - функции агрегирования + FILTER
+-- 3. * Альтернатива - функции агрегирования + FILTER
 SELECT 
     c.categoryname AS category,
     SUM(od.qty) FILTER (WHERE EXTRACT(year FROM o.orderdate) = 2021) AS "2021",
@@ -107,5 +84,5 @@ ORDER BY c.categoryname;
 
 
 
--- Удаление расширения из БД
+-- 4. Удаление расширения из БД
 DROP EXTENSION tablefunc;

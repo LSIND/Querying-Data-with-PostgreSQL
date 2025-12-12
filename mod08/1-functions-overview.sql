@@ -12,15 +12,22 @@ SELECT orderid, EXTRACT(YEAR FROM orderdate) AS orderyear
 FROM sales.orders;
 
 SELECT ABS(-1.0), ABS(0.0), ABS(1.0);
-SELECT RANDOM(), FLOOR(RANDOM() * 10 + 1)::int; -- случайное число от 0 до 1.; случайное целое число в диапазоне
+
+-- случайное число в диапазоне [0.0, 1.0); случайное целое число в диапазоне [1, 10]
+SELECT RANDOM(), (RANDOM() * 9)::int + 1 AS rand1_10;
+
 SELECT PI(), POWER(2,5);
 
 SELECT CAST(NOW() AS DATE) AS current_date;
 
-SELECT UPPER('some text') as UpperText;
+SELECT UPPER('some text') as uppertext;
 
 SELECT current_database(); -- имя текущей базы данных (строка)
-SELECT pg_database_size(current_database()) AS DBSizeInBytes; -- Размер базы данных на диске в байтах
+
+-- Размер базы данных на диске в байтах
+SELECT pg_database_size(current_database()) AS dbsize_InBytes; 
+-- Размер базы данных на диске в KB / MB / GB / TB
+SELECT pg_size_pretty(pg_database_size(current_database())) AS dbsize; 
 
 
 -- 2. Функции агрегирования 

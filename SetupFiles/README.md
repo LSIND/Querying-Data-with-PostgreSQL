@@ -1,8 +1,8 @@
 ## База данных курса
 
-База данных курса определяется следующей диаграммой:  
+База данных курса (**foodstore**) определяется следующей диаграммой:  
 
-![БД](https://www.dropbox.com/scl/fi/6bqistxk4a4sr5xa4bs4i/database_diagram_pg101.JPG?rlkey=e4ds7mxcd6zpy4h8nsz7xjw4y&st=1q4ojhm3&raw=1)
+![БД](https://www.dropbox.com/scl/fi/rqrkaynaglfhjm42ntrvr/db_diagram_foodstore.png?rlkey=n81qil5g85s3b25rxn7cowwoo&st=b4b0ggue&raw=1)
 
 ## Объекты БД
 ### Таблицы 

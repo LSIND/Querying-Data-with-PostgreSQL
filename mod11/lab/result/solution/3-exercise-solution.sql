@@ -171,7 +171,7 @@ WITH RECURSIVE sale_dates AS
 	   WHERE orderdate >= '20230101' AND orderdate < '20230401'
        GROUP BY orderdate::date
   UNION ALL
-  SELECT (order_date + '1 day'::interval)::date, 0
+  SELECT (order_date + '1 day'::interval)::date, 0.00
   FROM sale_dates
   WHERE (order_date + '1 day'::interval)::date < '20230401'
 )

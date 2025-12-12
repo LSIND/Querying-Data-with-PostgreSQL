@@ -28,14 +28,32 @@ SELECT country, region, city FROM hr.employees
 INTERSECT -- 3 distinct rows 
 SELECT country, region, city FROM sales.customers;
 
--- Сравнение плана запроса INTERSECT с DISTINCT JOIN COMPOSITE
+
+-- Категории продуктов, которые есть и у поставщиков из Финляндии, и у поставщиков из Германии:
+SELECT c.categoryid, c.categoryname -- Категории продуктов от финских поставщиков
+FROM production.categories c
+JOIN production.products p ON c.categoryid = p.categoryid
+JOIN production.suppliers s ON p.supplierid = s.supplierid
+WHERE s.country = 'Finland'
+
+INTERSECT
+
+SELECT c.categoryid, c.categoryname -- Категории продуктов от немецких поставщиков
+FROM production.categories c
+JOIN production.products p ON c.categoryid = p.categoryid
+JOIN production.suppliers s ON p.supplierid = s.supplierid
+WHERE s.country = 'Germany'
+ORDER BY categoryname;
+
+
+-- * Сравнение плана запроса INTERSECT с DISTINCT JOIN COMPOSITE
 -- Пересечение
 EXPLAIN
 SELECT country, city FROM hr.employees
 INTERSECT 
 SELECT country, city FROM sales.customers;
 
---JOIN
+-- JOIN
 EXPLAIN
 SELECT DISTINCT E.country, E.city 
 FROM hr.employees as E
@@ -52,3 +70,17 @@ SELECT country, region, city FROM sales.customers;
 SELECT country, region, city FROM sales.customers
 EXCEPT 
 SELECT country, region, city FROM hr.employees;
+
+-- Продукты, которые поставляет только Финляндия и больше никто:
+SELECT p.productid, p.productname    -- Продукты, которые поставляет Финляндия
+FROM production.products p
+JOIN production.suppliers s ON p.supplierid = s.supplierid
+WHERE s.country = 'Finland'
+
+EXCEPT
+
+SELECT p.productid, p.productname    -- Продукты, которые поставляют другие страны
+FROM production.products p
+JOIN production.suppliers s ON p.supplierid = s.supplierid
+WHERE s.country != 'Finland'
+ORDER BY productname;

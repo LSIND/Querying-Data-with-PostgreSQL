@@ -20,6 +20,13 @@ WHERE empid = 8
 GROUP BY custid, EXTRACT (YEAR FROM OrderDate)
 ORDER BY custid, yearOrder;
 
+-- DISTINCT с функциями агрегирования
+SELECT EXTRACT (YEAR FROM OrderDate) AS order_year,
+COUNT(custid) as all_customers,
+COUNT(DISTINCT custid) as unique_customers
+FROM sales.orders
+GROUP BY EXTRACT (YEAR FROM OrderDate);
+
 
 ---------------------------------------------
 -- Workflow of grouping 1

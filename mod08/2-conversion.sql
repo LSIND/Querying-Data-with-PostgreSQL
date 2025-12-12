@@ -20,11 +20,19 @@ SELECT to_char(current_timestamp, 'HH24:MI:SS'), to_char(interval '15h 2m 12s', 
 
 SELECT to_char(125, 'L 999') AS IntCol, to_char(125.8::real, '999D9') AS RealCol, to_char(-135.8, '999D99S') AS DecCol;
 
+-- Локализация 
+--------
 SHOW LC_MONETARY; -- en_US.utf8
 SET LC_MONETARY = 'ru_RU.UTF8';
 
 SELECT to_char(125.55, '999D99 L') AS IntCol;  -- 125,55 ₽
+
+-- Цены продуктов в рублях
+SELECT 	productid, to_char(unitprice, '9999D999 L' ) AS rubprice
+FROM production.products;
+
 RESET LC_MONETARY;
+--------
 
 -- TO_NUMBER
 SELECT to_number('12,454.8-', '99G999D9S'); -- G, D зависят от локали
