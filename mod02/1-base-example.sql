@@ -8,18 +8,18 @@
 
 
 -- 1. DDL: Оператор CREATE TABLE. Создание таблицы public.orders
-CREATE TABLE public.Orders
+CREATE TABLE public.orders
 	( 
 		orderid int, 
 		custid int, 
 		orderdate date,
 		quantity int,
-		amount numeric
+		price numeric
 	); 
 
 
 -- 2. DML: Оператор INSERT. Вставка данных к таблицу
-INSERT INTO public.orders(orderid, custid, orderdate, quantity, amount)
+INSERT INTO public.orders(orderid, custid, orderdate, quantity, price)
 VALUES(101,774,NOW(),100,99.98)
       ,(102,775,NOW(),32,49.99)
 	  ,(103,775,NOW(),4, 9.99);
@@ -32,23 +32,23 @@ WHERE  orderid = 101;
 
 
 -- 4. DML: Оператор SELECT. Выбор всех данных из таблицы
-SELECT orderid, custid, orderdate, quantity, amount
+SELECT orderid, custid, orderdate, quantity, price
 FROM public.orders;
 
 
 -- 5. Выражение. Вычисляемый столбец TotalOrderValue
-SELECT orderid, custid, orderdate, quantity, amount, (quantity * amount) AS totalordervalue
+SELECT orderid, custid, orderdate, quantity, price, (quantity * price) AS totalordervalue
 FROM public.orders;
 
 
 -- 6. Условие. Инструкция WHERE 
-SELECT orderid, custid, orderdate, quantity, amount
+SELECT orderid, custid, orderdate, quantity, price
 FROM public.orders
 WHERE quantity > 50;
 
 
 -- 7. Встроенная функция в инструкции WHERE (CURRENT_TIMESTAMP)
-SELECT orderid, custid, orderdate, quantity, amount
+SELECT orderid, custid, orderdate, quantity, price
 FROM public.orders
 WHERE orderdate < CURRENT_TIMESTAMP;
 

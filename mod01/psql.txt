@@ -4,16 +4,13 @@ cmd.exe /c chcp 1251
 
 # Подключение (к localhost от пользователя postgres к БД foodstore):
 psql -U postgres -d foodstore
-Pa55w.rd
 
-# также переключиться на нужную БД можно позднее)
+
+# (также переключиться на нужную БД можно позднее)
 \c foodstore
 
 # Информация о подключении:
 \conninfo
-
-# Установка пути поиска:
-SET search_path = public, hr, sales, production;
 
 # Список схем:
 \dn

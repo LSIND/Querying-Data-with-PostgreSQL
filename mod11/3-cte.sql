@@ -118,12 +118,14 @@ modifiedby varchar(100) DEFAULT session_user NOT NULL
 -- 4.2 данные с 1 мая 2023 по 01 декабря 2023
 INSERT INTO public.production (pname, pdate)
 VALUES ('Product' || FLOOR(RANDOM() * 1000 + 1)::int::varchar(10), 
-	generate_series('2023-05-01'::timestamp, '2023-12-01'::timestamp, '5 hours'::interval))
+	generate_series('2023-05-01'::timestamp, '2023-12-01'::timestamp, '5 hours'::interval));
 
 SELECT * FROM public.production; 
 
 --
--- 4.3 используем CTE для перемещения данных: удаление из public.production и добавление в public.production_log
+-- 4.3 используем CTE для перемещения данных: 
+-- удаление части данных из public.production и добавление в public.production_log
+
 WITH CTE_move_data AS (
     DELETE FROM public.production
     WHERE

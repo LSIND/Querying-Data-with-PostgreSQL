@@ -46,7 +46,7 @@ WHERE EXISTS (SELECT *
 		WHERE O.empid = e.empid);
 
 
--- 4. Поиск товаров, которые чаще всего покупают вместе с товаром productid = 1
+-- 4. Товары, которые чаще всего покупают вместе с товаром productid = 1
 SELECT p.productid,  p.productname, COUNT(*) as purchase_count
 FROM sales.orders o
 JOIN sales.orderdetails od ON o.orderid = od.orderid
@@ -62,7 +62,7 @@ GROUP BY p.productid, p.productname
 ORDER BY purchase_count DESC;
 
 
--- 5. Заказчики, которые еще не получили свои заказы (shippeddate IS NULL)
+-- 5. Заказчики, которым еще не отправили заказы (shippeddate IS NULL)
 SELECT custid, companyname
 FROM sales.customers AS c
 WHERE EXISTS (

@@ -35,17 +35,27 @@ FROM sales.custorders AS outercustorders
 WHERE qty =
 	(SELECT MAX(qty)
 		FROM sales.custorders AS innercustorders
-		WHERE innercustorders.custid =outercustorders.custid
+		WHERE innercustorders.custid = outercustorders.custid
 	)
 ORDER BY custid;
 
 
 -- Продукты, цена которых выше средней цены продуктов соответствующей категории
-SELECT  p1.productid, p1.productname, p1.unitprice, C.categoryname
+SELECT p1.productid, p1.productname, p1.unitprice, c.categoryname
 FROM production.products as p1
-JOIN production.categories as C  ON P1.categoryid = C.categoryid
+JOIN production.categories as c  ON P1.categoryid = c.categoryid
 WHERE unitprice >
     (SELECT AVG(unitprice)
      FROM production.products as p2
      WHERE p1.categoryid = p2.categoryid)
-	 ORDER BY C.categoryname;
+	 ORDER BY c.categoryname;
+     
+     
+-- Средние цены по категория для проверки:
+SELECT c.categoryname, ROUND(AVG(p.unitprice), 2) as avg_cat_price
+FROM production.products as p
+JOIN production.categories as c  ON p.categoryid = c.categoryid
+GROUP BY c.categoryname
+ORDER BY c.categoryname;
+     
+     

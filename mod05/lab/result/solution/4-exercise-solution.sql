@@ -53,20 +53,18 @@ LIMIT 20 OFFSET 20 ROWS;
 
 -- с использованием табличной функции
 
-CREATE FUNCTION orders_pagination(pagenum int, pagesize int) 
+CREATE FUNCTION sales.orders_pagination(pagenum int, pagesize int) 
 RETURNS TABLE(custid int, orderid int, orderdate timestamp)
 AS $$
-BEGIN 
-    RETURN QUERY
-		SELECT o.custid, o.orderid, o.orderdate FROM sales.orders as o
-        ORDER BY o.orderdate, o.orderid
-        OFFSET ((pagenum-1)*pagesize) ROWS FETCH NEXT pagesize ROWS ONLY;
-END
-$$ STABLE LANGUAGE plpgsql;
+    SELECT o.custid, o.orderid, o.orderdate 
+    FROM sales.orders as o
+    ORDER BY o.orderdate, o.orderid
+    OFFSET ((pagenum-1)*pagesize) ROWS FETCH NEXT pagesize ROWS ONLY;
+$$ LANGUAGE sql STABLE;
 
-SELECT * FROM orders_pagination(2, 10);
+SELECT * FROM sales.orders_pagination(2, 10);
 
-DROP FUNCTION orders_pagination(int, int) ;
+DROP FUNCTION sales.orders_pagination(int, int) ;
 
 
 
@@ -100,3 +98,4 @@ execute q(4,10);
 
 --select * from pg_prepared_statements;
 deallocate "q";
+
