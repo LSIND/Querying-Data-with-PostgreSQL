@@ -75,7 +75,7 @@ ALTER COLUMN fullname TYPE VARCHAR(100);
 
 
 -- Вариант решения 2 (только в лабораторной среде!):
--- Обрезать данные CONCAT(companyname, ': ', contactname) до 25 символов типа вставке данных
+-- Обрезать данные CONCAT(companyname, ': ', contactname) до 25 символов при вставке
 --
 
 INSERT INTO public.extracustomers(fullname, city, country, discount )
@@ -87,7 +87,7 @@ WHERE country IN ('Germany', 'France');
 --
 -- Вариант решения 3 (подойдет для лабораторной среды):
 -- Удалить таблицу
--- Пересоздать ее, где fullname -  varchar(100)
+-- Пересоздать ее, где fullname - varchar(100)
 --
 DROP TABLE IF EXISTS public.extracustomers;
 

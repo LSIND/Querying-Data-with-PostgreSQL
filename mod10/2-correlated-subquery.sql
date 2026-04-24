@@ -51,7 +51,7 @@ WHERE unitprice >
 	 ORDER BY c.categoryname;
      
      
--- Средние цены по категория для проверки:
+-- Средние цены по категориям для проверки:
 SELECT c.categoryname, ROUND(AVG(p.unitprice), 2) as avg_cat_price
 FROM production.products as p
 JOIN production.categories as c  ON p.categoryid = c.categoryid

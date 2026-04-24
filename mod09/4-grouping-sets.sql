@@ -45,7 +45,6 @@ FROM sales.categorysales;
 
 -- UNION ALL как альтернатива grouping sets
 -- выполняется 3 запроса 
-EXPLAIN
 SELECT Category, NULL AS Cust, SUM(Qty) AS TotalQty
 FROM sales.categorysales
 GROUP BY category
@@ -60,7 +59,6 @@ FROM sales.categorysales;
 
 -- 2: Запрос с grouping sets
 -- Итоги по категориям, по заказчикам и общие итоги
-EXPLAIN
 SELECT Category, Cust, SUM(Qty) AS TotalQty
 FROM sales.categorysales
 GROUP BY 

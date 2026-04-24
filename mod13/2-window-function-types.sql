@@ -47,13 +47,13 @@ SELECT  custid, to_char(ordermonth, 'Month YYYY') as mo_yyyy, qty,
 FROM  sales.custorders
 ORDER BY custid, ordermonth;
 
--- Сумма, среднее и общее количество по заказчику (partition - custid)
-SELECT CatID, CatName, ProdName, UnitPrice,
-	SUM(UnitPrice) OVER(PARTITION BY CatID) AS Total,
-	AVG(UnitPrice) OVER(PARTITION BY CatID) AS Average,
-	COUNT(UnitPrice) OVER(PARTITION BY CatID) AS ProdsPerCat
+-- Сумма, среднее и общее количество по категории (partition - catid)
+SELECT catid, catname, prodname, unitprice,
+	SUM(unitprice) OVER(PARTITION BY catid) AS Total,
+	AVG(unitprice) OVER(PARTITION BY catid) AS Average,
+	COUNT(unitprice) OVER(PARTITION BY catid) AS ProdsPerCat
 FROM production.categorizedproducts
-ORDER BY CatID; 
+ORDER BY catid; 
 
 -- Нарастающий итог по месяцам продаж для каждого заказчика
 SELECT  custid, to_char(ordermonth, 'Month YYYY') as mo_yyyy, qty,
@@ -97,46 +97,46 @@ ORDER BY custid, ordermonth;
 -------------------------------------------------------
 
 -- RANK() по цене (ранжирование ВСЕХ продуктов по цене)
-SELECT CatID, CatName, ProdName, UnitPrice,
-	RANK() OVER(ORDER BY UnitPrice DESC) AS PriceRank
+SELECT catid, catname, prodname, unitprice,
+	RANK() OVER(ORDER BY unitprice DESC) AS PriceRank
 FROM production.categorizedproducts
 ORDER BY PriceRank; 
 
 -- OVER с ORDER BY и PARTITION BY по имени категории
 -- ранжирование продуктов по цене в каждой категории
-SELECT CatID, CatName, ProdName, UnitPrice,
-	RANK() OVER(PARTITION BY CatID ORDER BY UnitPrice DESC) AS PriceRank
+SELECT catid, catname, prodname, unitprice,
+	RANK() OVER(PARTITION BY catid ORDER BY unitprice DESC) AS PriceRank
 FROM production.categorizedproducts
-ORDER BY CatID; 
+ORDER BY catid; 
 
 -- Сравнение RANK() и DENSE_RANK()
-SELECT CatID, CatName, ProdName, UnitPrice,
-	RANK() OVER(PARTITION BY CatID ORDER BY UnitPrice DESC) AS PriceRank,
-	DENSE_RANK() OVER(PARTITION BY CatID ORDER BY UnitPrice DESC) AS DensePriceRank
+SELECT catid, catname, prodname, unitprice,
+	RANK() OVER(PARTITION BY catid ORDER BY unitprice DESC) AS PriceRank,
+	DENSE_RANK() OVER(PARTITION BY catid ORDER BY unitprice DESC) AS DensePriceRank
 FROM production.categorizedproducts
-ORDER BY CatID; 
+ORDER BY catid; 
 
 -- Функция Row_Number() - нумерация строк
-SELECT CatID, CatName, ProdName, UnitPrice,
-	ROW_NUMBER() OVER(PARTITION BY CatID ORDER BY UnitPrice DESC) AS RowNumber
+SELECT catid, catname, prodname, unitprice,
+	ROW_NUMBER() OVER(PARTITION BY catid ORDER BY unitprice DESC) AS RowNumber
 FROM production.categorizedproducts
-ORDER BY CatID; 
+ORDER BY catid; 
 
 -- Функция NTILE(N) - разделяет значения в категориях на n частей (распределение значений)
 -- продукты каждого типа в ценовой категории 1 (дороже) или 2 (дешевле)
-SELECT CatID, CatName, ProdName, UnitPrice,
-	NTILE(2) OVER(PARTITION BY CatID ORDER BY UnitPrice DESC) AS NT
+SELECT catid, catname, prodname, unitprice,
+	NTILE(2) OVER(PARTITION BY catid ORDER BY unitprice DESC) AS NT
 FROM production.categorizedproducts
-ORDER BY CatID, NT; 
+ORDER BY catid, NT; 
 
 -- Функция NTH_VALUE(column, N) - возвращает N-й элемент в окне или партиции
 -- возвращает второй по дороговизне продукт в данной категории
-SELECT CatID, CatName, ProdName, UnitPrice,
-	NTH_VALUE(ProdName,2) OVER(PARTITION BY CatID ORDER BY UnitPrice DESC RANGE BETWEEN 
+SELECT catid, catname, prodname, unitprice,
+	NTH_VALUE(prodname,2) OVER(PARTITION BY catid ORDER BY unitprice DESC RANGE BETWEEN 
             UNBOUNDED PRECEDING AND 
             UNBOUNDED FOLLOWING) AS NT
 FROM production.categorizedproducts
-ORDER BY CatID, UnitPrice DESC; 
+ORDER BY catid, unitprice DESC; 
 
 
 -------------------------------------------------------

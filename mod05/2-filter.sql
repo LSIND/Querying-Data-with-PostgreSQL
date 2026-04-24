@@ -69,4 +69,4 @@ WHERE shipname LIKE '%81-%';
 -- Все заказы, значение в столбце shipname которых начинается на 'Ship'
 SELECT orderid,shipcity, orderdate, shipname, shipcountry || ', ' || shipcity AS address
 FROM sales.orders
-WHERE shipname NOT LIKE 'Ship%';
+WHERE shipname LIKE 'Ship%';

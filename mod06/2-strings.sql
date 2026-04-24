@@ -68,7 +68,11 @@ SELECT * FROM  hr.employees
 WHERE lastname = 'funk';
 
 SELECT * FROM  hr.employees
-WHERE lastname ILIKE 'funk'; -- регистронезависимый поиск ~~
+WHERE lastname ILIKE 'funk'; -- регистронезависимый поиск (оператор ~~*)
+
+SELECT custid, companyname, contacttitle, phone
+FROM sales.customers
+WHERE companyname SIMILAR TO '%[[:space:]]K(I|S)%'; -- регистрозависимый поиск (рег.выр. стандарта SQL)
 
 
 -- Возращаем исходную фамилию сотрудника #1

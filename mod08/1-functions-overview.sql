@@ -31,7 +31,7 @@ SELECT pg_size_pretty(pg_database_size(current_database())) AS dbsize;
 
 
 -- 2. Функции агрегирования 
-SELECT COUNT(*) AS numorders, SUM(unitprice) AS totalsales
+SELECT COUNT(*) AS numorders, SUM(unitprice*qty) AS totalsales
 FROM sales.orderdetails;
 
 
